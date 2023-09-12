@@ -83,6 +83,7 @@ public class LinuxApplicationManager
     }
 
     public static nint LoadFunction<T>(T @delegate)
+        where T: notnull
     {
         return LibraryLoader.LoadFunction(@delegate);
     }

@@ -713,7 +713,7 @@ public class NSTextField : NSControl
 	}
 
 	[Export("selectText:")]
-	public virtual void SelectText(NSObject sender)
+	public virtual void SelectText(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

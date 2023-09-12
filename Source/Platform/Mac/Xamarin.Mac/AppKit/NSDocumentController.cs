@@ -349,7 +349,7 @@ public class NSDocumentController : NSObject
 	}
 
 	[Export("newDocument:")]
-	public virtual void NewDocument(NSObject sender)
+	public virtual void NewDocument(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (IsDirectBinding)
@@ -395,7 +395,7 @@ public class NSDocumentController : NSObject
 	}
 
 	[Export("openDocument:")]
-	public virtual void OpenDocument(NSObject sender)
+	public virtual void OpenDocument(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (IsDirectBinding)
@@ -548,7 +548,7 @@ public class NSDocumentController : NSObject
 	}
 
 	[Export("saveAllDocuments:")]
-	public virtual void SaveAllDocuments(NSObject sender)
+	public virtual void SaveAllDocuments(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (IsDirectBinding)
@@ -672,7 +672,7 @@ public class NSDocumentController : NSObject
 	}
 
 	[Export("clearRecentDocuments:")]
-	public virtual void ClearRecentDocuments(NSObject sender)
+	public virtual void ClearRecentDocuments(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (IsDirectBinding)

@@ -1,70 +1,71 @@
-﻿namespace AvaloniaBlazorWebView;
+﻿using AvaloniaBlazorWebView.Shared.Configurations;
 
-public sealed partial class BlazorWebView : Control, IVirtualWebView<BlazorWebView>, IWebViewEventHandler, IVirtualWebViewControlCallBack, IWebViewControl, IAsyncDisposable
+namespace AvaloniaBlazorWebView;
+
+public partial class BlazorWebView : Control, IVirtualWebView<BlazorWebView>, IWebViewEventHandler, IVirtualWebViewControlCallBack, IWebViewControl, IAsyncDisposable
 {
+    public WebViewCreationProperties CreationProperties { get; }
+    public IViewHandlerProvider ViewHandlerProvider { get; }
+
+    public string AppScheme { get; }
+    public string AppHostAddress { get; }
+    public Uri HostUri { get; }
+    public string StartAddress { get; }
+    public BlazorWebViewSetting BlazorWebViewProperties { get; }
+    public IBlazorWebViewApplication BlazorApplication { get; }
+    public IServiceProvider Services { get; }
+    public AvaloniaDispatcher Dispatcher { get; }
+    public JSComponentConfigurationStore JSComponents { get; }
+    public IPlatformBlazorWebViewProvider PlatformBlazorWebViewProvider { get; }
+    public AvaloniaWebViewManager? AvaloniaWebViewManager => _avaloniaWebViewManager;
+    public IPlatformWebView? PlatformWebView => _platformWebView;
+
+    bool _isDisposed = false;
+    private IPlatformWebView? _platformWebView;
+    private AvaloniaWebViewManager? _avaloniaWebViewManager;
+
     static BlazorWebView()
     {
+        Console.WriteLine("Static load Blazor Web View");
         LoadDependencyObjectsChanged();
         LoadHostDependencyObjectsChanged();
     }
 
-    public BlazorWebView() 
-        : this(default)
+    public BlazorWebView(IServiceProvider serviceProvider)
     {
+        Console.WriteLine("Creating BlazorWebView component");
 
-    }
+        var app = serviceProvider.GetService<IBlazorWebViewApplication>() ?? throw new InvalidOperationException("Platform Web View Application service is not found. Make sure that platform services is added.");
+        var setting = app.BlazorWebViewProperties;
 
-    public BlazorWebView(IServiceProvider? serviceProvider = default)
-    {
-        var properties = WebViewLocator.s_ResolverContext.GetRequiredService<WebViewCreationProperties>();
-        _creationProperties = properties ?? new WebViewCreationProperties();
-        _viewHandlerProvider = WebViewLocator.s_ResolverContext.GetRequiredService<IViewHandlerProvider>();
-        _platformBlazorWebViewProvider = WebViewLocator.s_ResolverContext.GetRequiredService<IPlatformBlazorWebViewProvider>();
-        var blazorBuilder = WebViewLocator.s_ResolverContext.GetRequiredService<IBlazorWebViewApplicationBuilder>();
-        var blazorApplication = blazorBuilder.Build();
-        _blazorApplication = blazorApplication;
-        _serviceProvider = blazorApplication.ServiceProvider;
+        CreationProperties = app.WebViewProperties;
+        ViewHandlerProvider = app.ViewHandlerProvider;
+        PlatformBlazorWebViewProvider = app.PlatformBlazorWebViewProvider;
+        BlazorApplication = app;
+        Services = serviceProvider;
+        BlazorWebViewProperties = setting;
+        Dispatcher = Services.GetRequiredService<AvaloniaDispatcher>();
+        JSComponents = Services.GetRequiredService<JSComponentConfigurationStore>();
 
-        _dispatcher = _serviceProvider.GetRequiredService<AvaloniaDispatcher>();
-        _jsComponents = _serviceProvider.GetRequiredService<JSComponentConfigurationStore>();
-        var setting = _serviceProvider.GetRequiredService<IOptions<BlazorWebViewSetting>>();
-
-        if (setting.Value.ComponentType is not null && !string.IsNullOrWhiteSpace(setting.Value.Selector))
+        if (setting.ComponentType is not null && !string.IsNullOrWhiteSpace(setting.Selector))
         {
             RootComponents.Add(new BlazorRootComponent()
             {
-                ComponentType = setting.Value.ComponentType,
-                Selector = setting.Value.Selector
+                ComponentType = setting.ComponentType!,
+                Selector = setting.Selector!
             });
         }
 
-        _setting = setting.Value;
-        _appScheme = _platformBlazorWebViewProvider.Scheme;
-        _appHostAddress = setting.Value.AppAddress;
-        _baseUri = new Uri($"{_appScheme}://{_appHostAddress}/");
-        _startAddress = setting.Value.StartAddress;
+        AppScheme = PlatformBlazorWebViewProvider.Scheme;
+        AppHostAddress = setting.AppAddress;
+        HostUri = new Uri($"{AppScheme}://{AppHostAddress}/");
+        StartAddress = setting.StartAddress;
 
         RootComponents.CollectionChanged += RootComponents_CollectionChanged;
-
     }
 
-    readonly WebViewCreationProperties _creationProperties;
-    readonly IViewHandlerProvider _viewHandlerProvider;
+    public void Initialize()
+    {
 
-    readonly string _appScheme;
-    readonly string _appHostAddress;
-    readonly Uri _baseUri;
-    readonly string _startAddress;
-    readonly BlazorWebViewSetting _setting;
-    readonly IBlazorWebViewApplication _blazorApplication;
-    readonly IServiceProvider _serviceProvider;
-    readonly AvaloniaDispatcher _dispatcher;
-    readonly JSComponentConfigurationStore _jsComponents;
-    readonly IPlatformBlazorWebViewProvider _platformBlazorWebViewProvider;
-
-    bool _isDisposed = false;
-    AvaloniaWebViewManager? _webviewManager;
-
-    IPlatformWebView? _platformWebView;
-    public IPlatformWebView? PlatformWebView => _platformWebView;
+    }
 }

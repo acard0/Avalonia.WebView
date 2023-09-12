@@ -1893,7 +1893,7 @@ public class NSCell : NSObject
 	}
 
 	[Export("takeIntValueFrom:")]
-	public virtual void TakeIntValueFrom(NSObject sender)
+	public virtual void TakeIntValueFrom(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1911,7 +1911,7 @@ public class NSCell : NSObject
 	}
 
 	[Export("takeFloatValueFrom:")]
-	public virtual void TakeFloatValueFrom(NSObject sender)
+	public virtual void TakeFloatValueFrom(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1929,7 +1929,7 @@ public class NSCell : NSObject
 	}
 
 	[Export("takeDoubleValueFrom:")]
-	public virtual void TakeDoubleValueFrom(NSObject sender)
+	public virtual void TakeDoubleValueFrom(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1947,7 +1947,7 @@ public class NSCell : NSObject
 	}
 
 	[Export("takeStringValueFrom:")]
-	public virtual void TakeStringValueFrom(NSObject sender)
+	public virtual void TakeStringValueFrom(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1965,7 +1965,7 @@ public class NSCell : NSObject
 	}
 
 	[Export("takeObjectValueFrom:")]
-	public virtual void TakeObjectValueFrom(NSObject sender)
+	public virtual void TakeObjectValueFrom(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2382,7 +2382,7 @@ public class NSCell : NSObject
 	}
 
 	[Export("takeIntegerValueFrom:")]
-	public virtual void TakeIntegerValueFrom(NSObject sender)
+	public virtual void TakeIntegerValueFrom(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2457,7 +2457,7 @@ public class NSCell : NSObject
 	}
 
 	[Export("performClick:")]
-	public virtual void PerformClick(NSObject sender)
+	public virtual void PerformClick(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

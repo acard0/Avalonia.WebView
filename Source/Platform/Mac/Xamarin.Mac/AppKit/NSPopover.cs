@@ -472,7 +472,7 @@ public class NSPopover : NSResponder
 	}
 
 	[Export("performClose:")]
-	public virtual void PerformClose(NSObject sender)
+	public virtual void PerformClose(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

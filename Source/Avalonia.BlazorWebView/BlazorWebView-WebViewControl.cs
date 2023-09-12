@@ -2,91 +2,91 @@
 
 partial class BlazorWebView
 {
-    bool IWebViewControl.IsCanGoForward => _platformWebView?.IsCanGoForward ?? false;
+    public bool IsCanGoForward => PlatformWebView?.IsCanGoForward ?? false;
 
-    bool IWebViewControl.IsCanGoBack => _platformWebView?.IsCanGoBack ?? false;
+    public bool IsCanGoBack => PlatformWebView?.IsCanGoBack ?? false;
 
-    bool IWebViewControl.Navigate(Uri? uri)
+    public bool Navigate(Uri? uri)
     {
         if (uri is null)
             return false;
 
-        if (_platformWebView is null || !_platformWebView.IsInitialized)
+        if (PlatformWebView is null || !PlatformWebView.IsInitialized)
             return false;
 
-        return _platformWebView.Navigate(uri);
+        return PlatformWebView.Navigate(uri);
     }
 
-    bool IWebViewControl.NavigateToString(string htmlContent)
+    public bool NavigateToString(string htmlContent)
     {
-        if (_platformWebView is null || !_platformWebView.IsInitialized)
+        if (PlatformWebView is null || !PlatformWebView.IsInitialized)
             return false;
 
-        return _platformWebView.NavigateToString(htmlContent);
+        return PlatformWebView.NavigateToString(htmlContent);
     }
 
-    bool IWebViewControl.GoBack()
+    public bool GoBack()
     {
-        if (_platformWebView is null || !_platformWebView.IsInitialized)
+        if (PlatformWebView is null || !PlatformWebView.IsInitialized)
             return false;
 
-        return _platformWebView.GoBack();
+        return PlatformWebView.GoBack();
     }
 
-    bool IWebViewControl.GoForward()
+    public bool GoForward()
     {
-        if (_platformWebView is null || !_platformWebView.IsInitialized)
+        if (PlatformWebView is null || !PlatformWebView.IsInitialized)
             return false;
 
-        return _platformWebView.GoForward();
+        return PlatformWebView.GoForward();
     }
 
-    bool IWebViewControl.Stop()
+    public bool Stop()
     {
-        if (_platformWebView is null || !_platformWebView.IsInitialized)
+        if (PlatformWebView is null || !PlatformWebView.IsInitialized)
             return false;
 
-        return _platformWebView.Stop();
+        return PlatformWebView.Stop();
     }
 
-    bool IWebViewControl.Reload()
+    public bool Reload()
     {
-        if (_platformWebView is null || !_platformWebView.IsInitialized)
+        if (PlatformWebView is null || !PlatformWebView.IsInitialized)
             return false;
 
-        return _platformWebView.Reload();
+        return PlatformWebView.Reload();
     }
 
-    Task<string?> IWebViewControl.ExecuteScriptAsync(string javaScript)
+    public async Task<string?> ExecuteScriptAsync(string javaScript)
     {
-        if (_platformWebView is null || !_platformWebView.IsInitialized)
-            return Task.FromResult<string?>(default);
+        if (PlatformWebView is null || !PlatformWebView.IsInitialized)
+            return await Task.FromResult<string?>(default);
 
-        return _platformWebView.ExecuteScriptAsync(javaScript);
+        return await PlatformWebView.ExecuteScriptAsync(javaScript);
     }
 
-    bool IWebViewControl.PostWebMessageAsJson(string webMessageAsJson, Uri? baseUri)
+    public bool PostWebMessageAsJson(string webMessageAsJson, Uri? baseUri)
     {
-        if (_platformWebView is null || !_platformWebView.IsInitialized)
+        if (PlatformWebView is null || !PlatformWebView.IsInitialized)
             return false;
 
-        return _platformWebView.PostWebMessageAsString(webMessageAsJson, baseUri);
+        return PlatformWebView.PostWebMessageAsString(webMessageAsJson, baseUri);
     }
 
-    bool IWebViewControl.PostWebMessageAsString(string webMessageAsString, Uri? baseUri)
+    public bool PostWebMessageAsString(string webMessageAsString, Uri? baseUri)
     {
-        if (_platformWebView is null || !_platformWebView.IsInitialized)
+        if (PlatformWebView is null || !PlatformWebView.IsInitialized)
             return false;
 
-        return _platformWebView.PostWebMessageAsString(webMessageAsString, baseUri);
+        return PlatformWebView.PostWebMessageAsString(webMessageAsString, baseUri);
     }
 
-    bool IWebViewControl.OpenDevToolsWindow()
+    public bool OpenDevToolsWindow()
     {
-        if (_platformWebView is null || !_platformWebView.IsInitialized)
+        if (PlatformWebView is null || !PlatformWebView.IsInitialized)
             return false;
 
-        return _platformWebView.OpenDevToolsWindow();
+        return PlatformWebView.OpenDevToolsWindow();
     }
 
 }

@@ -1159,7 +1159,7 @@ public class PdfView : NSView
 	}
 
 	[Export("goToFirstPage:")]
-	public virtual void GoToFirstPage(NSObject sender)
+	public virtual void GoToFirstPage(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -1176,7 +1176,7 @@ public class PdfView : NSView
 	}
 
 	[Export("goToLastPage:")]
-	public virtual void GoToLastPage(NSObject sender)
+	public virtual void GoToLastPage(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -1193,7 +1193,7 @@ public class PdfView : NSView
 	}
 
 	[Export("goToNextPage:")]
-	public virtual void GoToNextPage(NSObject sender)
+	public virtual void GoToNextPage(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -1210,7 +1210,7 @@ public class PdfView : NSView
 	}
 
 	[Export("goToPreviousPage:")]
-	public virtual void GoToPreviousPage(NSObject sender)
+	public virtual void GoToPreviousPage(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -1227,7 +1227,7 @@ public class PdfView : NSView
 	}
 
 	[Export("goBack:")]
-	public virtual void GoBack(NSObject sender)
+	public virtual void GoBack(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -1244,7 +1244,7 @@ public class PdfView : NSView
 	}
 
 	[Export("goForward:")]
-	public virtual void GoForward(NSObject sender)
+	public virtual void GoForward(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -1329,7 +1329,7 @@ public class PdfView : NSView
 	}
 
 	[Export("takeBackgroundColorFrom:")]
-	public virtual void TakeBackgroundColor(NSObject sender)
+	public virtual void TakeBackgroundColor(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -1346,7 +1346,7 @@ public class PdfView : NSView
 	}
 
 	[Export("zoomIn:")]
-	public virtual void ZoomIn(NSObject sender)
+	public virtual void ZoomIn(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -1363,7 +1363,7 @@ public class PdfView : NSView
 	}
 
 	[Export("zoomOut:")]
-	public virtual void ZoomOut(NSObject sender)
+	public virtual void ZoomOut(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -1454,7 +1454,7 @@ public class PdfView : NSView
 	}
 
 	[Export("selectAll:")]
-	public virtual void SelectAll(NSObject sender)
+	public virtual void SelectAll(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -1471,7 +1471,7 @@ public class PdfView : NSView
 	}
 
 	[Export("scrollSelectionToVisible:")]
-	public virtual void ScrollSelectionToVisible(NSObject sender)
+	public virtual void ScrollSelectionToVisible(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -1488,7 +1488,7 @@ public class PdfView : NSView
 	}
 
 	[Export("takePasswordFrom:")]
-	public virtual void TakePasswordFrom(NSObject sender)
+	public virtual void TakePasswordFrom(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -1539,7 +1539,7 @@ public class PdfView : NSView
 	}
 
 	[Export("copy:")]
-	public virtual void Copy(NSObject sender)
+	public virtual void Copy(NSObject? sender)
 	{
 		if (sender == null)
 		{

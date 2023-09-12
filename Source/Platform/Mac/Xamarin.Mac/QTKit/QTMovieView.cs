@@ -559,7 +559,7 @@ public class QTMovieView : NSView
 	}
 
 	[Export("play:")]
-	public virtual void Play(NSObject sender)
+	public virtual void Play(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -576,7 +576,7 @@ public class QTMovieView : NSView
 	}
 
 	[Export("pause:")]
-	public virtual void Pause(NSObject sender)
+	public virtual void Pause(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -593,7 +593,7 @@ public class QTMovieView : NSView
 	}
 
 	[Export("gotoBeginning:")]
-	public virtual void GotoBeginning(NSObject sender)
+	public virtual void GotoBeginning(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -610,7 +610,7 @@ public class QTMovieView : NSView
 	}
 
 	[Export("gotoEnd:")]
-	public virtual void GotoEnd(NSObject sender)
+	public virtual void GotoEnd(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -627,7 +627,7 @@ public class QTMovieView : NSView
 	}
 
 	[Export("gotoNextSelectionPoint:")]
-	public virtual void GotoNextSelectionPoint(NSObject sender)
+	public virtual void GotoNextSelectionPoint(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -644,7 +644,7 @@ public class QTMovieView : NSView
 	}
 
 	[Export("gotoPreviousSelectionPoint:")]
-	public virtual void GotoPreviousSelectionPoint(NSObject sender)
+	public virtual void GotoPreviousSelectionPoint(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -661,7 +661,7 @@ public class QTMovieView : NSView
 	}
 
 	[Export("gotoPosterFrame:")]
-	public virtual void GotoPosterFrame(NSObject sender)
+	public virtual void GotoPosterFrame(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -678,7 +678,7 @@ public class QTMovieView : NSView
 	}
 
 	[Export("stepForward:")]
-	public virtual void StepForward(NSObject sender)
+	public virtual void StepForward(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -695,7 +695,7 @@ public class QTMovieView : NSView
 	}
 
 	[Export("stepBackward:")]
-	public virtual void StepBackward(NSObject sender)
+	public virtual void StepBackward(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -712,7 +712,7 @@ public class QTMovieView : NSView
 	}
 
 	[Export("cut:")]
-	public virtual void Cut(NSObject sender)
+	public virtual void Cut(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -729,7 +729,7 @@ public class QTMovieView : NSView
 	}
 
 	[Export("copy:")]
-	public virtual void Copy(NSObject sender)
+	public virtual void Copy(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -746,7 +746,7 @@ public class QTMovieView : NSView
 	}
 
 	[Export("paste:")]
-	public virtual void Paste(NSObject sender)
+	public virtual void Paste(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -763,7 +763,7 @@ public class QTMovieView : NSView
 	}
 
 	[Export("selectAll:")]
-	public virtual void SelectAll(NSObject sender)
+	public virtual void SelectAll(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -780,7 +780,7 @@ public class QTMovieView : NSView
 	}
 
 	[Export("selectNone:")]
-	public virtual void SelectNone(NSObject sender)
+	public virtual void SelectNone(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -797,7 +797,7 @@ public class QTMovieView : NSView
 	}
 
 	[Export("delete:")]
-	public virtual void Delete(NSObject sender)
+	public virtual void Delete(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -814,7 +814,7 @@ public class QTMovieView : NSView
 	}
 
 	[Export("add:")]
-	public virtual void Add(NSObject sender)
+	public virtual void Add(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -831,7 +831,7 @@ public class QTMovieView : NSView
 	}
 
 	[Export("addScaled:")]
-	public virtual void AddScaled(NSObject sender)
+	public virtual void AddScaled(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -848,7 +848,7 @@ public class QTMovieView : NSView
 	}
 
 	[Export("replace:")]
-	public virtual void Replace(NSObject sender)
+	public virtual void Replace(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -865,7 +865,7 @@ public class QTMovieView : NSView
 	}
 
 	[Export("trim:")]
-	public virtual void Trim(NSObject sender)
+	public virtual void Trim(NSObject? sender)
 	{
 		if (sender == null)
 		{

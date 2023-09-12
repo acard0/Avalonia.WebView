@@ -2344,7 +2344,7 @@ public class NSTableView : NSControl
 	}
 
 	[Export("selectAll:")]
-	public virtual void SelectAll(NSObject sender)
+	public virtual void SelectAll(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (IsDirectBinding)
@@ -2358,7 +2358,7 @@ public class NSTableView : NSControl
 	}
 
 	[Export("deselectAll:")]
-	public virtual void DeselectAll(NSObject sender)
+	public virtual void DeselectAll(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (IsDirectBinding)

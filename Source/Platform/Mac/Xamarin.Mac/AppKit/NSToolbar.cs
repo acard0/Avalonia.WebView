@@ -690,7 +690,7 @@ public class NSToolbar : NSObject
 	}
 
 	[Export("runCustomizationPalette:")]
-	public virtual void RunCustomizationPalette(NSObject sender)
+	public virtual void RunCustomizationPalette(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

@@ -129,7 +129,7 @@ public class NSApplication : NSResponder
         }
 
         [Preserve(Conditional = true)]
-        public override bool OpenFileWithoutUI(NSObject sender, string filename)
+        public override bool OpenFileWithoutUI(NSObject? sender, string filename)
         {
             return openFileWithoutUI?.Invoke(sender, filename) ?? false;
         }
@@ -278,7 +278,7 @@ public class NSApplication : NSResponder
         }
 
         [Preserve(Conditional = true)]
-        public override void OrderFrontStandardAboutPanel(NSObject sender)
+        public override void OrderFrontStandardAboutPanel(NSObject? sender)
         {
             orderFrontStandardAboutPanel?.Invoke(sender, EventArgs.Empty);
         }
@@ -2038,7 +2038,7 @@ public class NSApplication : NSResponder
     }
 
     [Export("hide:")]
-    public virtual void Hide(NSObject sender)
+    public virtual void Hide(NSObject? sender)
     {
         EnsureUIThread();
         if (sender == null)
@@ -2056,7 +2056,7 @@ public class NSApplication : NSResponder
     }
 
     [Export("unhide:")]
-    public virtual void Unhide(NSObject sender)
+    public virtual void Unhide(NSObject? sender)
     {
         EnsureUIThread();
         if (sender == null)
@@ -2127,7 +2127,7 @@ public class NSApplication : NSResponder
     }
 
     [Export("hideOtherApplications:")]
-    public virtual void HideOtherApplications(NSObject sender)
+    public virtual void HideOtherApplications(NSObject? sender)
     {
         EnsureUIThread();
         if (sender == null)
@@ -2145,7 +2145,7 @@ public class NSApplication : NSResponder
     }
 
     [Export("unhideAllApplications:")]
-    public virtual void UnhideAllApplications(NSObject sender)
+    public virtual void UnhideAllApplications(NSObject? sender)
     {
         EnsureUIThread();
         if (sender == null)
@@ -2206,7 +2206,7 @@ public class NSApplication : NSResponder
     }
 
     [Export("stop:")]
-    public virtual void Stop(NSObject sender)
+    public virtual void Stop(NSObject? sender)
     {
         EnsureUIThread();
         if (sender == null)
@@ -2306,7 +2306,7 @@ public class NSApplication : NSResponder
     }
 
     [Export("terminate:")]
-    public virtual void Terminate(NSObject sender)
+    public virtual void Terminate(NSObject? sender)
     {
         EnsureUIThread();
         if (sender == null)
@@ -2577,7 +2577,7 @@ public class NSApplication : NSResponder
     }
 
     [Export("sendAction:to:from:")]
-    public virtual bool SendAction(Selector theAction, NSObject theTarget, NSObject sender)
+    public virtual bool SendAction(Selector theAction, NSObject theTarget, NSObject? sender)
     {
         EnsureUIThread();
         if (theAction == null)
@@ -2615,7 +2615,7 @@ public class NSApplication : NSResponder
     }
 
     [Export("targetForAction:to:from:")]
-    public virtual NSObject TargetForAction(Selector theAction, NSObject theTarget, NSObject sender)
+    public virtual NSObject TargetForAction(Selector theAction, NSObject theTarget, NSObject? sender)
     {
         EnsureUIThread();
         if (theAction == null)
@@ -2742,7 +2742,7 @@ public class NSApplication : NSResponder
     }
 
     [Export("orderFrontCharacterPalette:")]
-    public virtual void OrderFrontCharacterPalette(NSObject sender)
+    public virtual void OrderFrontCharacterPalette(NSObject? sender)
     {
         EnsureUIThread();
         if (sender == null)
@@ -2760,7 +2760,7 @@ public class NSApplication : NSResponder
     }
 
     [Export("arrangeInFront:")]
-    public virtual void ArrangeInFront(NSObject sender)
+    public virtual void ArrangeInFront(NSObject? sender)
     {
         EnsureUIThread();
         if (sender == null)
@@ -2862,7 +2862,7 @@ public class NSApplication : NSResponder
     }
 
     [Export("miniaturizeAll:")]
-    public virtual void MiniaturizeAll(NSObject sender)
+    public virtual void MiniaturizeAll(NSObject? sender)
     {
         EnsureUIThread();
         if (sender == null)
@@ -2880,7 +2880,7 @@ public class NSApplication : NSResponder
     }
 
     [Export("orderFrontColorPanel:")]
-    public virtual void OrderFrontColorPanel(NSObject sender)
+    public virtual void OrderFrontColorPanel(NSObject? sender)
     {
         EnsureUIThread();
         if (sender == null)

@@ -30,7 +30,7 @@ internal class ImplicitInitGate : ISupportInitialize
 		OnDataChanged();
 	}
 
-	public void OnSynchronizationContextExists(object sender, RoutedEventArgs e)
+	public void OnSynchronizationContextExists(object? sender, RoutedEventArgs e)
 	{
 		Trace.Assert(SyncContextOpen, "Expected UI thread to have a SynchronizationContext by the time this event fires.");
 		OnDataChanged();

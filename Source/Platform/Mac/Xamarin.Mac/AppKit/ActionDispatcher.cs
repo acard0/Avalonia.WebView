@@ -21,14 +21,14 @@ internal class ActionDispatcher : NSObject
 
 	[Preserve]
 	[Export("__monomac_internal_ActionDispatcher_activated:")]
-	public void OnActivated(NSObject sender)
+	public void OnActivated(NSObject? sender)
 	{
 		Activated?.Invoke(sender, EventArgs.Empty);
 	}
 
 	[Preserve]
 	[Export("__monomac_internal_ActionDispatcher_doubleActivated:")]
-	public void OnActivated2(NSObject sender)
+	public void OnActivated2(NSObject? sender)
 	{
 		DoubleActivated?.Invoke(sender, EventArgs.Empty);
 	}

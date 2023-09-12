@@ -94,7 +94,7 @@ public class NSApplicationDelegate : NSObject
 	}
 
 	[Export("application:openFileWithoutUI:")]
-	public virtual bool OpenFileWithoutUI(NSObject sender, string filename)
+	public virtual bool OpenFileWithoutUI(NSObject? sender, string filename)
 	{
 		throw new You_Should_Not_Call_base_In_This_Method();
 	}
@@ -238,7 +238,7 @@ public class NSApplicationDelegate : NSObject
 	}
 
 	[Export("orderFrontStandardAboutPanel:")]
-	public virtual void OrderFrontStandardAboutPanel(NSObject sender)
+	public virtual void OrderFrontStandardAboutPanel(NSObject? sender)
 	{
 		throw new You_Should_Not_Call_base_In_This_Method();
 	}

@@ -971,7 +971,7 @@ public class NSSavePanel : NSPanel
 	}
 
 	[Export("ok:")]
-	public virtual void Ok(NSObject sender)
+	public virtual void Ok(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -989,7 +989,7 @@ public class NSSavePanel : NSPanel
 	}
 
 	[Export("cancel:")]
-	public virtual void Cancel(NSObject sender)
+	public virtual void Cancel(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

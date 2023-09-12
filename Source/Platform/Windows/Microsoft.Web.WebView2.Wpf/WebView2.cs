@@ -521,7 +521,7 @@ public class WebView2 : HwndHost
 		}
 	}
 
-	private void Profile_Deleted(object sender, object e)
+	private void Profile_Deleted(object? sender, object e)
 	{
 		Uninitialize();
 	}
@@ -588,7 +588,7 @@ public class WebView2 : HwndHost
 		Environment = null;
 	}
 
-	private void CoreWebView2_ProcessFailed(object sender, CoreWebView2ProcessFailedEventArgs e)
+	private void CoreWebView2_ProcessFailed(object? sender, CoreWebView2ProcessFailedEventArgs e)
 	{
 		if (e.ProcessFailedKind == CoreWebView2ProcessFailedKind.BrowserProcessExited)
 		{
@@ -658,7 +658,7 @@ public class WebView2 : HwndHost
 		CoreWebView2Controller.IsVisible = base.Visibility == Visibility.Visible;
 	}
 
-	private void UIElement_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+	private void UIElement_IsVisibleChanged(object? sender, DependencyPropertyChangedEventArgs e)
 	{
 		if (CoreWebView2Controller == null)
 		{
@@ -719,23 +719,23 @@ public class WebView2 : HwndHost
 		}
 	}
 
-	private void CoreWebView2_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
+	private void CoreWebView2_SourceChanged(object? sender, CoreWebView2SourceChangedEventArgs e)
 	{
 		SetCurrentValueFromCore(SourceProperty, new Uri(CoreWebView2.Source));
 		this.SourceChanged?.Invoke(this, e);
 	}
 
-	private void CoreWebView2_NavigationStarting(object sender, CoreWebView2NavigationStartingEventArgs e)
+	private void CoreWebView2_NavigationStarting(object? sender, CoreWebView2NavigationStartingEventArgs e)
 	{
 		this.NavigationStarting?.Invoke(this, e);
 	}
 
-	private void CoreWebView2_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
+	private void CoreWebView2_NavigationCompleted(object? sender, CoreWebView2NavigationCompletedEventArgs e)
 	{
 		this.NavigationCompleted?.Invoke(this, e);
 	}
 
-	private void CoreWebView2_HistoryChanged(object sender, object e)
+	private void CoreWebView2_HistoryChanged(object? sender, object e)
 	{
 		SetValue(CanGoBackPropertyKey, CoreWebView2.CanGoBack);
 		SetValue(CanGoForwardPropertyKey, CoreWebView2.CanGoForward);
@@ -768,7 +768,7 @@ public class WebView2 : HwndHost
 		CoreWebView2Controller?.MoveFocus(CoreWebView2MoveFocusReason.Programmatic);
 	}
 
-	private void CoreWebView2Controller_MoveFocusRequested(object sender, CoreWebView2MoveFocusRequestedEventArgs e)
+	private void CoreWebView2Controller_MoveFocusRequested(object? sender, CoreWebView2MoveFocusRequestedEventArgs e)
 	{
 		switch (e.Reason)
 		{
@@ -783,17 +783,17 @@ public class WebView2 : HwndHost
 		e.Handled = true;
 	}
 
-	private void CoreWebView2Controller_GotFocus(object sender, object e)
+	private void CoreWebView2Controller_GotFocus(object? sender, object e)
 	{
 		RaiseEvent(new RoutedEventArgs(UIElement.GotFocusEvent));
 	}
 
-	private void CoreWebView2Controller_LostFocus(object sender, object e)
+	private void CoreWebView2Controller_LostFocus(object? sender, object e)
 	{
 		RaiseEvent(new RoutedEventArgs(UIElement.LostFocusEvent));
 	}
 
-	private void CoreWebView2Controller_AcceleratorKeyPressed(object sender, CoreWebView2AcceleratorKeyPressedEventArgs e)
+	private void CoreWebView2Controller_AcceleratorKeyPressed(object? sender, CoreWebView2AcceleratorKeyPressedEventArgs e)
 	{
 		WebView2KeyEventArgs webView2KeyEventArgs = new WebView2KeyEventArgs(Keyboard.PrimaryDevice, PresentationSource.FromDependencyObject(this), System.Environment.TickCount, KeyInterop.KeyFromVirtualKey((int)e.VirtualKey))
 		{
@@ -842,7 +842,7 @@ public class WebView2 : HwndHost
 		}
 	}
 
-	private void CoreWebView2Controller_ZoomFactorChanged(object sender, object e)
+	private void CoreWebView2Controller_ZoomFactorChanged(object? sender, object e)
 	{
 		SetCurrentValueFromCore(ZoomFactorProperty, CoreWebView2Controller.ZoomFactor);
 		this.ZoomFactorChanged?.Invoke(this, EventArgs.Empty);
@@ -906,7 +906,7 @@ public class WebView2 : HwndHost
 		CoreWebView2.NavigateToString(htmlContent);
 	}
 
-	private void CoreWebView2_ContentLoading(object sender, CoreWebView2ContentLoadingEventArgs e)
+	private void CoreWebView2_ContentLoading(object? sender, CoreWebView2ContentLoadingEventArgs e)
 	{
 		this.ContentLoading?.Invoke(this, e);
 	}
@@ -917,7 +917,7 @@ public class WebView2 : HwndHost
 		return await CoreWebView2.ExecuteScriptAsync(javaScript);
 	}
 
-	private void CoreWebView2_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
+	private void CoreWebView2_WebMessageReceived(object? sender, CoreWebView2WebMessageReceivedEventArgs e)
 	{
 		this.WebMessageReceived?.Invoke(this, e);
 	}

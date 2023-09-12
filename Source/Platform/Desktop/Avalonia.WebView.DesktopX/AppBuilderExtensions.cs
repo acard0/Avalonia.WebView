@@ -1,19 +1,19 @@
-﻿using Avalonia.WebView.Desktop;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace Avalonia.WebView.DesktopX;
 public static class AppBuilderExtensions
 {
-    public static AppBuilder UseDesktopWebView(this AppBuilder builder, bool isWslDevelop = false)
+
+    public static IServiceCollection AddDesktopWebViewServices(this IServiceCollection services, bool isWslDevelop)
     {
 #if __WINDOWS__
-        builder.UseWindowWebView();
+        services.RegisterWindowsWebView2();
 #elif __OSX__
-        builder.UseMacCatalystWebView();
-        //builder.UseOSXWebView();
+        services.RegisterMacCatalystWebView();
+        //services.UseOSXWebView();
 #elif __LINUX__
-        builder.UseLinuxWebView(isWslDevelop);
+        services.RegisterLinuxWebView(isWslDevelop);
 #endif
-
-        return builder;
+        return services;
     }
 }

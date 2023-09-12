@@ -644,7 +644,7 @@ public class WebView : NSView
 		}
 
 		[Preserve(Conditional = true)]
-		public override bool UIShouldPerformActionfromSender(WebView webView, Selector action, NSObject sender)
+		public override bool UIShouldPerformActionfromSender(WebView webView, Selector action, NSObject? sender)
 		{
 			WebViewPerformAction webViewPerformAction = uIShouldPerformActionfromSender;
 			if (webViewPerformAction != null)
@@ -3314,7 +3314,7 @@ public class WebView : NSView
 	}
 
 	[Export("reload:")]
-	public virtual void Reload(NSObject sender)
+	public virtual void Reload(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3331,7 +3331,7 @@ public class WebView : NSView
 	}
 
 	[Export("reloadFromOrigin:")]
-	public virtual void ReloadFromOrigin(NSObject sender)
+	public virtual void ReloadFromOrigin(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3378,7 +3378,7 @@ public class WebView : NSView
 	}
 
 	[Export("makeTextLarger:")]
-	public virtual void MakeTextLarger(NSObject sender)
+	public virtual void MakeTextLarger(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3405,7 +3405,7 @@ public class WebView : NSView
 	}
 
 	[Export("makeTextSmaller:")]
-	public virtual void MakeTextSmaller(NSObject sender)
+	public virtual void MakeTextSmaller(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3432,7 +3432,7 @@ public class WebView : NSView
 	}
 
 	[Export("makeTextStandardSize:")]
-	public virtual void MakeTextStandardSize(NSObject sender)
+	public virtual void MakeTextStandardSize(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3449,7 +3449,7 @@ public class WebView : NSView
 	}
 
 	[Export("toggleContinuousSpellChecking:")]
-	public virtual void ToggleContinuousSpellChecking(NSObject sender)
+	public virtual void ToggleContinuousSpellChecking(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3466,7 +3466,7 @@ public class WebView : NSView
 	}
 
 	[Export("toggleSmartInsertDelete:")]
-	public virtual void ToggleSmartInsertDelete(NSObject sender)
+	public virtual void ToggleSmartInsertDelete(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3562,7 +3562,7 @@ public class WebView : NSView
 	}
 
 	[Export("cut:")]
-	public virtual void Cut(NSObject sender)
+	public virtual void Cut(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3579,7 +3579,7 @@ public class WebView : NSView
 	}
 
 	[Export("paste:")]
-	public virtual void Paste(NSObject sender)
+	public virtual void Paste(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3596,7 +3596,7 @@ public class WebView : NSView
 	}
 
 	[Export("copyFont:")]
-	public virtual void CopyFont(NSObject sender)
+	public virtual void CopyFont(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3613,7 +3613,7 @@ public class WebView : NSView
 	}
 
 	[Export("pasteFont:")]
-	public virtual void PasteFont(NSObject sender)
+	public virtual void PasteFont(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3630,7 +3630,7 @@ public class WebView : NSView
 	}
 
 	[Export("delete:")]
-	public virtual void Delete(NSObject sender)
+	public virtual void Delete(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3647,7 +3647,7 @@ public class WebView : NSView
 	}
 
 	[Export("pasteAsPlainText:")]
-	public virtual void PasteAsPlainText(NSObject sender)
+	public virtual void PasteAsPlainText(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3664,7 +3664,7 @@ public class WebView : NSView
 	}
 
 	[Export("pasteAsRichText:")]
-	public virtual void PasteAsRichText(NSObject sender)
+	public virtual void PasteAsRichText(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3681,7 +3681,7 @@ public class WebView : NSView
 	}
 
 	[Export("changeFont:")]
-	public virtual void ChangeFont(NSObject sender)
+	public virtual void ChangeFont(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3698,7 +3698,7 @@ public class WebView : NSView
 	}
 
 	[Export("changeAttributes:")]
-	public virtual void ChangeAttributes(NSObject sender)
+	public virtual void ChangeAttributes(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3715,7 +3715,7 @@ public class WebView : NSView
 	}
 
 	[Export("changeDocumentBackgroundColor:")]
-	public virtual void ChangeDocumentBackgroundColor(NSObject sender)
+	public virtual void ChangeDocumentBackgroundColor(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3732,7 +3732,7 @@ public class WebView : NSView
 	}
 
 	[Export("changeColor:")]
-	public virtual void ChangeColor(NSObject sender)
+	public virtual void ChangeColor(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3749,7 +3749,7 @@ public class WebView : NSView
 	}
 
 	[Export("alignCenter:")]
-	public virtual void AlignCenter(NSObject sender)
+	public virtual void AlignCenter(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3766,7 +3766,7 @@ public class WebView : NSView
 	}
 
 	[Export("alignJustified:")]
-	public virtual void AlignJustified(NSObject sender)
+	public virtual void AlignJustified(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3783,7 +3783,7 @@ public class WebView : NSView
 	}
 
 	[Export("alignLeft:")]
-	public virtual void AlignLeft(NSObject sender)
+	public virtual void AlignLeft(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3800,7 +3800,7 @@ public class WebView : NSView
 	}
 
 	[Export("alignRight:")]
-	public virtual void AlignRight(NSObject sender)
+	public virtual void AlignRight(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3817,7 +3817,7 @@ public class WebView : NSView
 	}
 
 	[Export("checkSpelling:")]
-	public virtual void CheckSpelling(NSObject sender)
+	public virtual void CheckSpelling(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3834,7 +3834,7 @@ public class WebView : NSView
 	}
 
 	[Export("showGuessPanel:")]
-	public virtual void ShowGuessPanel(NSObject sender)
+	public virtual void ShowGuessPanel(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3851,7 +3851,7 @@ public class WebView : NSView
 	}
 
 	[Export("performFindPanelAction:")]
-	public virtual void PerformFindPanelAction(NSObject sender)
+	public virtual void PerformFindPanelAction(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3868,7 +3868,7 @@ public class WebView : NSView
 	}
 
 	[Export("startSpeaking:")]
-	public virtual void StartSpeaking(NSObject sender)
+	public virtual void StartSpeaking(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3885,7 +3885,7 @@ public class WebView : NSView
 	}
 
 	[Export("stopSpeaking:")]
-	public virtual void StopSpeaking(NSObject sender)
+	public virtual void StopSpeaking(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3902,7 +3902,7 @@ public class WebView : NSView
 	}
 
 	[Export("moveToBeginningOfSentence:")]
-	public virtual void MoveToBeginningOfSentence(NSObject sender)
+	public virtual void MoveToBeginningOfSentence(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3919,7 +3919,7 @@ public class WebView : NSView
 	}
 
 	[Export("moveToBeginningOfSentenceAndModifySelection:")]
-	public virtual void MoveToBeginningOfSentenceAndModifySelection(NSObject sender)
+	public virtual void MoveToBeginningOfSentenceAndModifySelection(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3936,7 +3936,7 @@ public class WebView : NSView
 	}
 
 	[Export("moveToEndOfSentence:")]
-	public virtual void MoveToEndOfSentence(NSObject sender)
+	public virtual void MoveToEndOfSentence(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3953,7 +3953,7 @@ public class WebView : NSView
 	}
 
 	[Export("moveToEndOfSentenceAndModifySelection:")]
-	public virtual void MoveToEndOfSentenceAndModifySelection(NSObject sender)
+	public virtual void MoveToEndOfSentenceAndModifySelection(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -3970,7 +3970,7 @@ public class WebView : NSView
 	}
 
 	[Export("selectSentence:")]
-	public virtual void SelectSentence(NSObject sender)
+	public virtual void SelectSentence(NSObject? sender)
 	{
 		if (sender == null)
 		{

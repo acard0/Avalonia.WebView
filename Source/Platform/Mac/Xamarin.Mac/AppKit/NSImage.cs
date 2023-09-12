@@ -24,7 +24,7 @@ public class NSImage : NSObject
 		internal EventHandler<NSImageLoadRepresentationEventArgs> didLoadRepresentation;
 
 		[Preserve(Conditional = true)]
-		public override NSImage ImageDidNotDraw(NSObject sender, CGRect aRect)
+		public override NSImage ImageDidNotDraw(NSObject? sender, CGRect aRect)
 		{
 			return imageDidNotDraw?.Invoke(sender, aRect);
 		}

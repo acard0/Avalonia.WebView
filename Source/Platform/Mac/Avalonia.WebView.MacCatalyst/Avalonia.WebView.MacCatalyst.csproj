@@ -1,14 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
 	</PropertyGroup>
 	
 	<Import Project="$(BuildToolsDirectory)Directory.Packages.targets" />
 
 	<PropertyGroup>
-		<PackageId>WebView.Avalonia.MacCatalyst</PackageId>
-		<Title>WebView.Avalonia.MacCatalyst</Title>
 		<!--<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>-->
 		<TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CopyTargetsForTfmSpecificContentInPackage</TargetsForTfmSpecificContentInPackage>
 		<!--<TargetsForTfmSpecificDebugSymbolsInPackage>$(TargetsForTfmSpecificDebugSymbolsInPackage);CopyProjectReferencesSymbolsToPackage</TargetsForTfmSpecificDebugSymbolsInPackage>-->
@@ -81,17 +79,14 @@
 		<PackageReference Include="System.Memory" />
 		<PackageReference Include="System.Reflection.Emit" />
 		<PackageReference Include="System.Reflection.Emit.Lightweight" />
-		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces"/>
+		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\AvaloniaWebView.Shared\AvaloniaWebView.Shared.csproj">
 			<PrivateAssets>all</PrivateAssets>
 		</ProjectReference>
-		<ProjectReference Include="..\..\..\DryIoc.Shared\DryIoc.Shared.csproj">
-			<PrivateAssets>all</PrivateAssets>
-		</ProjectReference>
-		<ProjectReference Include="..\..\..\WebView.Core\WebView.Core.csproj" >
+		<ProjectReference Include="..\..\..\WebView.Core\WebView.Core.csproj">
 			<PrivateAssets>all</PrivateAssets>
 		</ProjectReference>
 		<ProjectReference Include="..\Xamarin.Mac\Xamarin.Mac.csproj">

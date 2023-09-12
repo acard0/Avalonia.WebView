@@ -1,4 +1,6 @@
-﻿namespace AvaloniaWebView;
+﻿using Microsoft.Extensions.DependencyInjection;
+
+namespace AvaloniaWebView;
 
 public sealed partial class WebView : Control, IVirtualWebView<WebView>, IEmptyView, IWebViewEventHandler, IVirtualWebViewControlCallBack, IWebViewControl
 {
@@ -10,18 +12,12 @@ public sealed partial class WebView : Control, IVirtualWebView<WebView>, IEmptyV
         LoadHostDependencyObjectsChanged();
     }
 
-    public WebView()
-        : this(default)
+    public WebView(IServiceProvider serviceProvider)
     {
-
-    }
-
-    public WebView(IServiceProvider? serviceProvider = default)
-    {
-        var properties = WebViewLocator.s_ResolverContext.GetRequiredService<WebViewCreationProperties>();
+        var properties = serviceProvider.GetService<WebViewCreationProperties>()!;
         _creationProperties = properties ?? new WebViewCreationProperties();
 
-        _viewHandlerProvider = WebViewLocator.s_ResolverContext.GetRequiredService<IViewHandlerProvider>();
+        _viewHandlerProvider = serviceProvider.GetService<IViewHandlerProvider>()!;
         ClipToBounds = false;
 
         _partEmptyViewPresenter = new()

@@ -427,7 +427,7 @@ public class NSWindowController : NSResponder
 	}
 
 	[Export("showWindow:")]
-	public virtual void ShowWindow(NSObject sender)
+	public virtual void ShowWindow(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

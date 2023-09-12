@@ -2200,7 +2200,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("turnOffKerning:")]
-	public virtual void TurnOffKerning(NSObject sender)
+	public virtual void TurnOffKerning(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2218,7 +2218,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("tightenKerning:")]
-	public virtual void TightenKerning(NSObject sender)
+	public virtual void TightenKerning(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2236,7 +2236,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("loosenKerning:")]
-	public virtual void LoosenKerning(NSObject sender)
+	public virtual void LoosenKerning(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2254,7 +2254,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("useStandardKerning:")]
-	public virtual void UseStandardKerning(NSObject sender)
+	public virtual void UseStandardKerning(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2272,7 +2272,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("turnOffLigatures:")]
-	public virtual void TurnOffLigatures(NSObject sender)
+	public virtual void TurnOffLigatures(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2290,7 +2290,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("useStandardLigatures:")]
-	public virtual void UseStandardLigatures(NSObject sender)
+	public virtual void UseStandardLigatures(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2308,7 +2308,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("useAllLigatures:")]
-	public virtual void UseAllLigatures(NSObject sender)
+	public virtual void UseAllLigatures(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2326,7 +2326,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("raiseBaseline:")]
-	public virtual void RaiseBaseline(NSObject sender)
+	public virtual void RaiseBaseline(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2344,7 +2344,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("lowerBaseline:")]
-	public virtual void LowerBaseline(NSObject sender)
+	public virtual void LowerBaseline(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2362,7 +2362,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("toggleTraditionalCharacterShape:")]
-	public virtual void ToggleTraditionalCharacterShape(NSObject sender)
+	public virtual void ToggleTraditionalCharacterShape(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2380,7 +2380,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("outline:")]
-	public virtual void Outline(NSObject sender)
+	public virtual void Outline(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2398,7 +2398,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("performFindPanelAction:")]
-	public virtual void PerformFindPanelAction(NSObject sender)
+	public virtual void PerformFindPanelAction(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2416,7 +2416,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("alignJustified:")]
-	public virtual void AlignJustified(NSObject sender)
+	public virtual void AlignJustified(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2434,7 +2434,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("changeColor:")]
-	public virtual void ChangeColor(NSObject sender)
+	public virtual void ChangeColor(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2452,7 +2452,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("changeAttributes:")]
-	public virtual void ChangeAttributes(NSObject sender)
+	public virtual void ChangeAttributes(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2470,7 +2470,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("changeDocumentBackgroundColor:")]
-	public virtual void ChangeDocumentBackgroundColor(NSObject sender)
+	public virtual void ChangeDocumentBackgroundColor(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2488,7 +2488,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("orderFrontSpacingPanel:")]
-	public virtual void OrderFrontSpacingPanel(NSObject sender)
+	public virtual void OrderFrontSpacingPanel(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2506,7 +2506,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("orderFrontLinkPanel:")]
-	public virtual void OrderFrontLinkPanel(NSObject sender)
+	public virtual void OrderFrontLinkPanel(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2524,7 +2524,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("orderFrontListPanel:")]
-	public virtual void OrderFrontListPanel(NSObject sender)
+	public virtual void OrderFrontListPanel(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2542,7 +2542,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("orderFrontTablePanel:")]
-	public virtual void OrderFrontTablePanel(NSObject sender)
+	public virtual void OrderFrontTablePanel(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2860,7 +2860,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("startSpeaking:")]
-	public virtual void StartSpeaking(NSObject sender)
+	public virtual void StartSpeaking(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2878,7 +2878,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("stopSpeaking:")]
-	public virtual void StopSpeaking(NSObject sender)
+	public virtual void StopSpeaking(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -2907,7 +2907,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("complete:")]
-	public virtual void Complete(NSObject sender)
+	public virtual void Complete(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (IsDirectBinding)
@@ -3101,7 +3101,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("pasteAsPlainText:")]
-	public virtual void PasteAsPlainText(NSObject sender)
+	public virtual void PasteAsPlainText(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -3119,7 +3119,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("pasteAsRichText:")]
-	public virtual void PasteAsRichText(NSObject sender)
+	public virtual void PasteAsRichText(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -3237,7 +3237,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("toggleContinuousSpellChecking:")]
-	public virtual void ToggleContinuousSpellChecking(NSObject sender)
+	public virtual void ToggleContinuousSpellChecking(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -3266,7 +3266,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("toggleGrammarChecking:")]
-	public virtual void ToggleGrammarChecking(NSObject sender)
+	public virtual void ToggleGrammarChecking(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -3474,7 +3474,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("toggleSmartInsertDelete:")]
-	public virtual void ToggleSmartInsertDelete(NSObject sender)
+	public virtual void ToggleSmartInsertDelete(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -3552,7 +3552,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("toggleAutomaticQuoteSubstitution:")]
-	public virtual void ToggleAutomaticQuoteSubstitution(NSObject sender)
+	public virtual void ToggleAutomaticQuoteSubstitution(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -3570,7 +3570,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("toggleAutomaticLinkDetection:")]
-	public virtual void ToggleAutomaticLinkDetection(NSObject sender)
+	public virtual void ToggleAutomaticLinkDetection(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -3588,7 +3588,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("toggleAutomaticDataDetection:")]
-	public virtual void ToggleAutomaticDataDetection(NSObject sender)
+	public virtual void ToggleAutomaticDataDetection(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -3606,7 +3606,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("toggleAutomaticDashSubstitution:")]
-	public virtual void ToggleAutomaticDashSubstitution(NSObject sender)
+	public virtual void ToggleAutomaticDashSubstitution(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -3624,7 +3624,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("toggleAutomaticTextReplacement:")]
-	public virtual void ToggleAutomaticTextReplacement(NSObject sender)
+	public virtual void ToggleAutomaticTextReplacement(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -3642,7 +3642,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("toggleAutomaticSpellingCorrection:")]
-	public virtual void ToggleAutomaticSpellingCorrection(NSObject sender)
+	public virtual void ToggleAutomaticSpellingCorrection(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -3706,7 +3706,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("orderFrontSubstitutionsPanel:")]
-	public virtual void OrderFrontSubstitutionsPanel(NSObject sender)
+	public virtual void OrderFrontSubstitutionsPanel(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -3724,7 +3724,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("checkTextInSelection:")]
-	public virtual void CheckTextInSelection(NSObject sender)
+	public virtual void CheckTextInSelection(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -3742,7 +3742,7 @@ public class NSTextView : NSText
 	}
 
 	[Export("checkTextInDocument:")]
-	public virtual void CheckTextInDocument(NSObject sender)
+	public virtual void CheckTextInDocument(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

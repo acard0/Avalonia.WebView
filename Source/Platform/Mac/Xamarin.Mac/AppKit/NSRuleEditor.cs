@@ -830,7 +830,7 @@ public class NSRuleEditor : NSControl
 	}
 
 	[Export("addRow:")]
-	public virtual void AddRow(NSObject sender)
+	public virtual void AddRow(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

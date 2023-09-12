@@ -1152,7 +1152,7 @@ public class NSMatrix : NSControl
 	}
 
 	[Export("selectAll:")]
-	public virtual void SelectAll(NSObject sender)
+	public virtual void SelectAll(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1706,7 +1706,7 @@ public class NSMatrix : NSControl
 	}
 
 	[Export("selectText:")]
-	public virtual void SelectText(NSObject sender)
+	public virtual void SelectText(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

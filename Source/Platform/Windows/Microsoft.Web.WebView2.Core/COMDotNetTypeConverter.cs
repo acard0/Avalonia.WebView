@@ -155,7 +155,7 @@ namespace Microsoft.Web.WebView2.Core
             }
 
             ObservableCollection<CoreWebView2ContextMenuItem> collection = new ObservableCollection<CoreWebView2ContextMenuItem>(list);
-            collection.CollectionChanged += delegate (object sender, NotifyCollectionChangedEventArgs args)
+            collection.CollectionChanged += delegate (object? sender, NotifyCollectionChangedEventArgs args)
             {
                 switch (args.Action)
                 {

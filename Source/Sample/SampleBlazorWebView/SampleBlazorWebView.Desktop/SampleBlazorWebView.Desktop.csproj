@@ -15,7 +15,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\..\Platform\Desktop\Avalonia.WebView.Desktop\Avalonia.WebView.Desktop.csproj" />
 		<ProjectReference Include="..\SampleBlazorWebView\SampleBlazorWebView.csproj" />
 	</ItemGroup>
 </Project>

@@ -1570,7 +1570,7 @@ public class NSBrowser : NSControl
 	}
 
 	[Export("selectAll:")]
-	public virtual void SelectAll(NSObject sender)
+	public virtual void SelectAll(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1602,7 +1602,7 @@ public class NSBrowser : NSControl
 	}
 
 	[Export("doClick:")]
-	public virtual void DoClick(NSObject sender)
+	public virtual void DoClick(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1620,7 +1620,7 @@ public class NSBrowser : NSControl
 	}
 
 	[Export("doDoubleClick:")]
-	public virtual void DoDoubleClick(NSObject sender)
+	public virtual void DoDoubleClick(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

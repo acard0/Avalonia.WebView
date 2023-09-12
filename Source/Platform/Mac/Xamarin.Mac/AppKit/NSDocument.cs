@@ -820,7 +820,7 @@ public class NSDocument : NSObject
 	}
 
 	[Export("revertDocumentToSaved:")]
-	public virtual void RevertDocumentToSaved(NSObject sender)
+	public virtual void RevertDocumentToSaved(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1079,7 +1079,7 @@ public class NSDocument : NSObject
 	}
 
 	[Export("saveDocument:")]
-	public virtual void SaveDocument(NSObject sender)
+	public virtual void SaveDocument(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1097,7 +1097,7 @@ public class NSDocument : NSObject
 	}
 
 	[Export("saveDocumentAs:")]
-	public virtual void SaveDocumentAs(NSObject sender)
+	public virtual void SaveDocumentAs(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1115,7 +1115,7 @@ public class NSDocument : NSObject
 	}
 
 	[Export("saveDocumentTo:")]
-	public virtual void SaveDocumentTo(NSObject sender)
+	public virtual void SaveDocumentTo(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1305,7 +1305,7 @@ public class NSDocument : NSObject
 	}
 
 	[Export("runPageLayout:")]
-	public virtual void RunPageLayout(NSObject sender)
+	public virtual void RunPageLayout(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1379,7 +1379,7 @@ public class NSDocument : NSObject
 	}
 
 	[Export("printDocument:")]
-	public virtual void PrintDocument(NSObject sender)
+	public virtual void PrintDocument(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1984,7 +1984,7 @@ public class NSDocument : NSObject
 	}
 
 	[Export("duplicateDocument:")]
-	public virtual void DuplicateDocument(NSObject sender)
+	public virtual void DuplicateDocument(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

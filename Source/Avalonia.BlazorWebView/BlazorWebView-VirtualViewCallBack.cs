@@ -2,34 +2,34 @@
 
 partial class BlazorWebView  
 {
-    void IVirtualWebViewControlCallBack.PlatformWebViewCreated(object? sender, WebViewCreatedEventArgs arg)
+    public virtual void PlatformWebViewCreated(object? sender, WebViewCreatedEventArgs arg)
     {
         WebViewCreated?.Invoke(sender, arg);
     }
 
-    bool IVirtualWebViewControlCallBack.PlatformWebViewCreating(object? sender, WebViewCreatingEventArgs arg)
+    public virtual bool PlatformWebViewCreating(object? sender, WebViewCreatingEventArgs arg)
     {
         WebViewCreating?.Invoke(sender, arg);
         return true;
     }
 
-    void IVirtualWebViewControlCallBack.PlatformWebViewMessageReceived(object? sender, WebViewMessageReceivedEventArgs arg)
+    public virtual void PlatformWebViewMessageReceived(object? sender, WebViewMessageReceivedEventArgs arg)
     {
         WebMessageReceived?.Invoke(sender, arg);
     }
 
-    void IVirtualWebViewControlCallBack.PlatformWebViewNavigationCompleted(object? sender, WebViewUrlLoadedEventArg arg)
+    public virtual void PlatformWebViewNavigationCompleted(object? sender, WebViewUrlLoadedEventArg arg)
     {
         NavigationCompleted?.Invoke(sender, arg);
     }
 
-    bool IVirtualWebViewControlCallBack.PlatformWebViewNavigationStarting(object? sender, WebViewUrlLoadingEventArg arg)
+    public virtual bool PlatformWebViewNavigationStarting(object? sender, WebViewUrlLoadingEventArg arg)
     {
         NavigationStarting?.Invoke(sender, arg);
         return true;
     }
 
-    bool IVirtualWebViewControlCallBack.PlatformWebViewNewWindowRequest(object? sender, WebViewNewWindowEventArgs arg)
+    public virtual bool PlatformWebViewNewWindowRequest(object? sender, WebViewNewWindowEventArgs arg)
     {
         WebViewNewWindowRequested?.Invoke(sender, arg);
         return true;

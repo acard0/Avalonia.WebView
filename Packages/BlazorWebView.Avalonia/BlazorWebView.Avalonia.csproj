@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net7.0;net6.0</TargetFrameworks>
+		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
 		<OutputPath>$(RepositoryDirectory)_blazorwebview\</OutputPath>
 	</PropertyGroup>
 
@@ -92,16 +92,13 @@
 		<ProjectReference Include="..\..\Source\Avalonia.BlazorWebView\Avalonia.BlazorWebView.csproj">
 			<PrivateAssets>all</PrivateAssets>
 		</ProjectReference>
-		<ProjectReference Include="..\..\Source\AvaloniaWebView.Shared\AvaloniaWebView.Shared.csproj" >
+		<ProjectReference Include="..\..\Source\AvaloniaWebView.Shared\AvaloniaWebView.Shared.csproj">
 			<PrivateAssets>all</PrivateAssets>
 		</ProjectReference>
-		<ProjectReference Include="..\..\Source\DryIoc.Shared\DryIoc.Shared.csproj" >
+		<ProjectReference Include="..\..\Source\Toolkit.Shared\Toolkit.Shared.csproj">
 			<PrivateAssets>all</PrivateAssets>
 		</ProjectReference>
-		<ProjectReference Include="..\..\Source\Toolkit.Shared\Toolkit.Shared.csproj" >
-			<PrivateAssets>all</PrivateAssets>
-		</ProjectReference>
-		<ProjectReference Include="..\..\Source\WebView.Core\WebView.Core.csproj" >
+		<ProjectReference Include="..\..\Source\WebView.Core\WebView.Core.csproj">
 			<PrivateAssets>all</PrivateAssets>
 		</ProjectReference>
 	</ItemGroup>

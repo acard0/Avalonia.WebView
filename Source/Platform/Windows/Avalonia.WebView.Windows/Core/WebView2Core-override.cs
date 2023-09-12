@@ -4,17 +4,15 @@ partial class WebView2Core
 {
     public IntPtr NativeHandler { get; private set; }
 
-    WebView2Core IPlatformWebView<WebView2Core>.PlatformView => this;
+    public WebView2Core PlatformView => this;
 
-    object? IPlatformWebView.PlatformViewContext => this;
+    public object? PlatformViewContext => this;
 
-    bool IPlatformWebView.IsInitialized => IsInitialized;
+    public bool IsCanGoForward => CoreWebView2?.CanGoForward ?? false;
 
-    bool IWebViewControl.IsCanGoForward => CoreWebView2?.CanGoForward ?? false;
+    public bool IsCanGoBack => CoreWebView2?.CanGoBack ?? false;
 
-    bool IWebViewControl.IsCanGoBack => CoreWebView2?.CanGoBack ?? false;
-
-    async Task<bool> IPlatformWebView.Initialize()
+    public async Task<bool> Initialize()
     {
         if (IsInitialized)
             return true;
@@ -24,7 +22,7 @@ partial class WebView2Core
             _callBack.PlatformWebViewCreating(this, new WebViewCreatingEventArgs());
 
             var environment2 = await CreateEnvironmentAsync().ConfigureAwait(true);
-            _coreWebView2Environment = environment2;
+            CoreWebView2Environment = environment2;
 
             var options = CreateCoreWebView2ControllerOptions(environment2);
             IntPtr intPtr = await _hwndTaskSource.Task;
@@ -32,39 +30,39 @@ partial class WebView2Core
             {
                 CoreWebView2Environment environment3 = environment2;
                 CoreWebView2Controller coreWebView2Controller = await environment3.CreateCoreWebView2ControllerAsync(intPtr, options).ConfigureAwait(true);
-                _coreWebView2Controller = coreWebView2Controller;
-                _controllerOptions = options;
+                CoreWebView2Controller = coreWebView2Controller;
+                ControllerOptions = options;
             }
             else
             {
                 CoreWebView2Environment environment3 = environment2;
                 CoreWebView2Controller coreWebView2Controller = await environment3.CreateCoreWebView2ControllerAsync(intPtr).ConfigureAwait(true);
-                _coreWebView2Controller = coreWebView2Controller;
+                CoreWebView2Controller = coreWebView2Controller;
             }
 
-            var coreWebView2 = _coreWebView2Controller.CoreWebView2;
+            var coreWebView2 = CoreWebView2Controller.CoreWebView2;
             if (coreWebView2 is null)
                 throw new ArgumentNullException(nameof(coreWebView2), "coreWebView2 is null!");
 
             try
             {
-                _browserHitTransparent = _coreWebView2Controller.IsBrowserHitTransparent;
+                _browserHitTransparent = CoreWebView2Controller.IsBrowserHitTransparent;
             }
             catch (NotImplementedException)
             {
 
             }
 
-            ResetWebViewSize(_coreWebView2Controller);
+            ResetWebViewSize(CoreWebView2Controller);
 
-            if (_coreWebView2Controller.ParentWindow != intPtr)
-                ReparentController(_coreWebView2Controller, intPtr);
+            if (CoreWebView2Controller.ParentWindow != intPtr)
+                ReparentController(CoreWebView2Controller, intPtr);
 
-            if (_coreWebView2Controller.ParentWindow != IntPtr.Zero)
-                SyncControllerWithParentWindow(_coreWebView2Controller);
+            if (CoreWebView2Controller.ParentWindow != IntPtr.Zero)
+                SyncControllerWithParentWindow(CoreWebView2Controller);
 
             ApplyDefaultWebViewSettings(coreWebView2);
-            RegisterWebViewEvents(_coreWebView2Controller);
+            RegisterWebViewEvents(CoreWebView2Controller);
 
             if (_provider is not null)
                 await PrepareBlazorWebViewStarting(_provider, coreWebView2).ConfigureAwait(true);
@@ -82,7 +80,7 @@ partial class WebView2Core
         return false;
     }
 
-    bool IWebViewControl.GoBack()
+    public bool GoBack()
     {
         var coreWebView2 = CoreWebView2;
         if (coreWebView2 is null)
@@ -95,7 +93,7 @@ partial class WebView2Core
         return true;
     }
 
-    bool IWebViewControl.GoForward()
+    public bool GoForward()
     {
         var coreWebView2 = CoreWebView2;
         if (coreWebView2 is null)
@@ -108,7 +106,7 @@ partial class WebView2Core
         return true;
     }
 
-    bool IWebViewControl.Navigate(Uri? uri)
+    public bool Navigate(Uri? uri)
     {
         var coreWebView2 = CoreWebView2;
         if (coreWebView2 is null)
@@ -121,7 +119,7 @@ partial class WebView2Core
         return true;
     }
 
-    bool IWebViewControl.NavigateToString(string htmlContent)
+    public bool NavigateToString(string htmlContent)
     {
         var coreWebView2 = CoreWebView2;
         if (coreWebView2 is null)
@@ -134,7 +132,7 @@ partial class WebView2Core
         return true;    
     }
 
-    bool IWebViewControl.OpenDevToolsWindow()
+    public bool OpenDevToolsWindow()
     {
         var coreWebView2 = CoreWebView2;
         if (coreWebView2 is null)
@@ -144,7 +142,7 @@ partial class WebView2Core
         return true;    
     }
 
-    async Task<string?> IWebViewControl.ExecuteScriptAsync(string javaScript)
+    public async Task<string?> ExecuteScriptAsync(string javaScript)
     {
         var coreWebView2 = CoreWebView2;
         if (coreWebView2 is null)
@@ -158,7 +156,7 @@ partial class WebView2Core
     }
 
 
-    bool IWebViewControl.PostWebMessageAsJson(string webMessageAsJson, Uri? baseUri)
+    public bool PostWebMessageAsJson(string webMessageAsJson, Uri? baseUri)
     {
         var coreWebView2 = CoreWebView2;
         if (coreWebView2 is null)
@@ -171,7 +169,7 @@ partial class WebView2Core
         return true;
     }
 
-    bool IWebViewControl.PostWebMessageAsString(string webMessageAsString, Uri? baseUri)
+    public bool PostWebMessageAsString(string webMessageAsString, Uri? baseUri)
     {
         var coreWebView2 = CoreWebView2;
         if (coreWebView2 is null)
@@ -184,7 +182,7 @@ partial class WebView2Core
         return true;
     }
 
-    bool IWebViewControl.Reload()
+    public bool Reload()
     {
         var coreWebView2 = CoreWebView2;
         if (coreWebView2 is null)
@@ -194,7 +192,7 @@ partial class WebView2Core
         return true;
     }
 
-    bool IWebViewControl.Stop()
+    public bool Stop()
     {
         var coreWebView2 = CoreWebView2;
         if (coreWebView2 is null)
@@ -213,7 +211,7 @@ partial class WebView2Core
                 try
                 {
                     ClearBlazorWebViewCompleted(CoreWebView2!);
-                    UnregisterWebViewEvents(_coreWebView2Controller!);
+                    UnregisterWebViewEvents(CoreWebView2Controller!);
                     UnregisterEvents();
                 }
                 catch (Exception)
@@ -221,22 +219,22 @@ partial class WebView2Core
 
                 }
 
-                _controllerOptions = null;
-                _coreWebView2Controller = null;
-                _coreWebView2Environment = null;
+                ControllerOptions = null;
+                CoreWebView2Controller = null;
+                CoreWebView2Environment = null;
             }
  
             IsDisposed = true;
         }
     }
 
-    void IDisposable.Dispose()
+    public void Dispose()
     {
         Dispose(disposing: true);
         GC.SuppressFinalize(this);
     }
 
-    ValueTask IAsyncDisposable.DisposeAsync()
+    public ValueTask DisposeAsync()
     {
         ((IDisposable)this)?.Dispose();
         return new ValueTask();

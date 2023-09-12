@@ -559,7 +559,7 @@ public class IKCameraDeviceView : NSView
 	}
 
 	[Export("rotateLeft:")]
-	public virtual void RotateLeft(NSObject sender)
+	public virtual void RotateLeft(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -576,7 +576,7 @@ public class IKCameraDeviceView : NSView
 	}
 
 	[Export("rotateRight:")]
-	public virtual void RotateRight(NSObject sender)
+	public virtual void RotateRight(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -593,7 +593,7 @@ public class IKCameraDeviceView : NSView
 	}
 
 	[Export("deleteSelectedItems:")]
-	public virtual void DeleteSelectedItems(NSObject sender)
+	public virtual void DeleteSelectedItems(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -610,7 +610,7 @@ public class IKCameraDeviceView : NSView
 	}
 
 	[Export("downloadSelectedItems:")]
-	public virtual void DownloadSelectedItems(NSObject sender)
+	public virtual void DownloadSelectedItems(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -627,7 +627,7 @@ public class IKCameraDeviceView : NSView
 	}
 
 	[Export("downloadAllItems:")]
-	public virtual void DownloadAllItems(NSObject sender)
+	public virtual void DownloadAllItems(NSObject? sender)
 	{
 		if (sender == null)
 		{

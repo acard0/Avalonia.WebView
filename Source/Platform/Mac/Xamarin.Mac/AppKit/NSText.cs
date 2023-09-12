@@ -1046,7 +1046,7 @@ public class NSText : NSView
 	}
 
 	[Export("copy:")]
-	public virtual void Copy(NSObject sender)
+	public virtual void Copy(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1064,7 +1064,7 @@ public class NSText : NSView
 	}
 
 	[Export("copyFont:")]
-	public virtual void CopyFont(NSObject sender)
+	public virtual void CopyFont(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1082,7 +1082,7 @@ public class NSText : NSView
 	}
 
 	[Export("copyRuler:")]
-	public virtual void CopyRuler(NSObject sender)
+	public virtual void CopyRuler(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1100,7 +1100,7 @@ public class NSText : NSView
 	}
 
 	[Export("cut:")]
-	public virtual void Cut(NSObject sender)
+	public virtual void Cut(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1118,7 +1118,7 @@ public class NSText : NSView
 	}
 
 	[Export("delete:")]
-	public virtual void Delete(NSObject sender)
+	public virtual void Delete(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1136,7 +1136,7 @@ public class NSText : NSView
 	}
 
 	[Export("paste:")]
-	public virtual void Paste(NSObject sender)
+	public virtual void Paste(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1154,7 +1154,7 @@ public class NSText : NSView
 	}
 
 	[Export("pasteFont:")]
-	public virtual void PasteFont(NSObject sender)
+	public virtual void PasteFont(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1172,7 +1172,7 @@ public class NSText : NSView
 	}
 
 	[Export("pasteRuler:")]
-	public virtual void PasteRuler(NSObject sender)
+	public virtual void PasteRuler(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1190,7 +1190,7 @@ public class NSText : NSView
 	}
 
 	[Export("selectAll:")]
-	public virtual void SelectAll(NSObject sender)
+	public virtual void SelectAll(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1208,7 +1208,7 @@ public class NSText : NSView
 	}
 
 	[Export("changeFont:")]
-	public virtual void ChangeFont(NSObject sender)
+	public virtual void ChangeFont(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1226,7 +1226,7 @@ public class NSText : NSView
 	}
 
 	[Export("alignLeft:")]
-	public virtual void AlignLeft(NSObject sender)
+	public virtual void AlignLeft(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1244,7 +1244,7 @@ public class NSText : NSView
 	}
 
 	[Export("alignRight:")]
-	public virtual void AlignRight(NSObject sender)
+	public virtual void AlignRight(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1262,7 +1262,7 @@ public class NSText : NSView
 	}
 
 	[Export("alignCenter:")]
-	public virtual void AlignCenter(NSObject sender)
+	public virtual void AlignCenter(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1280,7 +1280,7 @@ public class NSText : NSView
 	}
 
 	[Export("subscript:")]
-	public virtual void Subscript(NSObject sender)
+	public virtual void Subscript(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1298,7 +1298,7 @@ public class NSText : NSView
 	}
 
 	[Export("superscript:")]
-	public virtual void Superscript(NSObject sender)
+	public virtual void Superscript(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1316,7 +1316,7 @@ public class NSText : NSView
 	}
 
 	[Export("underline:")]
-	public virtual void Underline(NSObject sender)
+	public virtual void Underline(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1334,7 +1334,7 @@ public class NSText : NSView
 	}
 
 	[Export("unscript:")]
-	public virtual void Unscript(NSObject sender)
+	public virtual void Unscript(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1352,7 +1352,7 @@ public class NSText : NSView
 	}
 
 	[Export("showGuessPanel:")]
-	public virtual void ShowGuessPanel(NSObject sender)
+	public virtual void ShowGuessPanel(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1370,7 +1370,7 @@ public class NSText : NSView
 	}
 
 	[Export("checkSpelling:")]
-	public virtual void CheckSpelling(NSObject sender)
+	public virtual void CheckSpelling(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -1388,7 +1388,7 @@ public class NSText : NSView
 	}
 
 	[Export("toggleRuler:")]
-	public virtual void ToggleRuler(NSObject sender)
+	public virtual void ToggleRuler(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

@@ -530,7 +530,7 @@ public class NSTreeController : NSObjectController
 	}
 
 	[Export("add:")]
-	public new virtual void Add(NSObject sender)
+	public new virtual void Add(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -548,7 +548,7 @@ public class NSTreeController : NSObjectController
 	}
 
 	[Export("remove:")]
-	public new virtual void Remove(NSObject sender)
+	public new virtual void Remove(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -566,7 +566,7 @@ public class NSTreeController : NSObjectController
 	}
 
 	[Export("addChild:")]
-	public virtual void AddChild(NSObject sender)
+	public virtual void AddChild(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -584,7 +584,7 @@ public class NSTreeController : NSObjectController
 	}
 
 	[Export("insert:")]
-	public virtual void Insert(NSObject sender)
+	public virtual void Insert(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -602,7 +602,7 @@ public class NSTreeController : NSObjectController
 	}
 
 	[Export("insertChild:")]
-	public virtual void InsertChild(NSObject sender)
+	public virtual void InsertChild(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

@@ -4,22 +4,22 @@ partial class BlazorWebView
 {
     static bool LoadHostDependencyObjectsChanged()
     {
-        HostPageProperty.Changed.AddClassHandler<BlazorWebView, string?>((s, e) =>
+        HostPageProperty.Changed.AddClassHandler((Action<BlazorWebView, AvaloniaPropertyChangedEventArgs<string?>>)((s, e) =>
         {
-            if (s._platformWebView is null)
+            if (s.PlatformWebView is null)
                 return;
 
             var hostPage = e.NewValue.Value;
             if (string.IsNullOrWhiteSpace(hostPage))
                 return;
 
-            var webviewManager = s._webviewManager;
+            var webviewManager = s.AvaloniaWebViewManager;
             //if (webviewManager is null)
                // await s.CreateWebViewManager(s._platformWebView);
 
             if (webviewManager is not null)
-                webviewManager.Navigate(s._startAddress);
-        });
+                webviewManager.Navigate(s.StartAddress);
+        }));
 
         return true;
     }
@@ -43,22 +43,22 @@ partial class BlazorWebView
     {
         CheckDisposed();
 
-        if (_webviewManager is null)
+        if (AvaloniaWebViewManager is null)
         {
             //await CreateWebViewManager(_platformWebView);
             return;
         }
 
-        await _dispatcher.InvokeAsync(async () =>
+        await Dispatcher.InvokeAsync(async () =>
         {
             var newItems = (e.NewItems ?? Array.Empty<BlazorRootComponent>()).Cast<BlazorRootComponent>();
             var oldItems = (e.OldItems ?? Array.Empty<BlazorRootComponent>()).Cast<BlazorRootComponent>();
 
             foreach (var item in newItems.Except(oldItems))
-                await item.AddToWebViewManagerAsync(_webviewManager);
+                await item.AddToWebViewManagerAsync(AvaloniaWebViewManager);
 
             foreach (var item in oldItems.Except(newItems))
-                await item.RemoveFromWebViewManagerAsync(_webviewManager);
+                await item.RemoveFromWebViewManagerAsync(AvaloniaWebViewManager);
         });
     }
 

@@ -1,6 +1,6 @@
 ﻿namespace AvaloniaBlazorWebView.Core;
 
-internal class AvaloniaDispatcher : Dispatcher
+public class AvaloniaDispatcher : Dispatcher
 {
     public AvaloniaDispatcher(AvaloniaUIDispatcher dispatcher)
     {

@@ -8,10 +8,10 @@ partial class BlazorWebView
 
         await CreateWebViewManager();
 
-        if (_webviewManager is null)
+        if (AvaloniaWebViewManager is null)
             return;
 
-        _webviewManager.Navigate(_startAddress);
+        AvaloniaWebViewManager.Navigate(StartAddress);
     }
 
     protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)

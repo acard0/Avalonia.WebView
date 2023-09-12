@@ -1,14 +1,11 @@
-﻿using Avalonia.WebView.Windows;
+﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Avalonia.WebView.Desktop;
+namespace Avalonia.WebView.Windows;
 public static class AppBuilderExtensions
 {
-    public static AppBuilder UseWindowWebView(this AppBuilder appBuilder)
+    public static IServiceCollection AddWindowsWebView2Services(this IServiceCollection services)
     {
-        return appBuilder.AfterPlatformServicesSetup(app =>
-        {
-            WebViewLocator.s_Registrator.RegisterSingleton<IViewHandlerProvider, ViewHandlerProvider>();
-            WebViewLocator.s_Registrator.RegisterSingleton<IPlatformBlazorWebViewProvider, BlazorWebViewHandlerProvider>();
-        });
+        return services.AddSingleton<IViewHandlerProvider, ViewHandlerProvider>()
+            .AddSingleton<IPlatformBlazorWebViewProvider, BlazorWebViewHandlerProvider>();
     }
 }

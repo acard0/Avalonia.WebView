@@ -361,7 +361,7 @@ public class IKSlideshow : NSObject
 	}
 
 	[Export("stopSlideshow:")]
-	public virtual void StopSlideshow(NSObject sender)
+	public virtual void StopSlideshow(NSObject? sender)
 	{
 		if (sender == null)
 		{

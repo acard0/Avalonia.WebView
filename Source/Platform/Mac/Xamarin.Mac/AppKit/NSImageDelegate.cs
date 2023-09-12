@@ -53,7 +53,7 @@ public class NSImageDelegate : NSObject
 	}
 
 	[Export("imageDidNotDraw:inRect:")]
-	public virtual NSImage ImageDidNotDraw(NSObject sender, CGRect aRect)
+	public virtual NSImage ImageDidNotDraw(NSObject? sender, CGRect aRect)
 	{
 		throw new You_Should_Not_Call_base_In_This_Method();
 	}

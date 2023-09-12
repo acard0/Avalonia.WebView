@@ -581,7 +581,7 @@ public class IKImageView : NSView
 	}
 
 	[Export("rotateImageLeft:")]
-	public virtual void RotateImageLeft(NSObject sender)
+	public virtual void RotateImageLeft(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -598,7 +598,7 @@ public class IKImageView : NSView
 	}
 
 	[Export("rotateImageRight:")]
-	public virtual void RotateImageRight(NSObject sender)
+	public virtual void RotateImageRight(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -641,7 +641,7 @@ public class IKImageView : NSView
 	}
 
 	[Export("zoomImageToFit:")]
-	public virtual void ZoomImageToFit(NSObject sender)
+	public virtual void ZoomImageToFit(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -658,7 +658,7 @@ public class IKImageView : NSView
 	}
 
 	[Export("zoomImageToActualSize:")]
-	public virtual void ZoomImageToActualSize(NSObject sender)
+	public virtual void ZoomImageToActualSize(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -675,7 +675,7 @@ public class IKImageView : NSView
 	}
 
 	[Export("zoomIn:")]
-	public virtual void ZoomIn(NSObject sender)
+	public virtual void ZoomIn(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -692,7 +692,7 @@ public class IKImageView : NSView
 	}
 
 	[Export("zoomOut:")]
-	public virtual void ZoomOut(NSObject sender)
+	public virtual void ZoomOut(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -709,7 +709,7 @@ public class IKImageView : NSView
 	}
 
 	[Export("flipImageHorizontal:")]
-	public virtual void FlipImageHorizontal(NSObject sender)
+	public virtual void FlipImageHorizontal(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -726,7 +726,7 @@ public class IKImageView : NSView
 	}
 
 	[Export("flipImageVertical:")]
-	public virtual void FlipImageVertical(NSObject sender)
+	public virtual void FlipImageVertical(NSObject? sender)
 	{
 		if (sender == null)
 		{
@@ -743,7 +743,7 @@ public class IKImageView : NSView
 	}
 
 	[Export("crop:")]
-	public virtual void Crop(NSObject sender)
+	public virtual void Crop(NSObject? sender)
 	{
 		if (sender == null)
 		{

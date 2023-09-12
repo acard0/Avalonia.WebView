@@ -2,12 +2,23 @@
 
 public partial class WebView2Core : IPlatformWebView<WebView2Core>
 {
+    private readonly IVirtualBlazorWebViewProvider? _provider;
+    private readonly IVirtualWebViewControlCallBack _callBack;
+    private readonly ViewHandler _handler;
+    private readonly TaskCompletionSource<IntPtr> _hwndTaskSource;
+
+    private bool _browserHitTransparent;
+    private bool _browserCrashed;
+    private bool _isInitialized = false;
+    private bool _isDisposed = false;
+    private bool _isBlazorWebView;
+
     public WebView2Core(ViewHandler handler, IVirtualWebViewControlCallBack callback, IVirtualBlazorWebViewProvider? provider, WebViewCreationProperties webViewCreationProperties)
     {
         _hwndTaskSource = new();
         _callBack = callback;
         _handler = handler;
-        _creationProperties = webViewCreationProperties;
+        CreationProperties = webViewCreationProperties;
         _provider = provider;
 
         if (handler.RefHandler.Handle != IntPtr.Zero)
@@ -25,34 +36,24 @@ public partial class WebView2Core : IPlatformWebView<WebView2Core>
         Dispose(disposing: false);
     }
 
-    readonly IVirtualBlazorWebViewProvider? _provider;
-    readonly IVirtualWebViewControlCallBack _callBack;
-    readonly ViewHandler _handler;
-    readonly WebViewCreationProperties _creationProperties;
-    readonly TaskCompletionSource<IntPtr> _hwndTaskSource;
-
-    bool _browserHitTransparent;
-    bool _browserCrashed;
-
-    bool _isBlazorWebView = false;
-
-    bool _isInitialized = false;
     public bool IsInitialized
     {
         get => Volatile.Read(ref _isInitialized);
         private set => Volatile.Write(ref _isInitialized, value);
     }
 
-    bool _isDisposed = false;
     public bool IsDisposed
     {
         get => Volatile.Read(ref _isDisposed);
         private set => Volatile.Write(ref _isDisposed, value);
     }
+
+    public bool IsBlazorWebView => _isBlazorWebView;
  
-    CoreWebView2Environment? _coreWebView2Environment { get; set; }
-    CoreWebView2Controller? _coreWebView2Controller { get; set; }
-    CoreWebView2ControllerOptions? _controllerOptions { get; set; }
+    public WebViewCreationProperties CreationProperties { get; private set; }
+    public CoreWebView2Environment? CoreWebView2Environment { get; set; }
+    public CoreWebView2Controller? CoreWebView2Controller { get; set; }
+    public CoreWebView2ControllerOptions? ControllerOptions { get; set; }
 
     [Browsable(false)]
     public CoreWebView2? CoreWebView2
@@ -61,7 +62,7 @@ public partial class WebView2Core : IPlatformWebView<WebView2Core>
         {
             VerifyNotDisposed();
             VerifyBrowserNotCrashed();
-            return _coreWebView2Controller?.CoreWebView2;
+            return CoreWebView2Controller?.CoreWebView2;
         }
     }
 }

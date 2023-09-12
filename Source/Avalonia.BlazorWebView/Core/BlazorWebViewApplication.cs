@@ -1,18 +1,24 @@
-﻿namespace AvaloniaBlazorWebView.Core;
+﻿using AvaloniaBlazorWebView.Shared.Configurations;
+using Microsoft.Extensions.Options;
+
+namespace AvaloniaBlazorWebView.Core;
 
 internal class BlazorWebViewApplication : IBlazorWebViewApplication
 {
-    public BlazorWebViewApplication(Action<IServiceCollection>? injectDelegate, Action<BlazorWebViewSetting> configDelegate)
+    public BlazorWebViewApplication(IServiceProvider services)
     {
-        _serviceCollection = new ServiceCollection();
-        injectDelegate?.Invoke(_serviceCollection);
-        _serviceCollection.AddOptions<BlazorWebViewSetting>().Configure(configDelegate);
-        _serviceCollection.AddBlazorWebView()
-                          .AddSingleton<JSComponentConfigurationStore>()
-                          .AddSingleton<AvaloniaDispatcher>(provider => new AvaloniaDispatcher(AvaloniaUIDispatcher.UIThread))
-                          .AddSingleton<IJSComponentConfiguration>(provider =>new JsComponentConfigration(provider.GetRequiredService<JSComponentConfigurationStore>()));
+        ServiceProvider = services;
     }
 
-    readonly IServiceCollection _serviceCollection;
-    public IServiceProvider ServiceProvider => _serviceCollection.BuildServiceProvider();
+    public IServiceProvider ServiceProvider { get; }
+
+    public WebViewCreationProperties WebViewProperties => ServiceProvider.GetService<WebViewCreationProperties>()!;
+    public BlazorWebViewSetting BlazorWebViewProperties => ServiceProvider.GetService<IOptions<BlazorWebViewSetting>>()!.Value!;
+    
+    public IViewHandlerProvider ViewHandlerProvider => ServiceProvider.GetService<IViewHandlerProvider>()!;
+    public IPlatformBlazorWebViewProvider PlatformBlazorWebViewProvider => ServiceProvider.GetService<IPlatformBlazorWebViewProvider>()!;
+
+    public AvaloniaDispatcher AvaloniaDispatcher => ServiceProvider.GetService<AvaloniaDispatcher>()!;
+    public JSComponentConfigurationStore JSComponentConfigurationStore => ServiceProvider.GetService<JSComponentConfigurationStore>()!;
+    
 }

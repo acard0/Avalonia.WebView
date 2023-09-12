@@ -1,17 +1,18 @@
 ﻿namespace AvaloniaBlazorWebView.Core;
 
-internal class AvaloniaWebViewManager : WebViewManager, IVirtualBlazorWebViewProvider
+public class AvaloniaWebViewManager : WebViewManager, IVirtualBlazorWebViewProvider
 {
-    public AvaloniaWebViewManager(BlazorWebView webview,
-                                  IServiceProvider provider,
-                                  Dispatcher dispatcher,
-                                  string appScheme,
-                                  string appHostAddress,
-                                  Uri appBaseUri,
-                                  IFileProvider fileProvider,
-                                  JSComponentConfigurationStore jsComponents,
-                                  string contentRootDirToAppRoot,
-                                  string hostPageRelativePath)
+    public AvaloniaWebViewManager(
+            BlazorWebView webview,
+            IServiceProvider provider,
+            Dispatcher dispatcher,
+            string appScheme,
+            string appHostAddress,
+            Uri appBaseUri,
+            IFileProvider fileProvider,
+            JSComponentConfigurationStore jsComponents,
+            string contentRootDirToAppRoot,
+            string hostPageRelativePath)
          : base(provider, dispatcher, appBaseUri, fileProvider, jsComponents, hostPageRelativePath)
     {
         _blazorWebView = webview;
@@ -23,6 +24,8 @@ internal class AvaloniaWebViewManager : WebViewManager, IVirtualBlazorWebViewPro
         _appBaseUri = appBaseUri;
         _messageQueue = Channel.CreateUnbounded<string>(new UnboundedChannelOptions() { SingleReader = true, SingleWriter = false, AllowSynchronousContinuations = false });
         _handleMessageTask = Task.Factory.StartNew(MessageReadProgress, TaskCreationOptions.LongRunning);
+
+        Console.WriteLine($">>> Avalonia Web View Manager created. Platform handler instance: {provider.GetService<IPlatformBlazorWebViewProvider>()}");
     }
 
     readonly string _contentRootDirPath;

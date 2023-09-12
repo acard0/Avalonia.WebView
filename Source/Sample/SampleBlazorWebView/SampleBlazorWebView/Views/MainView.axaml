@@ -6,6 +6,4 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="SampleBlazorWebView.Views.MainView" >
 	
-	<BlazorWebView HostPage="wwwroot/index.html"/>
-	
 </UserControl>

@@ -820,7 +820,7 @@ public class NSFontManager : NSObject
 	}
 
 	[Export("addFontTrait:")]
-	public virtual void AddFontTrait(NSObject sender)
+	public virtual void AddFontTrait(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -838,7 +838,7 @@ public class NSFontManager : NSObject
 	}
 
 	[Export("removeFontTrait:")]
-	public virtual void RemoveFontTrait(NSObject sender)
+	public virtual void RemoveFontTrait(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -856,7 +856,7 @@ public class NSFontManager : NSObject
 	}
 
 	[Export("modifyFontViaPanel:")]
-	public virtual void ModifyFontViaPanel(NSObject sender)
+	public virtual void ModifyFontViaPanel(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -874,7 +874,7 @@ public class NSFontManager : NSObject
 	}
 
 	[Export("modifyFont:")]
-	public virtual void ModifyFont(NSObject sender)
+	public virtual void ModifyFont(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -892,7 +892,7 @@ public class NSFontManager : NSObject
 	}
 
 	[Export("orderFrontFontPanel:")]
-	public virtual void OrderFrontFontPanel(NSObject sender)
+	public virtual void OrderFrontFontPanel(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -910,7 +910,7 @@ public class NSFontManager : NSObject
 	}
 
 	[Export("orderFrontStylesPanel:")]
-	public virtual void OrderFrontStylesPanel(NSObject sender)
+	public virtual void OrderFrontStylesPanel(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

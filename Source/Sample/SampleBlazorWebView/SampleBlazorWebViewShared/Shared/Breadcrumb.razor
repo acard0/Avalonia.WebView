@@ -22,7 +22,7 @@
 
 @code {
 
-    private List<BreadcrumbItem> _items = new();
+    private List<BlazorComponent.BreadcrumbItem> _items = new();
 
     protected override void OnInitialized()
     {
@@ -48,7 +48,7 @@
 
     private void GetBreadcrumbItems()
     {
-        var items = new List<BreadcrumbItem>();
+        var items = new List<BlazorComponent.BreadcrumbItem>();
 
         var currentNav = NavHelper.SameLevelNavs.FirstOrDefault(n => n.Href is not null && NavigationManager.Uri.Contains(n.Href));
 
@@ -57,10 +57,10 @@
             if (currentNav.ParentId != 0)
             {
                 var parentNav = NavHelper.SameLevelNavs.First(n => n.Id == currentNav.ParentId);
-                items.Add(new BreadcrumbItem { Text = parentNav.Title, Href = "/" + (parentNav.Href ?? parentNav.Children?.FirstOrDefault()?.Href ?? ""), Exact = true });
+                items.Add(new BlazorComponent.BreadcrumbItem { Text = parentNav.Title, Href = "/" + (parentNav.Href ?? parentNav.Children?.FirstOrDefault()?.Href ?? ""), Exact = true });
             }
 
-            items.Add(new BreadcrumbItem { Text = currentNav.Title, Href = "/" + currentNav.Href, Exact = true });
+            items.Add(new BlazorComponent.BreadcrumbItem { Text = currentNav.Title, Href = "/" + currentNav.Href, Exact = true });
 
             items.Last().Href = "/" + currentNav.Href;
             items.Last().Disabled = true;

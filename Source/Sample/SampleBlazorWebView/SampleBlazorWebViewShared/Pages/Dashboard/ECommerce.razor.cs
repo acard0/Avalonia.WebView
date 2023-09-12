@@ -393,6 +393,11 @@ public partial class ECommerce : ProComponentBase
         OnPropertyChanged();
     }
 
+    private void HandleViewClick(MouseEventArgs e)
+    {
+
+    }
+
     public void Dispose()
     {
         MasaBlazor.Breakpoint.OnUpdate -= OnPropertyChanged;

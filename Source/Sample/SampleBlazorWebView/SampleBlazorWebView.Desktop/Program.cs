@@ -20,6 +20,5 @@ internal class Program
             .UsePlatformDetect()
             .LogToTrace()
             .UseReactiveUI()
-            .UseAntDesignToolkit()
-            .UseDesktopWebView(false);
+            .UseAntDesignToolkit();
 }

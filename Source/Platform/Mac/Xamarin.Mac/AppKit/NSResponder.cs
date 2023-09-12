@@ -852,7 +852,7 @@ public class NSResponder : NSObject
 	}
 
 	[Export("showContextHelp:")]
-	public virtual void ShowContextHelp(NSObject sender)
+	public virtual void ShowContextHelp(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

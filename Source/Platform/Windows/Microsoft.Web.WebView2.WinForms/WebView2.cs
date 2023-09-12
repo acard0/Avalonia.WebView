@@ -458,21 +458,21 @@ public class WebView2 : Control, ISupportInitialize
         }
     }
 
-    private void WebView2_HandleCreated(object sender, EventArgs e)
+    private void WebView2_HandleCreated(object? sender, EventArgs e)
     {
         _coreWebView2Controller.ParentWindow = base.Handle;
         _coreWebView2Controller.IsVisible = base.Visible;
     }
 
-    private void WebView2_HandleDestroyed(object sender, EventArgs e)
+    private void WebView2_HandleDestroyed(object? sender, EventArgs e)
     {
         _coreWebView2Controller.IsVisible = false;
         _coreWebView2Controller.ParentWindow = IntPtr.Zero;
     }
   
-    private void WebView2_WindowPositionChanged(object sender, EventArgs e) => _coreWebView2Controller?.NotifyParentWindowPositionChanged();
+    private void WebView2_WindowPositionChanged(object? sender, EventArgs e) => _coreWebView2Controller?.NotifyParentWindowPositionChanged();
 
-    private void _coreWebView2Controller_KeyPressed(object sender, CoreWebView2PrivateKeyPressedEventArgs e)
+    private void _coreWebView2Controller_KeyPressed(object? sender, CoreWebView2PrivateKeyPressedEventArgs e)
     {
         switch (e.KeyEventKind)
         {
@@ -495,7 +495,7 @@ public class WebView2 : Control, ISupportInitialize
         }
     }
 
-    private void _coreWebView2Controller_AcceleratorKeyPressed(object sender, CoreWebView2AcceleratorKeyPressedEventArgs e)
+    private void _coreWebView2Controller_AcceleratorKeyPressed(object? sender, CoreWebView2AcceleratorKeyPressedEventArgs e)
     {
         switch (e.KeyEventKind)
         {
@@ -518,7 +518,7 @@ public class WebView2 : Control, ISupportInitialize
         }
     }
 
-    private void CoreWebView2Controller_MoveFocusRequested(object sender, CoreWebView2MoveFocusRequestedEventArgs e)
+    private void CoreWebView2Controller_MoveFocusRequested(object? sender, CoreWebView2MoveFocusRequestedEventArgs e)
     {
         bool forward = e.Reason == CoreWebView2MoveFocusReason.Next || e.Reason == CoreWebView2MoveFocusReason.Programmatic;
         e.Handled = (FindForm() ?? base.Parent)?.SelectNextControl(this, forward, tabStopOnly: true, nested: true, wrap: true) ?? true;
@@ -661,27 +661,27 @@ public class WebView2 : Control, ISupportInitialize
             throw new InvalidOperationException("The instance of CoreWebView2 is no longer valid because the browser process crashed.To work around this, please listen for the ProcessFailed event to explicitly manage the lifetime of the WebView2 control in the event of a browser failure.https://docs.microsoft.com/en-us/dotnet/api/microsoft.web.webview2.core.corewebview2.processfailed");
     }
 
-    private void CoreWebView2_NavigationStarting(object sender, CoreWebView2NavigationStartingEventArgs e) => NavigationStarting?.Invoke(this, e);
+    private void CoreWebView2_NavigationStarting(object? sender, CoreWebView2NavigationStartingEventArgs e) => NavigationStarting?.Invoke(this, e);
 
-    private void CoreWebView2_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e) => NavigationCompleted?.Invoke(this, e);
+    private void CoreWebView2_NavigationCompleted(object? sender, CoreWebView2NavigationCompletedEventArgs e) => NavigationCompleted?.Invoke(this, e);
 
-    private void CoreWebView2_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e) => WebMessageReceived?.Invoke(this, e);
+    private void CoreWebView2_WebMessageReceived(object? sender, CoreWebView2WebMessageReceivedEventArgs e) => WebMessageReceived?.Invoke(this, e);
 
-    private void CoreWebView2_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
+    private void CoreWebView2_SourceChanged(object? sender, CoreWebView2SourceChangedEventArgs e)
     {
         _source = new Uri(CoreWebView2.Source);
         SourceChanged?.Invoke(this, e);
     }
 
-    private void CoreWebView2_ContentLoading(object sender, CoreWebView2ContentLoadingEventArgs e) => ContentLoading?.Invoke(this, e);
+    private void CoreWebView2_ContentLoading(object? sender, CoreWebView2ContentLoadingEventArgs e) => ContentLoading?.Invoke(this, e);
 
-    private void CoreWebView2_ProcessFailed(object sender, CoreWebView2ProcessFailedEventArgs e)
+    private void CoreWebView2_ProcessFailed(object? sender, CoreWebView2ProcessFailedEventArgs e)
     {
         if (e.ProcessFailedKind == CoreWebView2ProcessFailedKind.BrowserProcessExited)
             UnsubscribeHandlersAndCloseController(browserCrashed: true);
     }
 
-    private void _coreWebView2Controller_ZoomFactorChanged(object sender, object e)
+    private void _coreWebView2Controller_ZoomFactorChanged(object? sender, object e)
     {
         _zoomFactor = _coreWebView2Controller.ZoomFactor;
         this.ZoomFactorChanged?.Invoke(this, EventArgs.Empty);

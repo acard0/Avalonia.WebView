@@ -405,7 +405,7 @@ public class NSProgressIndicator : NSView
 	}
 
 	[Export("startAnimation:")]
-	public virtual void StartAnimation(NSObject sender)
+	public virtual void StartAnimation(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (IsDirectBinding)
@@ -419,7 +419,7 @@ public class NSProgressIndicator : NSView
 	}
 
 	[Export("stopAnimation:")]
-	public virtual void StopAnimation(NSObject sender)
+	public virtual void StopAnimation(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (IsDirectBinding)

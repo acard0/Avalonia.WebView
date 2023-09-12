@@ -15,6 +15,6 @@ internal static class BlazorScriptHelper
 
     public const string BlazorStaredScript =
         """
-            Blazor.start();
+           
         """;
 }

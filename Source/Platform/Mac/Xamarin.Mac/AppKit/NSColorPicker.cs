@@ -168,7 +168,7 @@ public class NSColorPicker : NSObject
 	}
 
 	[Export("viewSizeChanged:")]
-	public virtual void ViewSizeChanged(NSObject sender)
+	public virtual void ViewSizeChanged(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

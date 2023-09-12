@@ -299,7 +299,7 @@ public class IKFilterBrowserPanel : NSPanel
 	}
 
 	[Export("finish:")]
-	public virtual void Finish(NSObject sender)
+	public virtual void Finish(NSObject? sender)
 	{
 		if (sender == null)
 		{

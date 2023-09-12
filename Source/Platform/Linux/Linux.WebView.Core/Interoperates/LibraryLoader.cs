@@ -24,6 +24,7 @@ internal class LibraryLoader
     }
 
     public static IntPtr LoadFunction<T>(T @delegate)
+        where T: notnull
     {
         if (@delegate is null)
             return IntPtr.Zero;

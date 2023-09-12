@@ -7,9 +7,5 @@
         xmlns:blazor="http://schemas.microsoft.com/winfx/2006/xaml/presentation/blazor"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <blazor:BlazorWebView HostPage="wwwroot\index.html" Services="{StaticResource services1}" x:Name="blazorWebView1">
-
-        </blazor:BlazorWebView>
-    </Grid>
+    
 </Window>

@@ -40,7 +40,7 @@ internal class LinuxDispatcher : ILinuxDispatcher
         return task.Task;
     }
     
-    Task<bool> ILinuxDispatcher.InvokeAsync(Action<object, EventArgs> action)
+    Task<bool> ILinuxDispatcher.InvokeAsync(Action<object?, EventArgs> action)
     {
         if (action is null)
             throw new ArgumentNullException(nameof(action));
@@ -60,7 +60,7 @@ internal class LinuxDispatcher : ILinuxDispatcher
         return task.Task;
     }
     
-    Task<bool> ILinuxDispatcher.InvokeAsync(object sender, EventArgs args, Action<object, EventArgs> action)
+    Task<bool> ILinuxDispatcher.InvokeAsync(object? sender, EventArgs args, Action<object?, EventArgs> action)
     {
         if (action is null)
             throw new ArgumentNullException(nameof(action));
@@ -100,7 +100,7 @@ internal class LinuxDispatcher : ILinuxDispatcher
         return task.Task;
     }
     
-    Task<T> ILinuxDispatcher.InvokeAsync<T>(Func<object, EventArgs, T> func)
+    Task<T> ILinuxDispatcher.InvokeAsync<T>(Func<object?, EventArgs, T> func)
     {
         if (func is null)
             throw new ArgumentNullException(nameof(func));
@@ -120,7 +120,7 @@ internal class LinuxDispatcher : ILinuxDispatcher
         return task.Task;
     }
     
-    Task<T> ILinuxDispatcher.InvokeAsync<T>(object sender, EventArgs args, Func<object, EventArgs, T> func)
+    Task<T> ILinuxDispatcher.InvokeAsync<T>(object? sender, EventArgs args, Func<object?, EventArgs, T> func)
     {
         if (func is null)
             throw new ArgumentNullException(nameof(func));

@@ -1,7 +1,6 @@
-﻿using Avalonia;
-using AntDesign.Toolkit;
+﻿using AntDesign.Toolkit;
+using Avalonia;
 using Avalonia.ReactiveUI;
-using Avalonia.WebView.DesktopX;
 
 namespace SampleWebView.Desktop;
 
@@ -26,6 +25,5 @@ internal class Program
             })
             .LogToTrace()  
             .UseReactiveUI()
-            .UseAntDesignToolkit()
-            .UseDesktopWebView();
+            .UseAntDesignToolkit();
 }

@@ -5,18 +5,19 @@ namespace Avalonia.WebView.Linux;
 
 internal class ViewHandlerProvider : IViewHandlerProvider
 {
-    public ViewHandlerProvider()
+    private readonly ILinuxApplication _linuxApplication;
+
+    public ViewHandlerProvider(ILinuxApplication app)
     {
-        _linuxApplication = WebViewLocator.s_ResolverContext.GetRequiredService<ILinuxApplication>();
-        var bRet = _linuxApplication.RunAsync(default, default).Result;
-        if (!bRet)
-            throw new ArgumentNullException(nameof(ILinuxApplication), "create gtk application failed!");
+        _linuxApplication = app;
+
+        var bRet = app.RunAsync(default, default).Result;
+        if (!bRet) throw new ArgumentNullException(nameof(ILinuxApplication), "create gtk application failed!");
 
         if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime deskTop)
             deskTop.ShutdownRequested += DeskTop_ShutdownRequested;
     }
 
-    readonly ILinuxApplication _linuxApplication;
 
     IViewHandler IViewHandlerProvider.CreatePlatformWebViewHandler(IVirtualWebView virtualView, IVirtualWebViewControlCallBack virtualViewCallBack, IVirtualBlazorWebViewProvider? provider, Action<WebViewCreationProperties>? configDelegate)
     {
@@ -26,9 +27,8 @@ internal class ViewHandlerProvider : IViewHandlerProvider
         return new WebViewHandler(_linuxApplication, virtualView, virtualViewCallBack, provider, creatonProperty);
     }
 
-    private void DeskTop_ShutdownRequested(object sender, ShutdownRequestedEventArgs e)
+    private void DeskTop_ShutdownRequested(object? sender, ShutdownRequestedEventArgs e)
     {
         _linuxApplication.Dispose();
     }
-
 }

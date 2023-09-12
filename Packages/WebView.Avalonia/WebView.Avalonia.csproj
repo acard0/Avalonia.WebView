@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
 		<OutputPath>$(RepositoryDirectory)_webview\</OutputPath>
 	</PropertyGroup>
 
@@ -81,16 +81,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\Source\Avalonia.WebView\Avalonia.WebView.csproj" >
+		<ProjectReference Include="..\..\Source\Avalonia.WebView\Avalonia.WebView.csproj">
 			<PrivateAssets>all</PrivateAssets>
 		</ProjectReference>
-		<ProjectReference Include="..\..\Source\AvaloniaWebView.Shared\AvaloniaWebView.Shared.csproj" >
+		<ProjectReference Include="..\..\Source\AvaloniaWebView.Shared\AvaloniaWebView.Shared.csproj">
 			<PrivateAssets>all</PrivateAssets>
 		</ProjectReference>
-		<ProjectReference Include="..\..\Source\DryIoc.Shared\DryIoc.Shared.csproj" >
-			<PrivateAssets>all</PrivateAssets>
-		</ProjectReference>
-		<ProjectReference Include="..\..\Source\WebView.Core\WebView.Core.csproj" >
+		<ProjectReference Include="..\..\Source\WebView.Core\WebView.Core.csproj">
 			<PrivateAssets>all</PrivateAssets>
 		</ProjectReference>
 	</ItemGroup>

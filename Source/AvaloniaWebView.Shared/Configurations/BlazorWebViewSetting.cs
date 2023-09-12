@@ -1,4 +1,6 @@
-﻿namespace AvaloniaBlazorWebView.Configurations;
+﻿using System.Reflection;
+
+namespace AvaloniaBlazorWebView.Shared.Configurations;
 public class BlazorWebViewSetting
 {
     public string WWWRoot { get; set; } = "wwwroot";
@@ -8,10 +10,5 @@ public class BlazorWebViewSetting
     public Type? ComponentType { get; set; }
     public string? Selector { get; set; }
 
-    /// <summary>
-    /// 支持使用资源加载
-    /// </summary>
-    //public bool IsAvaloniaResource { get; set; }
     public Assembly? ResourceAssembly { get; set; }
-
 }

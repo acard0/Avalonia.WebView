@@ -467,7 +467,7 @@ public class NSObjectController : NSController
 	}
 
 	[Export("add:")]
-	public virtual void Add(NSObject sender)
+	public virtual void Add(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -485,7 +485,7 @@ public class NSObjectController : NSController
 	}
 
 	[Export("remove:")]
-	public virtual void Remove(NSObject sender)
+	public virtual void Remove(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -518,7 +518,7 @@ public class NSObjectController : NSController
 	}
 
 	[Export("fetch:")]
-	public virtual void Fetch(NSObject sender)
+	public virtual void Fetch(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

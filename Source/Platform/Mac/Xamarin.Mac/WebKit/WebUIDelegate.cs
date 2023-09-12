@@ -216,7 +216,7 @@ public class WebUIDelegate : NSObject
 	}
 
 	[Export("webView:shouldPerformAction:fromSender:")]
-	public virtual bool UIShouldPerformActionfromSender(WebView webView, Selector action, NSObject sender)
+	public virtual bool UIShouldPerformActionfromSender(WebView webView, Selector action, NSObject? sender)
 	{
 		throw new You_Should_Not_Call_base_In_This_Method();
 	}

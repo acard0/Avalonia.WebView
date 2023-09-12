@@ -204,7 +204,7 @@ public class NSColorWell : NSControl
 	}
 
 	[Export("takeColorFrom:")]
-	public virtual void TakeColorFrom(NSObject sender)
+	public virtual void TakeColorFrom(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

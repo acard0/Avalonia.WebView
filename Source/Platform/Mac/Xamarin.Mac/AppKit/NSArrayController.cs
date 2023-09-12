@@ -531,7 +531,7 @@ public class NSArrayController : NSObjectController
 	}
 
 	[Export("add:")]
-	public new virtual void Add(NSObject sender)
+	public new virtual void Add(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -549,7 +549,7 @@ public class NSArrayController : NSObjectController
 	}
 
 	[Export("remove:")]
-	public virtual void RemoveOp(NSObject sender)
+	public virtual void RemoveOp(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -567,7 +567,7 @@ public class NSArrayController : NSObjectController
 	}
 
 	[Export("insert:")]
-	public virtual void Insert(NSObject sender)
+	public virtual void Insert(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -596,7 +596,7 @@ public class NSArrayController : NSObjectController
 	}
 
 	[Export("selectNext:")]
-	public virtual void SelectNext(NSObject sender)
+	public virtual void SelectNext(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -614,7 +614,7 @@ public class NSArrayController : NSObjectController
 	}
 
 	[Export("selectPrevious:")]
-	public virtual void SelectPrevious(NSObject sender)
+	public virtual void SelectPrevious(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

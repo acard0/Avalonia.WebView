@@ -4082,7 +4082,7 @@ public class NSView : NSResponder
 	}
 
 	[Export("print:")]
-	public virtual void Print(NSObject sender)
+	public virtual void Print(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

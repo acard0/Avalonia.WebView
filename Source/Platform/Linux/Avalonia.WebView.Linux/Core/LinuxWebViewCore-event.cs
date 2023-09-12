@@ -16,12 +16,12 @@ unsafe partial class LinuxWebViewCore
         _handler.PlatformHandlerChanged -= Handler_PlatformHandlerChanged;
     }
 
-    private void HostControl_SizeChanged(object sender, SizeChangedEventArgs e)
+    private void HostControl_SizeChanged(object? sender, SizeChangedEventArgs e)
     {
 
     }
 
-    private void Handler_PlatformHandlerChanged(object sender, EventArgs e)
+    private void Handler_PlatformHandlerChanged(object? sender, EventArgs e)
     {
 
     }

@@ -580,7 +580,7 @@ public class NSDrawer : NSResponder
 	}
 
 	[Export("open:")]
-	public virtual void Open(NSObject sender)
+	public virtual void Open(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -598,7 +598,7 @@ public class NSDrawer : NSResponder
 	}
 
 	[Export("close:")]
-	public virtual void Close(NSObject sender)
+	public virtual void Close(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -616,7 +616,7 @@ public class NSDrawer : NSResponder
 	}
 
 	[Export("toggle:")]
-	public virtual void Toggle(NSObject sender)
+	public virtual void Toggle(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

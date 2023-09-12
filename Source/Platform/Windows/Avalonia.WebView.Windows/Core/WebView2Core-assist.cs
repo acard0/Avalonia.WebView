@@ -74,9 +74,9 @@ partial class WebView2Core
         if (coreWebView2 is null)
             return;
 
-        coreWebView2.Settings.AreDevToolsEnabled = _creationProperties.AreDevToolEnabled;
-        coreWebView2.Settings.AreDefaultContextMenusEnabled = _creationProperties.AreDefaultContextMenusEnabled;
-        coreWebView2.Settings.IsStatusBarEnabled = _creationProperties.IsStatusBarEnabled;
+        coreWebView2.Settings.AreDevToolsEnabled = CreationProperties.AreDevToolEnabled;
+        coreWebView2.Settings.AreDefaultContextMenusEnabled = CreationProperties.AreDefaultContextMenusEnabled;
+        coreWebView2.Settings.IsStatusBarEnabled = CreationProperties.IsStatusBarEnabled;
     }
  
 }

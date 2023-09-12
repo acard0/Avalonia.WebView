@@ -12,9 +12,11 @@ partial class BlazorWebView
 
     async Task<bool> CreateWebViewManager()
     {
+        Console.WriteLine($"Creating Web View Manager");
+
         CheckDisposed();
 
-        if (_webviewManager is not null)
+        if (AvaloniaWebViewManager is not null)
             return true;
 
         if (string.IsNullOrEmpty(HostPage))
@@ -46,22 +48,22 @@ partial class BlazorWebView
         //if (_setting.IsAvaloniaResource)
         //    fileProvider = new AvaloniaResourceFileProvider(_setting.ResourceAssembly!, contentRootDir);
         //else
-        var fileProvider = _platformBlazorWebViewProvider.CreateFileProvider(_setting.ResourceAssembly, contentRootDirFullPath);
-        var webViewManager = new AvaloniaWebViewManager(this, _serviceProvider, _dispatcher, _appScheme, _appHostAddress, _baseUri, fileProvider, _jsComponents, contentRootDirFullPath, hostPageRelativePath);
+        var fileProvider = PlatformBlazorWebViewProvider.CreateFileProvider(BlazorWebViewProperties.ResourceAssembly, contentRootDirFullPath);
+        var webViewManager = new AvaloniaWebViewManager(this, Services, Dispatcher, AppScheme, AppHostAddress, HostUri, fileProvider, JSComponents, contentRootDirFullPath, hostPageRelativePath);
         //StaticContentHotReloadManager.AttachToWebViewManagerIfEnabled(webviewManager);
 
-        var viewHandler = _viewHandlerProvider.CreatePlatformWebViewHandler(this, this, webViewManager, config =>
+        var viewHandler = ViewHandlerProvider.CreatePlatformWebViewHandler(this, this, webViewManager, config =>
         {
-            config.AreDevToolEnabled = _creationProperties.AreDevToolEnabled;
-            config.AreDefaultContextMenusEnabled = _creationProperties.AreDefaultContextMenusEnabled;
-            config.IsStatusBarEnabled = _creationProperties.IsStatusBarEnabled;
-            config.BrowserExecutableFolder = _creationProperties.BrowserExecutableFolder;
-            config.UserDataFolder = _creationProperties.UserDataFolder;
-            config.Language = _creationProperties.Language;
-            config.AdditionalBrowserArguments = _creationProperties.AdditionalBrowserArguments;
-            config.ProfileName = _creationProperties.ProfileName;
-            config.IsInPrivateModeEnabled = _creationProperties.IsInPrivateModeEnabled;
-            config.DefaultWebViewBackgroundColor = _creationProperties.DefaultWebViewBackgroundColor;
+            config.AreDevToolEnabled = CreationProperties.AreDevToolEnabled;
+            config.AreDefaultContextMenusEnabled = CreationProperties.AreDefaultContextMenusEnabled;
+            config.IsStatusBarEnabled = CreationProperties.IsStatusBarEnabled;
+            config.BrowserExecutableFolder = CreationProperties.BrowserExecutableFolder;
+            config.UserDataFolder = CreationProperties.UserDataFolder;
+            config.Language = CreationProperties.Language;
+            config.AdditionalBrowserArguments = CreationProperties.AdditionalBrowserArguments;
+            config.ProfileName = CreationProperties.ProfileName;
+            config.IsInPrivateModeEnabled = CreationProperties.IsInPrivateModeEnabled;
+            config.DefaultWebViewBackgroundColor = CreationProperties.DefaultWebViewBackgroundColor;
         });
 
         if (viewHandler is null)
@@ -71,8 +73,7 @@ partial class BlazorWebView
         if (control is null)
             return false;
 
-        _platformWebView = viewHandler.PlatformWebView;
-        if (_platformWebView is null)
+        if ((_platformWebView = viewHandler.PlatformWebView)  is null)
             return false;
 
         Child = control;
@@ -83,7 +84,7 @@ partial class BlazorWebView
         foreach (var rootComponent in RootComponents)
             await rootComponent.AddToWebViewManagerAsync(webViewManager);
 
-        _webviewManager = webViewManager;
+        _avaloniaWebViewManager = webViewManager;
         return true;
     }
 

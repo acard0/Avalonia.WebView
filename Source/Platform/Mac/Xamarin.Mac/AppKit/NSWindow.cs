@@ -108,7 +108,7 @@ public class NSWindow : NSResponder
 		internal EventHandler didExitVersionBrowser;
 
 		[Preserve(Conditional = true)]
-		public override bool WindowShouldClose(NSObject sender)
+		public override bool WindowShouldClose(NSObject? sender)
 		{
 			return windowShouldClose?.Invoke(sender) ?? true;
 		}
@@ -4663,7 +4663,7 @@ public class NSWindow : NSResponder
 	}
 
 	[Export("miniaturize:")]
-	public virtual void Miniaturize(NSObject sender)
+	public virtual void Miniaturize(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -4681,7 +4681,7 @@ public class NSWindow : NSResponder
 	}
 
 	[Export("deminiaturize:")]
-	public virtual void Deminiaturize(NSObject sender)
+	public virtual void Deminiaturize(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -4699,7 +4699,7 @@ public class NSWindow : NSResponder
 	}
 
 	[Export("zoom:")]
-	public virtual void Zoom(NSObject sender)
+	public virtual void Zoom(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -4820,7 +4820,7 @@ public class NSWindow : NSResponder
 	}
 
 	[Export("makeKeyAndOrderFront:")]
-	public virtual void MakeKeyAndOrderFront(NSObject sender)
+	public virtual void MakeKeyAndOrderFront(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (IsDirectBinding)
@@ -4834,7 +4834,7 @@ public class NSWindow : NSResponder
 	}
 
 	[Export("orderFront:")]
-	public virtual void OrderFront(NSObject sender)
+	public virtual void OrderFront(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (IsDirectBinding)
@@ -4848,7 +4848,7 @@ public class NSWindow : NSResponder
 	}
 
 	[Export("orderBack:")]
-	public virtual void OrderBack(NSObject sender)
+	public virtual void OrderBack(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (IsDirectBinding)
@@ -4862,7 +4862,7 @@ public class NSWindow : NSResponder
 	}
 
 	[Export("orderOut:")]
-	public virtual void OrderOut(NSObject sender)
+	public virtual void OrderOut(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (IsDirectBinding)
@@ -5021,7 +5021,7 @@ public class NSWindow : NSResponder
 	}
 
 	[Export("performClose:")]
-	public virtual void PerformClose(NSObject sender)
+	public virtual void PerformClose(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -5039,7 +5039,7 @@ public class NSWindow : NSResponder
 	}
 
 	[Export("performMiniaturize:")]
-	public virtual void PerformMiniaturize(NSObject sender)
+	public virtual void PerformMiniaturize(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -5057,7 +5057,7 @@ public class NSWindow : NSResponder
 	}
 
 	[Export("performZoom:")]
-	public virtual void PerformZoom(NSObject sender)
+	public virtual void PerformZoom(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -5122,7 +5122,7 @@ public class NSWindow : NSResponder
 	}
 
 	[Export("print:")]
-	public virtual void Print(NSObject sender)
+	public virtual void Print(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -5576,7 +5576,7 @@ public class NSWindow : NSResponder
 	}
 
 	[Export("selectNextKeyView:")]
-	public virtual void SelectNextKeyView(NSObject sender)
+	public virtual void SelectNextKeyView(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -5594,7 +5594,7 @@ public class NSWindow : NSResponder
 	}
 
 	[Export("selectPreviousKeyView:")]
-	public virtual void SelectPreviousKeyView(NSObject sender)
+	public virtual void SelectPreviousKeyView(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -5701,7 +5701,7 @@ public class NSWindow : NSResponder
 	}
 
 	[Export("toggleToolbarShown:")]
-	public virtual void ToggleToolbarShown(NSObject sender)
+	public virtual void ToggleToolbarShown(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -5719,7 +5719,7 @@ public class NSWindow : NSResponder
 	}
 
 	[Export("runToolbarCustomizationPalette:")]
-	public virtual void RunToolbarCustomizationPalette(NSObject sender)
+	public virtual void RunToolbarCustomizationPalette(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -5941,7 +5941,7 @@ public class NSWindow : NSResponder
 	}
 
 	[Export("toggleFullScreen:")]
-	public virtual void ToggleFullScreen(NSObject sender)
+	public virtual void ToggleFullScreen(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (IsDirectBinding)

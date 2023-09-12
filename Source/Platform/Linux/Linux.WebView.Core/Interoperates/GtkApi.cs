@@ -189,7 +189,7 @@ public static class GtkApi
     public static string ToStringX(nint value)
     {
         var pString = ToString(value);
-        var stringValue = Marshal.PtrToStringAuto(pString);
+        var stringValue = Marshal.PtrToStringAuto(pString)!;
         Marshal.FreeHGlobal(pString);
         return stringValue;
     }

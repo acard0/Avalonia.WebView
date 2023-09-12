@@ -1,6 +1,4 @@
-﻿using DryIoc;
-
-namespace Avalonia.WebView.MacCatalyst.Delegates;
+﻿namespace Avalonia.WebView.MacCatalyst.Delegates;
 internal class WebViewNavigationDelegate : NSObject, IWKNavigationDelegate
 {
     public WebViewNavigationDelegate(MacCatalystWebViewCore webViewCore, IVirtualWebViewControlCallBack callBack, WebScheme? webScheme)

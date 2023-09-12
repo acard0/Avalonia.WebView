@@ -78,9 +78,9 @@ partial class WebView2Core
         corewebview2.Profile.Deleted -= Profile_Deleted;
     }
 
-    private void HostControl_SizeChanged(object sender, SizeChangedEventArgs e)
+    private void HostControl_SizeChanged(object? sender, SizeChangedEventArgs e)
     {
-        if (_coreWebView2Controller is null)
+        if (CoreWebView2Controller is null)
             return;
 
         double scale = 1;
@@ -88,11 +88,11 @@ partial class WebView2Core
         if (topLevel is not null)
             scale = topLevel.RenderScaling;
 
-        _coreWebView2Controller.Bounds = new Rectangle(0, 0, Convert.ToInt32(e.NewSize.Width * scale), Convert.ToInt32(e.NewSize.Height * scale));
-        _coreWebView2Controller.NotifyParentWindowPositionChanged();
+        CoreWebView2Controller.Bounds = new Rectangle(0, 0, Convert.ToInt32(e.NewSize.Width * scale), Convert.ToInt32(e.NewSize.Height * scale));
+        CoreWebView2Controller.NotifyParentWindowPositionChanged();
     }
 
-    private void Handler_PlatformHandlerChanged(object sender, EventArgs e)
+    private void Handler_PlatformHandlerChanged(object? sender, EventArgs e)
     {
         if (_handler.RefHandler.Handle != IntPtr.Zero)
         {

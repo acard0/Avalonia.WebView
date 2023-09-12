@@ -1,4 +1,6 @@
-﻿namespace AvaloniaBlazorWebView.Configurations;
+﻿using Microsoft.AspNetCore.Components.Web;
+
+namespace AvaloniaBlazorWebView.Shared.Configurations;
 public class JsComponentConfigration : IJSComponentConfiguration
 {
     public JsComponentConfigration(JSComponentConfigurationStore jSComponentConfigurationStore)

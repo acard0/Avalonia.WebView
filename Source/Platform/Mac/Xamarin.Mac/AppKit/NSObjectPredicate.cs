@@ -2,4 +2,4 @@ using Foundation;
 
 namespace AppKit;
 
-public delegate bool NSObjectPredicate(NSObject sender);
+public delegate bool NSObjectPredicate(NSObject? sender);

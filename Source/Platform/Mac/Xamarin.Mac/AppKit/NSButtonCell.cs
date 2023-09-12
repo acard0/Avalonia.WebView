@@ -896,7 +896,7 @@ public class NSButtonCell : NSActionCell
 	}
 
 	[Export("performClick:")]
-	public new virtual void PerformClick(NSObject sender)
+	public new virtual void PerformClick(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

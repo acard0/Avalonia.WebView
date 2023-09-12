@@ -7,6 +7,38 @@
 	<Import Project="$(BuildToolsDirectory)Directory.webview.blazor.common.targets" />
 
 	<ItemGroup>
+	  <Content Include="Data\App\ECommerce\BasketService.cs" />
+	  <Content Include="Data\App\ECommerce\Dto\AddressDto.cs" />
+	  <Content Include="Data\App\ECommerce\Dto\AddressTypeDto.cs" />
+	  <Content Include="Data\App\ECommerce\Dto\BasketItemDto.cs" />
+	  <Content Include="Data\App\ECommerce\Dto\GoodsDto.cs" />
+	  <Content Include="Data\App\ECommerce\Dto\MultiRangeDto.cs" />
+	  <Content Include="Data\App\ECommerce\Dto\RelatedGoodsDto.cs" />
+	  <Content Include="Data\App\ECommerce\ShopService.cs" />
+	  <Content Include="Data\App\Invoice\Dto\BillDto.cs" />
+	  <Content Include="Data\App\Invoice\Dto\InvoiceRecordDto.cs" />
+	  <Content Include="Data\App\Invoice\Dto\InvoiceStateDto.cs" />
+	  <Content Include="Data\App\Invoice\InvoiceService.cs" />
+	  <Content Include="Data\App\Todo\Dto\SelectData.cs" />
+	  <Content Include="Data\App\Todo\Dto\TodoDto.cs" />
+	  <Content Include="Data\App\Todo\TodoService.cs" />
+	  <Content Include="Data\App\User\Dto\PermissionDto.cs" />
+	  <Content Include="Data\App\User\Dto\UserDto.cs" />
+	  <Content Include="Data\App\User\UserService.cs" />
+	  <Content Include="Data\Base\GlobalVariables.cs" />
+	  <Content Include="Data\Base\PagingData.cs" />
+	  <Content Include="Data\Dashboard\Analytics\AnalyticsService.cs" />
+	  <Content Include="Data\Dashboard\ECommerce\Dto\CompanyDto.cs" />
+	  <Content Include="Data\Dashboard\ECommerce\ECommerceService.cs" />
+	  <Content Include="Data\Others\AccountSettings\AccountSettingService.cs" />
+	  <Content Include="Data\Others\AccountSettings\Dto\AccountDto.cs" />
+	  <Content Include="Data\Others\AccountSettings\Dto\CountryDto.cs" />
+	  <Content Include="Data\Others\AccountSettings\Dto\InformationDto.cs" />
+	  <Content Include="Data\Others\AccountSettings\Dto\SocialDto.cs" />
+	  <Content Include="Data\Shared\Favorite\FavoriteService.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Avalonia" />
 		<PackageReference Include="Masa.Blazor" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebView" />

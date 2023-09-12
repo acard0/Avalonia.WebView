@@ -53,7 +53,7 @@ public class NSWindowDelegate : NSObject
 	}
 
 	[Export("windowShouldClose:")]
-	public virtual bool WindowShouldClose(NSObject sender)
+	public virtual bool WindowShouldClose(NSObject? sender)
 	{
 		throw new You_Should_Not_Call_base_In_This_Method();
 	}

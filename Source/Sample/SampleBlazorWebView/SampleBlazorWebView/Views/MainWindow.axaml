@@ -7,6 +7,15 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="SampleBlazorWebView.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
+        Background="Transparent"
         Title="SampleBlazorWebView">
         <views:MainView />
 </Window>
+<!--
+ExtendClientAreaToDecorationsHint="True"
+ExtendClientAreaChromeHints="NoChrome"
+ExtendClientAreaTitleBarHeightHint="-1"
+TransparencyLevelHint="Transparent"
+SystemDecorations="None"
+UseLayoutRounding="True"
+-->

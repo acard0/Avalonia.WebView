@@ -553,7 +553,7 @@ public class NSTabView : NSView
 	}
 
 	[Export("takeSelectedTabViewItemFromSender:")]
-	public virtual void TakeSelectedTabViewItemFrom(NSObject sender)
+	public virtual void TakeSelectedTabViewItemFrom(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -571,7 +571,7 @@ public class NSTabView : NSView
 	}
 
 	[Export("selectFirstTabViewItem:")]
-	public virtual void SelectFirst(NSObject sender)
+	public virtual void SelectFirst(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -589,7 +589,7 @@ public class NSTabView : NSView
 	}
 
 	[Export("selectLastTabViewItem:")]
-	public virtual void SelectLast(NSObject sender)
+	public virtual void SelectLast(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -607,7 +607,7 @@ public class NSTabView : NSView
 	}
 
 	[Export("selectNextTabViewItem:")]
-	public virtual void SelectNext(NSObject sender)
+	public virtual void SelectNext(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)
@@ -625,7 +625,7 @@ public class NSTabView : NSView
 	}
 
 	[Export("selectPreviousTabViewItem:")]
-	public virtual void SelectPrevious(NSObject sender)
+	public virtual void SelectPrevious(NSObject? sender)
 	{
 		NSApplication.EnsureUIThread();
 		if (sender == null)

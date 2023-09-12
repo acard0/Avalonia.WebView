@@ -21,7 +21,8 @@ public partial class MainWindow : Window
 
         InitializeComponent();
 
+        var blazorWebView1 = new BlazorWebView();
         blazorWebView1.RootComponents.Add(new RootComponent() { ComponentType = typeof(AppWeb), Selector = "#app" });
-
+        this.Content = blazorWebView1;
     }
 }
