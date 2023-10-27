@@ -26,14 +26,14 @@ public partial class BlazorWebView : Control, IVirtualWebView<BlazorWebView>, IW
 
     static BlazorWebView()
     {
-        Console.WriteLine("Static load Blazor Web View");
+        Console.WriteLine(">>> Static load Blazor Web View");
         LoadDependencyObjectsChanged();
         LoadHostDependencyObjectsChanged();
     }
 
     public BlazorWebView(IServiceProvider serviceProvider)
     {
-        Console.WriteLine("Creating BlazorWebView component");
+        Console.WriteLine(">>> Creating BlazorWebView component");
 
         var app = serviceProvider.GetService<IBlazorWebViewApplication>() ?? throw new InvalidOperationException("Platform Web View Application service is not found. Make sure that platform services is added.");
         var setting = app.BlazorWebViewProperties;

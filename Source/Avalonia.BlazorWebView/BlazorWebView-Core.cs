@@ -12,7 +12,7 @@ partial class BlazorWebView
 
     async Task<bool> CreateWebViewManager()
     {
-        Console.WriteLine($"Creating Web View Manager");
+        Console.WriteLine($">>> Creating Web View Manager");
 
         CheckDisposed();
 
