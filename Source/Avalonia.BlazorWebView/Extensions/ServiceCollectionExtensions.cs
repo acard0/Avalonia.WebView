@@ -1,5 +1,5 @@
 ﻿using AvaloniaBlazorWebView;
-using AvaloniaBlazorWebView.Shared.Configurations;
+using AvaloniaBlazorWebView.Configurations;
 
 namespace Avalonia.WebView.Desktop;
 
@@ -17,7 +17,7 @@ public static class ServiceCollectionExtensions
         services.AddBlazorWebView()
             .AddSingleton<JSComponentConfigurationStore>()
             .AddSingleton<AvaloniaDispatcher>(provider => new AvaloniaDispatcher(AvaloniaUIDispatcher.UIThread))
-            .AddSingleton<IJSComponentConfiguration>(provider => new JsComponentConfigration(provider.GetRequiredService<JSComponentConfigurationStore>()))
+            .AddSingleton<IJSComponentConfiguration>(provider => new JsComponentConfigration(provider.GetService<JSComponentConfigurationStore>()!))
             .AddSingleton(provider => webViewOptions)
             .AddSingleton<IBlazorWebViewApplication>(provider => new BlazorWebViewApplication(provider));
 

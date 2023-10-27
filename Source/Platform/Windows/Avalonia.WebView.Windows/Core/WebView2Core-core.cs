@@ -1,4 +1,5 @@
-﻿using WebViewCore.Enums;
+﻿using Microsoft.Web.WebView2.Core;
+using WebViewCore.Enums;
 using WebViewCore.Helpers;
 
 namespace Avalonia.WebView.Windows.Core;

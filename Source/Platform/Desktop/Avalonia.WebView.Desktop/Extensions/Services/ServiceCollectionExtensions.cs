@@ -1,12 +1,11 @@
-﻿using Avalonia.WebView.Windows;
+﻿using Avalonia.WebView.Linux.Extensions.Services;
+using Avalonia.WebView.MacCatalyst.Extensions.Services;
+using Avalonia.WebView.Windows.Extensions.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System.Runtime.InteropServices;
-using Avalonia.WebView.MacCatalyst;
-using Avalonia.WebView.Linux;
 
-namespace Avalonia.WebView.Desktop;
-
-public static class AppBuilderExtensions
+namespace Avalonia.WebView.Desktop.Extensions.Services;
+public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddDesktopWebViewServices(this IServiceCollection services, bool isWslDevelop)
     {

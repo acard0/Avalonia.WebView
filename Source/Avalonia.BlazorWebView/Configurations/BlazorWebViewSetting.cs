@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace AvaloniaBlazorWebView.Shared.Configurations;
+namespace AvaloniaBlazorWebView.Configurations;
 public class BlazorWebViewSetting
 {
     public string WWWRoot { get; set; } = "wwwroot";

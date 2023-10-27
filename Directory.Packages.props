@@ -6,8 +6,6 @@
     <Avalonia_I_Want_To_Use_Private_Apis_In_Nuget_Package_And_Promise_To_Pin_The_Exact_Avalonia_Version_In_Package_Dependency>true</Avalonia_I_Want_To_Use_Private_Apis_In_Nuget_Package_And_Promise_To_Pin_The_Exact_Avalonia_Version_In_Package_Dependency>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="Avalonia.WebView.Desktop" Version="11.0.0.22" />
-    <PackageVersion Include="BlazorWebView.Avalonia" Version="11.0.0.22" />
     <PackageVersion Include="GtkSharp" Version="3.24.24.95" />
     <PackageVersion Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageVersion Include="Microsoft.Extensions.FileProviders.Abstractions" Version="7.0.0" />
@@ -44,7 +42,6 @@
     <PackageVersion Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.1.1" />
   </ItemGroup>
   <ItemGroup>
-    <PackageVersion Include="DryIoc" Version="5.4.1" />
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="1.1.1" />
     <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.4.0" />
@@ -72,7 +69,7 @@
   <ItemGroup Condition="'$(TargetFramework)' == 'net7.0' OR '$(TargetFramework)' == 'net7.0-windows'">
     <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="7.0.10" />
     <PackageVersion Include="Microsoft.AspNetCore.Components.WebView" Version="7.0.9" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net6.0' OR '$(TargetFramework)' == 'net6.0-windows'">

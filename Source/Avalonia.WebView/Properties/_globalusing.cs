@@ -11,8 +11,6 @@ global using Avalonia.Utilities;
 global using AvaloniaWebView.Core;
 global using AvaloniaWebView.Helpers;
 global using AvaloniaWebView.Shared;
-global using DryIoc;
-global using DryIoc.Shared.Extensions;
 global using WebViewCore;
 global using WebViewCore.Configurations;
 global using WebViewCore.Events;

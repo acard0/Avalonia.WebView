@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Avalonia.WebView.DesktopX;
-public static class AppBuilderExtensions
+namespace Avalonia.WebView.DesktopX.Extensions.ServiceCollectionExtensions;
+public static class ServiceCollectionExtensions
 {
 
     public static IServiceCollection AddDesktopWebViewServices(this IServiceCollection services, bool isWslDevelop)

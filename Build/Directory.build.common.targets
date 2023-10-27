@@ -2,7 +2,7 @@
 
 <Project>
 	<!-- Define NETSTANDARD2_1_OR_GREATER for .NET Standard 2.1 targets and above -->
-	<PropertyGroup Condition="'$(TargetFramework)' == 'net6.0' OR '$(TargetFramework)' == 'net6.0' OR '$(TargetFramework)' == 'net7.0'">
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net6.0' OR '$(TargetFramework)' == 'net7.0'">
 		<DefineConstants>NETSTANDARD2_1_OR_GREATER</DefineConstants>
 	</PropertyGroup>
 
@@ -12,14 +12,14 @@
 		<IsTrimmable>true</IsTrimmable>
 	</PropertyGroup>
 
-	<ItemGroup  Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'net6.0'">
+	<ItemGroup  Condition="'$(TargetFramework)' == 'netstandard2.0'">
 		<PackageReference Include="PolySharp">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>build; analyzers</IncludeAssets>
 		</PackageReference>
 	</ItemGroup>
 
-	<PropertyGroup  Condition="'$(TargetFramework)' == 'netstandard2.0' OR  '$(TargetFramework)' == 'net6.0'">
+	<PropertyGroup  Condition="'$(TargetFramework)' == 'netstandard2.0'">
 		<PolySharpIncludeGeneratedTypes>
 			System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute;
 			System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute;
@@ -30,6 +30,7 @@
 			System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute;
 			System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute;
 			System.Runtime.CompilerServices.CallerArgumentExpressionAttribute;
+			System.Runtime.CompilerServices.IsExternalInit;
 			System.Runtime.CompilerServices.SkipLocalsInitAttribute;
 			System.Runtime.CompilerServices.RequiredMemberAttribute;
 			System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute;

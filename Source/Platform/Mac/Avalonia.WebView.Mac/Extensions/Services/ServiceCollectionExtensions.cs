@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Avalonia.WebView.Mac;
+namespace Avalonia.WebView.Mac.Extensions.Services;
 
-public static class AppBuilderExtensions
+public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddOSXWebViewServices(this IServiceCollection services)
     {

@@ -1,4 +1,4 @@
-﻿using AvaloniaBlazorWebView.Shared.Configurations;
+﻿using AvaloniaBlazorWebView.Configurations;
 using Microsoft.Extensions.Options;
 
 namespace AvaloniaBlazorWebView.Core;

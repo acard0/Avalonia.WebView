@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.WebView.Desktop;
+using Avalonia.WebView.Desktop.Extensions.Services;
 using AvaloniaBlazorWebView;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.Extensions.DependencyInjection;

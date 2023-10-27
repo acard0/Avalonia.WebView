@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Toolkit.Shared.Extensions.Services;
 
 namespace AvaloniaWebView;
 

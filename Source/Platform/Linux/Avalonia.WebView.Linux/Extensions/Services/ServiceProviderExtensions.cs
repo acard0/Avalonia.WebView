@@ -1,12 +1,9 @@
-﻿using Avalonia.WebView.Linux;
-using Linux.WebView.Core;
+﻿using Linux.WebView.Core;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Avalonia.WebView.Linux;
-
-public static class AppBuilderExtensions
+namespace Avalonia.WebView.Linux.Extensions.Services;
+public static class ServiceProviderExtensions
 {
-
     public static IServiceCollection AddLinuxWebViewServies(this IServiceCollection services, bool isWslDevelop)
     {
         //GtkApi.SetAllowedBackends("x11");

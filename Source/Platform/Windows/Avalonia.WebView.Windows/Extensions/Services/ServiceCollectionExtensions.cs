@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Avalonia.WebView.MacCatalyst;
-public static class AppBuilderExtensions
+namespace Avalonia.WebView.Windows.Extensions.Services;
+public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddMacCatalystWebViewServices(this IServiceCollection services)
+    public static IServiceCollection AddWindowsWebView2Services(this IServiceCollection services)
     {
         return services.AddSingleton<IViewHandlerProvider, ViewHandlerProvider>()
             .AddSingleton<IPlatformBlazorWebViewProvider, BlazorWebViewHandlerProvider>();
