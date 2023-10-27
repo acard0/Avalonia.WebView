@@ -1704,7 +1704,8 @@ namespace Microsoft.Web.WebView2.Core
             }
             if (IsDotNetFramework())
             {
-                string directoryName = Path.GetDirectoryName(new Uri(typeof(COMStreamWrapper).Assembly.Location).LocalPath);
+                string path = Assembly.GetExecutingAssembly().Location;
+                string directoryName = Path.GetDirectoryName(path);
                 string text = "\\runtimes\\win-";
                 string text2 = directoryName + GetArchitecture() switch
                 {
