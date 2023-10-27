@@ -20,6 +20,9 @@ partial class WebView
     protected override async void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
     {
         base.OnAttachedToVisualTree(e);
+
+        Console.WriteLine("WebView attached to a Visual Tree. Creating Platform WebView Handler.");
+
         var viewHandler = _viewHandlerProvider.CreatePlatformWebViewHandler(this, this, default, config =>
         {
             config.AreDevToolEnabled = _creationProperties.AreDevToolEnabled;
@@ -39,7 +42,13 @@ partial class WebView
 
         var control = viewHandler.AttachableControl;
         if (control is null)
+        {
+            Console.WriteLine(">>> Attacheble Control is not set. Could not create PlatformWebViewHandler.");
             return;
+        }
+
+        Console.WriteLine(">>> Platform WebView Handler created.");
+
         //Child = control;
         _partInnerContainer.Child = control;
         _platformWebView = viewHandler.PlatformWebView;

@@ -6,6 +6,7 @@ partial class BlazorWebView
     {
         base.OnAttachedToVisualTree(e);
 
+        Console.WriteLine(">>> Attached to a Visual Tree. Creating WebViewManager.");
         await CreateWebViewManager();
 
         if (AvaloniaWebViewManager is null)

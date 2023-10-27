@@ -14,6 +14,8 @@ public sealed partial class WebView : Control, IVirtualWebView<WebView>, IEmptyV
 
     public WebView(IServiceProvider serviceProvider)
     {
+        Console.WriteLine(">>> Creating WebView control.");
+
         var properties = serviceProvider.GetService<WebViewCreationProperties>()!;
         _creationProperties = properties ?? new WebViewCreationProperties();
 

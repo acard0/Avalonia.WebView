@@ -1,4 +1,6 @@
-﻿namespace AvaloniaBlazorWebView.Core;
+﻿using AvaloniaBlazorWebView.Common;
+
+namespace AvaloniaBlazorWebView.Core;
 
 public class AvaloniaWebViewManager : WebViewManager, IVirtualBlazorWebViewProvider
 {
@@ -102,7 +104,7 @@ public class AvaloniaWebViewManager : WebViewManager, IVirtualBlazorWebViewProvi
         if (!TryGetResponseContent(requestUri, request.AllowFallbackOnHostPage, out var statusCode, out var statusMessage, out var content, out var headers))
             return false;
 
-        //StaticContentHotReloadManager.TryReplaceResponseContent(_contentRootDirRelativePath, requestUri, ref statusCode, ref content, headers);
+        StaticContentHotReloadManager.TryReplaceResponseContent(_hostPageRelativePath, requestUri, ref statusCode, ref content, headers);
         var contentStream = new AutoCloseOnReadCompleteStream(content);   
         response = new WebResourceResponse
         {
