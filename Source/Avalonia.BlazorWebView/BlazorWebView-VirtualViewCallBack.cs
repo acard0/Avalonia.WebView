@@ -4,11 +4,21 @@ partial class BlazorWebView
 {
     public virtual void PlatformWebViewCreated(object? sender, WebViewCreatedEventArgs arg)
     {
+        if (arg.IsSucceed)
+        {
+            Console.WriteLine(">>> Native Platform Web View is created.");
+        }
+        else
+        {
+            Console.WriteLine($">>> !!! Failed to create Native Platform Web View: {arg.Message}");
+        }
+
         WebViewCreated?.Invoke(sender, arg);
     }
 
     public virtual bool PlatformWebViewCreating(object? sender, WebViewCreatingEventArgs arg)
     {
+        Console.WriteLine(">>> Native Platform Web View is being created.");
         WebViewCreating?.Invoke(sender, arg);
         return true;
     }

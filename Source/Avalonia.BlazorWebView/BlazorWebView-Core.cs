@@ -94,7 +94,7 @@ partial class BlazorWebView
         var bRet = await _platformWebView.Initialize();
         if (!bRet)
         {
-            Console.WriteLine(">>> PlatformWebView is not initialized. Could not create Blazor Web View Manager.");
+            Console.WriteLine(">>> Platform Web View is failed to initialize. Could not create Blazor Web View Manager.");
             return false;
         }
 
@@ -102,7 +102,7 @@ partial class BlazorWebView
             await rootComponent.AddToWebViewManagerAsync(webViewManager);
 
         _avaloniaWebViewManager = webViewManager;
-        Console.WriteLine(">>> PlatformWebView initilized &  Blazor Web View Manager created.");
+        Console.WriteLine(">>> Platform Web View initilized & Blazor Web View Manager created.");
         return true;
     }
 
