@@ -1702,10 +1702,9 @@ namespace Microsoft.Web.WebView2.Core
             {
                 return;
             }
-            if (IsDotNetFramework())
+            if (IsDotNetFramework() || IsDotNet())
             {
-                string path = Assembly.GetExecutingAssembly().Location;
-                string directoryName = Path.GetDirectoryName(path);
+                string directoryName = AppDomain.CurrentDomain.BaseDirectory;
                 string text = "\\runtimes\\win-";
                 string text2 = directoryName + GetArchitecture() switch
                 {
