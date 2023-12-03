@@ -1,7 +1,12 @@
-﻿namespace Avalonia.WebView.Windows.Core;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+
+namespace Avalonia.WebView.Windows.Core;
 
 public partial class WebView2Core : IPlatformWebView<WebView2Core>
 {
+    private readonly IServiceProvider _services;
+
     private readonly IVirtualBlazorWebViewProvider? _provider;
     private readonly IVirtualWebViewControlCallBack _callBack;
     private readonly ViewHandler _handler;
@@ -13,8 +18,14 @@ public partial class WebView2Core : IPlatformWebView<WebView2Core>
     private bool _isDisposed = false;
     private bool _isBlazorWebView;
 
-    public WebView2Core(ViewHandler handler, IVirtualWebViewControlCallBack callback, IVirtualBlazorWebViewProvider? provider, WebViewCreationProperties webViewCreationProperties)
+    private readonly ILoggerFactory _loggerFactory;
+    private readonly ILogger _logger;
+
+    public WebView2Core(IServiceProvider services, ViewHandler handler, IVirtualWebViewControlCallBack callback, IVirtualBlazorWebViewProvider? provider, WebViewCreationProperties webViewCreationProperties)
     {
+        _loggerFactory = (_services = services).GetRequiredService<ILoggerFactory>();
+        _logger = _loggerFactory.CreateLogger<WebView2Core>();
+
         _hwndTaskSource = new();
         _callBack = callback;
         _handler = handler;

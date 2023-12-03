@@ -1,4 +1,6 @@
-﻿namespace AvaloniaWebView;
+﻿using Microsoft.Extensions.Logging;
+
+namespace AvaloniaWebView;
 
 partial class WebView
 {
@@ -21,9 +23,9 @@ partial class WebView
     {
         base.OnAttachedToVisualTree(e);
 
-        Console.WriteLine("WebView attached to a Visual Tree. Creating Platform WebView Handler.");
+        _logger.LogInformation("WebView attached to a Visual Tree. Creating Platform WebView Handler.");
 
-        var viewHandler = _viewHandlerProvider.CreatePlatformWebViewHandler(this, this, default, config =>
+        var viewHandler = _viewHandlerProvider.CreatePlatformWebViewHandler(Services, this, this, default, config =>
         {
             config.AreDevToolEnabled = _creationProperties.AreDevToolEnabled;
             config.AreDefaultContextMenusEnabled = _creationProperties.AreDefaultContextMenusEnabled;
@@ -43,11 +45,11 @@ partial class WebView
         var control = viewHandler.AttachableControl;
         if (control is null)
         {
-            Console.WriteLine(">>> Attacheble Control is not set. Could not create PlatformWebViewHandler.");
+            _logger.LogInformation("Attacheble Control is not set. Could not create PlatformWebViewHandler.");
             return;
         }
 
-        Console.WriteLine(">>> Platform WebView Handler created.");
+        _logger.LogInformation("Platform WebView Handler created.");
 
         //Child = control;
         _partInnerContainer.Child = control;

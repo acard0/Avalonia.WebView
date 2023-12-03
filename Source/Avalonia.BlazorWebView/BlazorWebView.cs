@@ -24,16 +24,21 @@ public partial class BlazorWebView : Control, IVirtualWebView<BlazorWebView>, IW
     private IPlatformWebView? _platformWebView;
     private AvaloniaWebViewManager? _avaloniaWebViewManager;
 
+    private readonly ILoggerFactory _loggerFactory;
+    private readonly ILogger _logger;
+
     static BlazorWebView()
     {
-        Console.WriteLine(">>> Static load Blazor Web View");
         LoadDependencyObjectsChanged();
         LoadHostDependencyObjectsChanged();
     }
 
     public BlazorWebView(IServiceProvider serviceProvider)
     {
-        Console.WriteLine(">>> Creating BlazorWebView component");
+        _loggerFactory = serviceProvider.GetRequiredService<ILoggerFactory>();
+        _logger = _loggerFactory.CreateLogger<BlazorWebView>();
+
+        _logger.LogInformation("Creating BlazorWebView component");
 
         var app = serviceProvider.GetService<IBlazorWebViewApplication>() ?? throw new InvalidOperationException("Platform Web View Application service is not found. Make sure that platform services is added.");
         var setting = app.BlazorWebViewProperties;

@@ -7,6 +7,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Avalonia" />
+		<PackageReference Include="Microsoft.Extensions.Logging"></PackageReference>
 		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces">
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>

@@ -16,9 +16,12 @@
 
 public abstract class ViewHandler<TVirtualViewContext, TPlatformViewContext> : ViewHandler where TVirtualViewContext:class where TPlatformViewContext : class
 {
-    public ViewHandler()
+    public IServiceProvider Services { get; private set; }
+
+    public ViewHandler(IServiceProvider serviceProvider)
     {
         HandleDescriptor = typeof(TPlatformViewContext).FullName;
+        Services = serviceProvider;
     }
 
 #nullable disable

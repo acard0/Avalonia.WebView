@@ -1714,8 +1714,6 @@ namespace Microsoft.Web.WebView2.Core
                     _ => throw new NotSupportedException("Unknown Processor Architecture of WebView2Loader.dll is not supported"),
                 } + "\\native\\WebView2Loader.dll";
 
-                Console.WriteLine($">>> Suggested WebView2Loader path: {text2}");
-
                 if (File.Exists(text2) && LoadLibrary(text2) == IntPtr.Zero)
                 {
                     Marshal.ThrowExceptionForHR(Marshal.GetHRForLastWin32Error());

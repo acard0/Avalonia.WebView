@@ -13,7 +13,7 @@ partial class BlazorWebView
 
     async Task<bool> CreateWebViewManager()
     {
-        Console.WriteLine($">>> Creating Blazor Web View Manager");
+        _logger.LogInformation("Creating Blazor Web View Manager");
 
         CheckDisposed();
 
@@ -22,13 +22,13 @@ partial class BlazorWebView
 
         if (string.IsNullOrEmpty(HostPage))
         {
-            Console.WriteLine(">>> HostPage is empty. Could not create Blazor Web View Manager.");
+            _logger.LogInformation("HostPage is empty. Could not create Blazor Web View Manager.");
             return false;
         }
 
         if (RootComponents.Count <= 0)
         {
-            Console.WriteLine(">>> RootComponents. Could not create Blazor Web View Manager.");
+            _logger.LogInformation("RootComponents. Could not create Blazor Web View Manager.");
             return false;
         }
 
@@ -59,7 +59,7 @@ partial class BlazorWebView
         var webViewManager = new AvaloniaWebViewManager(this, Services, Dispatcher, AppScheme, AppHostAddress, HostUri, fileProvider, JSComponents, contentRootDirFullPath, hostPageRelativePath);
         StaticContentHotReloadManager.AttachToWebViewManagerIfEnabled(webViewManager);
 
-        var viewHandler = ViewHandlerProvider.CreatePlatformWebViewHandler(this, this, webViewManager, config =>
+        var viewHandler = ViewHandlerProvider.CreatePlatformWebViewHandler(Services, this, this, webViewManager, config =>
         {
             config.AreDevToolEnabled = CreationProperties.AreDevToolEnabled;
             config.AreDefaultContextMenusEnabled = CreationProperties.AreDefaultContextMenusEnabled;
@@ -79,13 +79,13 @@ partial class BlazorWebView
         var control = viewHandler.AttachableControl;
         if (control is null)
         {
-            Console.WriteLine(">>> AttachableControl is not set. Could not create Blazor Web View Manager.");
+            _logger.LogInformation("AttachableControl is not set. Could not create Blazor Web View Manager.");
             return false;
         }
 
         if ((_platformWebView = viewHandler.PlatformWebView)  is null)
         {
-            Console.WriteLine(">>> PlatformWebView is not set. Could not create Blazor Web View Manager.");
+            _logger.LogInformation("PlatformWebView is not set. Could not create Blazor Web View Manager.");
             return false;
         }
 
@@ -94,7 +94,7 @@ partial class BlazorWebView
         var bRet = await _platformWebView.Initialize();
         if (!bRet)
         {
-            Console.WriteLine(">>> Platform Web View is failed to initialize. Could not create Blazor Web View Manager.");
+            _logger.LogInformation("Platform Web View is failed to initialize. Could not create Blazor Web View Manager.");
             return false;
         }
 
@@ -102,7 +102,7 @@ partial class BlazorWebView
             await rootComponent.AddToWebViewManagerAsync(webViewManager);
 
         _avaloniaWebViewManager = webViewManager;
-        Console.WriteLine(">>> Platform Web View initilized & Blazor Web View Manager created.");
+        _logger.LogInformation("Platform Web View initilized & Blazor Web View Manager created.");
         return true;
     }
 

@@ -1,9 +1,15 @@
-﻿using Toolkit.Shared.Extensions.Services;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace AvaloniaWebView;
 
 public sealed partial class WebView : Control, IVirtualWebView<WebView>, IEmptyView, IWebViewEventHandler, IVirtualWebViewControlCallBack, IWebViewControl
 {
+    public IServiceProvider Services { get; }
+
+    private readonly ILoggerFactory _loggerFactory;
+    private readonly ILogger _logger;
+
     static WebView()
     {
         AffectsRender<WebView>(BackgroundProperty, BorderBrushProperty, BorderThicknessProperty, CornerRadiusProperty, BoxShadowProperty);
@@ -14,7 +20,12 @@ public sealed partial class WebView : Control, IVirtualWebView<WebView>, IEmptyV
 
     public WebView(IServiceProvider serviceProvider)
     {
-        Console.WriteLine(">>> Creating WebView control.");
+        Services = serviceProvider;
+
+        _loggerFactory = serviceProvider.GetRequiredService<ILoggerFactory>();
+        _logger = _loggerFactory.CreateLogger<WebView>();
+
+        _logger.LogInformation("Creating WebView control");
 
         var properties = serviceProvider.GetService<WebViewCreationProperties>()!;
         _creationProperties = properties ?? new WebViewCreationProperties();

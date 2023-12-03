@@ -134,7 +134,7 @@ internal static class StaticContentHotReloadManager
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Failed to notify about static content update to {relativePath}.");
+                _logger.LogError(ex, "Failed to notify about static content update to {relativePath}.", relativePath);
             }
         }
 

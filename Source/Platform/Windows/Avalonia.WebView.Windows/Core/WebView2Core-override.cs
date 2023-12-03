@@ -1,4 +1,6 @@
-﻿namespace Avalonia.WebView.Windows.Core;
+﻿using Microsoft.Extensions.Logging;
+
+namespace Avalonia.WebView.Windows.Core;
 
 partial class WebView2Core
 {
@@ -21,11 +23,11 @@ partial class WebView2Core
         {
             _callBack.PlatformWebViewCreating(this, new WebViewCreatingEventArgs());
 
-            Console.WriteLine(">>> Creating WebView environment");
+            _logger.LogInformation("Creating WebView environment");
             var environment2 = await CreateEnvironmentAsync().ConfigureAwait(true);
             CoreWebView2Environment = environment2;
 
-            Console.WriteLine(">>> Creating CoreWebView2 Controller options");
+            _logger.LogInformation("Creating CoreWebView2 Controller options");
             var options = CreateCoreWebView2ControllerOptions(environment2);
             IntPtr intPtr = await _hwndTaskSource.Task;
             if (options is not null)
@@ -55,7 +57,7 @@ partial class WebView2Core
 
             }
 
-            Console.WriteLine(">>> Finalizing WebView creation");
+            _logger.LogInformation("Finalizing WebView creation");
 
             ResetWebViewSize(CoreWebView2Controller);
 

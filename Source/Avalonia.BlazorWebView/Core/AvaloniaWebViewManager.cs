@@ -4,6 +4,8 @@ namespace AvaloniaBlazorWebView.Core;
 
 public class AvaloniaWebViewManager : WebViewManager, IVirtualBlazorWebViewProvider
 {
+    private readonly ILogger _logger;
+
     public AvaloniaWebViewManager(
             BlazorWebView webview,
             IServiceProvider provider,
@@ -27,7 +29,7 @@ public class AvaloniaWebViewManager : WebViewManager, IVirtualBlazorWebViewProvi
         _messageQueue = Channel.CreateUnbounded<string>(new UnboundedChannelOptions() { SingleReader = true, SingleWriter = false, AllowSynchronousContinuations = false });
         _handleMessageTask = Task.Factory.StartNew(MessageReadProgress, TaskCreationOptions.LongRunning);
 
-        Console.WriteLine($">>> Avalonia Web View Manager created. Platform handler instance: {provider.GetService<IPlatformBlazorWebViewProvider>()}");
+        (_logger = (provider.GetRequiredService<ILoggerFactory>().CreateLogger<AvaloniaWebViewManager>())).LogTrace("Avalonia Web View Manager created. Platform handler instance: {instance}", provider.GetService<IPlatformBlazorWebViewProvider>());
     }
 
     readonly string _contentRootDirPath;

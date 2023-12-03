@@ -5,5 +5,5 @@ namespace AvaloniaWebView.Shared;
 
 public interface IViewHandlerProvider
 {
-    IViewHandler CreatePlatformWebViewHandler(IVirtualWebView virtualView, IVirtualWebViewControlCallBack virtualViewCallBack, IVirtualBlazorWebViewProvider? virtualBlazorWebViewCallBack ,Action<WebViewCreationProperties>? configDelegate = default);
+    IViewHandler CreatePlatformWebViewHandler(IServiceProvider services, IVirtualWebView virtualView, IVirtualWebViewControlCallBack virtualViewCallBack, IVirtualBlazorWebViewProvider? virtualBlazorWebViewCallBack ,Action<WebViewCreationProperties>? configDelegate = default);
 }

@@ -19,12 +19,12 @@ internal class ViewHandlerProvider : IViewHandlerProvider
     }
 
 
-    IViewHandler IViewHandlerProvider.CreatePlatformWebViewHandler(IVirtualWebView virtualView, IVirtualWebViewControlCallBack virtualViewCallBack, IVirtualBlazorWebViewProvider? provider, Action<WebViewCreationProperties>? configDelegate)
+    IViewHandler IViewHandlerProvider.CreatePlatformWebViewHandler(IServiceProvider services, IVirtualWebView virtualView, IVirtualWebViewControlCallBack virtualViewCallBack, IVirtualBlazorWebViewProvider? provider, Action<WebViewCreationProperties>? configDelegate)
     {
         var creatonProperty = new WebViewCreationProperties();
         configDelegate?.Invoke(creatonProperty);
 
-        return new WebViewHandler(_linuxApplication, virtualView, virtualViewCallBack, provider, creatonProperty);
+        return new WebViewHandler(services, _linuxApplication, virtualView, virtualViewCallBack, provider, creatonProperty);
     }
 
     private void DeskTop_ShutdownRequested(object? sender, ShutdownRequestedEventArgs e)

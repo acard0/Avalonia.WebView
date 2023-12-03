@@ -11,7 +11,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Avalonia.Desktop" />
-		<PackageReference Include="AntDesign.Toolkit" /> 
+		<PackageReference Include="AntDesign.Toolkit" />
 	</ItemGroup>
 
 	<ItemGroup>

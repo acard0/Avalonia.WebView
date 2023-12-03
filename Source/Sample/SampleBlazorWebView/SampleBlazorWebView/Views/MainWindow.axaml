@@ -9,7 +9,7 @@
         Icon="/Assets/avalonia-logo.ico"
         Background="Transparent"
         Title="SampleBlazorWebView">
-        <views:MainView />
+
 </Window>
 <!--
 ExtendClientAreaToDecorationsHint="True"
