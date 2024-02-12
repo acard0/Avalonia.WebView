@@ -99,13 +99,13 @@ public class NSObject : INativeObject, IDisposable
 
     private const string selRespondsToSelector = "respondsToSelector:";
 
-    private static IntPtr selConformsToProtocolHandle = Selector.GetHandle("conformsToProtocol:");
+    private static readonly IntPtr selConformsToProtocolHandle = Selector.GetHandle("conformsToProtocol:");
 
-    private static IntPtr selEncodeWithCoderHandle = Selector.GetHandle("encodeWithCoder:");
+    private static readonly IntPtr selEncodeWithCoderHandle = Selector.GetHandle("encodeWithCoder:");
 
-    private static IntPtr selAwakeFromNibHandle = Selector.GetHandle("awakeFromNib");
+    private static readonly IntPtr selAwakeFromNibHandle = Selector.GetHandle("awakeFromNib");
 
-    private static IntPtr selRespondsToSelectorHandle = Selector.GetHandle("respondsToSelector:");
+    private static readonly IntPtr selRespondsToSelectorHandle = Selector.GetHandle("respondsToSelector:");
 
     private IntPtr handle;
 
@@ -121,7 +121,7 @@ public class NSObject : INativeObject, IDisposable
 
     private bool has_managed_ref;
 
-    private static object lock_obj = new object();
+    private static readonly object lock_obj = new object();
 
     private static IntPtr RetainTrampolineFunctionPointer;
 
@@ -223,35 +223,35 @@ public class NSObject : INativeObject, IDisposable
 
     private static NSString _ChangeNotificationIsPriorKey;
 
-    private static IntPtr fl = Dlfcn.dlopen("/System/Library/Frameworks/Foundation.framework/Foundation", 1);
+    private static readonly IntPtr fl = Dlfcn.dlopen("/System/Library/Frameworks/Foundation.framework/Foundation", 1);
 
-    private static IntPtr al = Dlfcn.dlopen("/System/Library/Frameworks/AppKit.framework/AppKit", 1);
+    private static readonly IntPtr al = Dlfcn.dlopen("/System/Library/Frameworks/AppKit.framework/AppKit", 1);
 
-    private static IntPtr ab = Dlfcn.dlopen("/System/Library/Frameworks/AddressBook.framework/AddressBook", 1);
+    private static readonly IntPtr ab = Dlfcn.dlopen("/System/Library/Frameworks/AddressBook.framework/AddressBook", 1);
 
-    private static IntPtr ct = Dlfcn.dlopen("/System/Library/Frameworks/ApplicationServices.framework/Frameworks/CoreText.framework/CoreText", 1);
+    private static readonly IntPtr ct = Dlfcn.dlopen("/System/Library/Frameworks/ApplicationServices.framework/Frameworks/CoreText.framework/CoreText", 1);
 
-    private static IntPtr wl = Dlfcn.dlopen("/System/Library/Frameworks/WebKit.framework/WebKit", 1);
+    private static readonly IntPtr wl = Dlfcn.dlopen("/System/Library/Frameworks/WebKit.framework/WebKit", 1);
 
-    private static IntPtr zl = Dlfcn.dlopen("/System/Library/Frameworks/QuartzCore.framework/QuartzCore", 1);
+    private static readonly IntPtr zl = Dlfcn.dlopen("/System/Library/Frameworks/QuartzCore.framework/QuartzCore", 1);
 
-    private static IntPtr ql = Dlfcn.dlopen("/System/Library/Frameworks/QTKit.framework/QTKit", 1);
+    private static readonly IntPtr ql = Dlfcn.dlopen("/System/Library/Frameworks/QTKit.framework/QTKit", 1);
 
-    private static IntPtr cl = Dlfcn.dlopen("/System/Library/Frameworks/CoreLocation.framework/CoreLocation", 1);
+    private static readonly IntPtr cl = Dlfcn.dlopen("/System/Library/Frameworks/CoreLocation.framework/CoreLocation", 1);
 
-    private static IntPtr ll = Dlfcn.dlopen("/System/Library/Frameworks/Security.framework/Security", 1);
+    private static readonly IntPtr ll = Dlfcn.dlopen("/System/Library/Frameworks/Security.framework/Security", 1);
 
-    private static IntPtr zc = Dlfcn.dlopen("/System/Library/Frameworks/Quartz.framework/Frameworks/QuartzComposer.framework/QuartzComposer", 1);
+    private static readonly IntPtr zc = Dlfcn.dlopen("/System/Library/Frameworks/Quartz.framework/Frameworks/QuartzComposer.framework/QuartzComposer", 1);
 
-    private static IntPtr cw = Dlfcn.dlopen("/System/Library/Frameworks/CoreWLAN.framework/CoreWLAN", 1);
+    private static readonly IntPtr cw = Dlfcn.dlopen("/System/Library/Frameworks/CoreWLAN.framework/CoreWLAN", 1);
 
-    private static IntPtr pk = Dlfcn.dlopen("/System/Library/Frameworks/Quartz.framework/Frameworks/PDFKit.framework/PDFKit", 1);
+    private static readonly IntPtr pk = Dlfcn.dlopen("/System/Library/Frameworks/Quartz.framework/Frameworks/PDFKit.framework/PDFKit", 1);
 
-    private static IntPtr ik = Dlfcn.dlopen("/System/Library/Frameworks/Quartz.framework/Frameworks/ImageKit.framework/ImageKit", 1);
+    private static readonly IntPtr ik = Dlfcn.dlopen("/System/Library/Frameworks/Quartz.framework/Frameworks/ImageKit.framework/ImageKit", 1);
 
-    private static IntPtr sb = Dlfcn.dlopen("/System/Library/Frameworks/ScriptingBridge.framework/ScriptingBridge", 1);
+    private static readonly IntPtr sb = Dlfcn.dlopen("/System/Library/Frameworks/ScriptingBridge.framework/ScriptingBridge", 1);
 
-    private static IntPtr av = Dlfcn.dlopen("/System/Library/Frameworks/AVFoundation.framework/AVFoundation", 1);
+    private static readonly IntPtr av = Dlfcn.dlopen("/System/Library/Frameworks/AVFoundation.framework/AVFoundation", 1);
 
     public unsafe IntPtr SuperHandle
     {

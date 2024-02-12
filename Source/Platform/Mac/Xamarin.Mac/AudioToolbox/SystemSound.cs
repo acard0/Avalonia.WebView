@@ -10,7 +10,7 @@ public class SystemSound : INativeObject, IDisposable
 {
 	private uint soundId;
 
-	private bool ownsHandle;
+	private readonly bool ownsHandle;
 
 	private Action completionRoutine;
 

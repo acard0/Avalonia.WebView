@@ -20,9 +20,9 @@ public class LinuxApplicationManager
         _libraryDefinitions[gLibrary.Webkit] = new string[4] { "libwebkit2gtk-4.0.dll", "libwebkit2gtk-4.0.so.37", "libwebkit2gtk-4.0.dylib", "libwebkit2gtk-4.0.0.dll" };
     }
 
-    private static Dictionary<gLibrary, string[]> _libraryDefinitions;
-    private static Dictionary<gLibrary, nint> _libraries;
-    private static HashSet<gLibrary> _librariesNotFound;
+    private static readonly Dictionary<gLibrary, string[]> _libraryDefinitions;
+    private static readonly Dictionary<gLibrary, nint> _libraries;
+    private static readonly HashSet<gLibrary> _librariesNotFound;
 
     static nint Load(gLibrary library)
     {

@@ -14,19 +14,19 @@ public class NSString : NSObject
 
 	private const string selInitWithCharactersLength = "initWithCharacters:length:";
 
-	private static IntPtr selUTF8StringHandle = Selector.GetHandle("UTF8String");
+	private static readonly IntPtr selUTF8StringHandle = Selector.GetHandle("UTF8String");
 
-	private static IntPtr selInitWithUTF8StringHandle = Selector.GetHandle("initWithUTF8String:");
+	private static readonly IntPtr selInitWithUTF8StringHandle = Selector.GetHandle("initWithUTF8String:");
 
-	private static IntPtr selInitWithCharactersLengthHandle = Selector.GetHandle("initWithCharacters:length:");
+	private static readonly IntPtr selInitWithCharactersLengthHandle = Selector.GetHandle("initWithCharacters:length:");
 
 	private const string selDataUsingEncodingAllow = "dataUsingEncoding:allowLossyConversion:";
 
 	private const string selInitWithDataEncoding = "initWithData:encoding:";
 
-	private static IntPtr selDataUsingEncodingAllowHandle = Selector.GetHandle("dataUsingEncoding:allowLossyConversion:");
+	private static readonly IntPtr selDataUsingEncodingAllowHandle = Selector.GetHandle("dataUsingEncoding:allowLossyConversion:");
 
-	private static IntPtr selInitWithDataEncodingHandle = Selector.GetHandle("initWithData:encoding:");
+	private static readonly IntPtr selInitWithDataEncodingHandle = Selector.GetHandle("initWithData:encoding:");
 
 	private static readonly IntPtr selLengthHandle = Selector.GetHandle("length");
 

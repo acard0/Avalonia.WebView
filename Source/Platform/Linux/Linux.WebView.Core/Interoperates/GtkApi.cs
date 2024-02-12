@@ -86,22 +86,22 @@ public static class GtkApi
     private static string jsc_value_to_string => nameof(jsc_value_to_string);
     private static string webkit_policy_decision_ignore => nameof(webkit_policy_decision_ignore);
 
-    private static gdk_set_allowed_backends_delegate __gdk_set_allowed_backends;
-    private static gdk_x11_window_get_xid_delegate __gdk_x11_window_get_xid;
+    private static readonly gdk_set_allowed_backends_delegate __gdk_set_allowed_backends;
+    private static readonly gdk_x11_window_get_xid_delegate __gdk_x11_window_get_xid;
 
-    private static gtk_widget_realize_delegate __gtk_widget_realize_delegate;
-    private static g_signal_connect_data_delegate __g_signal_connect_data;
-    private static g_memory_input_stream_new_from_data_delegate __g_memory_input_stream_new_from_data;
+    private static readonly gtk_widget_realize_delegate __gtk_widget_realize_delegate;
+    private static readonly g_signal_connect_data_delegate __g_signal_connect_data;
+    private static readonly g_memory_input_stream_new_from_data_delegate __g_memory_input_stream_new_from_data;
 
-    private static webkit_user_script_new_delegate __webkit_user_script_new;
-    private static webkit_user_script_unref_delegate __webkit_user_script_unref;
-    private static webkit_user_content_manager_add_script_delegate __webkit_user_content_manager_add_script;
-    private static webkit_user_content_manager_register_script_message_handler_delegate __webkit_user_content_manager_register_script_message_handler;
-    private static webkit_javascript_result_get_js_value_delegate __webkit_javascript_result_get_js_value;
-    private static webkit_javascript_result_unref_delegate __webkit_javascript_result_unref;
-    private static jsc_value_is_string_delegate __jsc_value_is_string;
-    private static jsc_value_to_string_delegate __jsc_value_to_string;
-    private static webkit_policy_decision_ignore_delegate __webkit_policy_decision_ignore;
+    private static readonly webkit_user_script_new_delegate __webkit_user_script_new;
+    private static readonly webkit_user_script_unref_delegate __webkit_user_script_unref;
+    private static readonly webkit_user_content_manager_add_script_delegate __webkit_user_content_manager_add_script;
+    private static readonly webkit_user_content_manager_register_script_message_handler_delegate __webkit_user_content_manager_register_script_message_handler;
+    private static readonly webkit_javascript_result_get_js_value_delegate __webkit_javascript_result_get_js_value;
+    private static readonly webkit_javascript_result_unref_delegate __webkit_javascript_result_unref;
+    private static readonly jsc_value_is_string_delegate __jsc_value_is_string;
+    private static readonly jsc_value_to_string_delegate __jsc_value_to_string;
+    private static readonly webkit_policy_decision_ignore_delegate __webkit_policy_decision_ignore;
 
 
     public static bool SetAllowedBackends(string backends)

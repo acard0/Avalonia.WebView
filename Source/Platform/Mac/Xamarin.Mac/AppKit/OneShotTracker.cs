@@ -8,7 +8,7 @@ internal static class OneShotTracker
 	[Register("__MonoMac_OnEndTrackerDispatch")]
 	internal class Dispatcher : NSObject
 	{
-		private NSAction action;
+		private readonly NSAction action;
 
 		public Dispatcher(NSAction action)
 		{
@@ -30,7 +30,7 @@ internal static class OneShotTracker
 		}
 	}
 
-	private static List<NSObject> pendingInvokes = new List<NSObject>();
+	private static readonly List<NSObject> pendingInvokes = new List<NSObject>();
 
 	public static NSObject Create(NSAction action)
 	{

@@ -4,7 +4,7 @@ namespace Foundation;
 
 public class NSErrorException : Exception
 {
-	private NSError error;
+	private readonly NSError error;
 
 	public NSError Error => error;
 

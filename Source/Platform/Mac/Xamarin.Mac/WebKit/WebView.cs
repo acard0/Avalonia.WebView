@@ -850,11 +850,11 @@ public class WebView : NSView
 		}
 	}
 
-	private static IntPtr selUse = Selector.GetHandle("use");
+	private static readonly IntPtr selUse = Selector.GetHandle("use");
 
-	private static IntPtr selDownload = Selector.GetHandle("download");
+	private static readonly IntPtr selDownload = Selector.GetHandle("download");
 
-	private static IntPtr selIgnore = Selector.GetHandle("ignore");
+	private static readonly IntPtr selIgnore = Selector.GetHandle("ignore");
 
 	private static readonly IntPtr selMIMETypesShownAsHTMLHandle = Selector.GetHandle("MIMETypesShownAsHTML");
 

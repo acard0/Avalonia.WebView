@@ -13,9 +13,9 @@ public class Selector : IEquatable<Selector>
 
 	public static readonly IntPtr InitWithCoder = GetHandle("initWithCoder:");
 
-	private static IntPtr MethodSignatureForSelector = GetHandle("methodSignatureForSelector:");
+	private static readonly IntPtr MethodSignatureForSelector = GetHandle("methodSignatureForSelector:");
 
-	private static IntPtr FrameLength = GetHandle("frameLength");
+	private static readonly IntPtr FrameLength = GetHandle("frameLength");
 
 	internal static IntPtr RetainCount = GetHandle("retainCount");
 

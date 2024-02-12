@@ -172,7 +172,7 @@ public class WKWebView : NSView
 
     private static readonly IntPtr class_ptr = Class.GetHandle(nameof(WKWebView));
 
-    private static Type hack = typeof(NSProxy);
+    private static readonly Type hack = typeof(NSProxy);
 
     [EditorBrowsable(EditorBrowsableState.Advanced)]
     [Export("initWithCoder:")]

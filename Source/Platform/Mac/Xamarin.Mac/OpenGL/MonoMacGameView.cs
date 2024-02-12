@@ -12,13 +12,13 @@ public class MonoMacGameView : NSView, IGameWindow, INativeWindow, IDisposable
 {
 	private bool disposed;
 
-	private NSOpenGLContext openGLContext;
+	private readonly NSOpenGLContext openGLContext;
 
-	private NSOpenGLPixelFormat pixelFormat;
+	private readonly NSOpenGLPixelFormat pixelFormat;
 
 	private CVDisplayLink displayLink;
 
-	private NSObject notificationProxy;
+	private readonly NSObject notificationProxy;
 
 	private NSTimer animationTimer;
 
@@ -32,9 +32,9 @@ public class MonoMacGameView : NSView, IGameWindow, INativeWindow, IDisposable
 
 	private DateTime prevRenderTime;
 
-	private FrameEventArgs updateEventArgs = new FrameEventArgs();
+	private readonly FrameEventArgs updateEventArgs = new FrameEventArgs();
 
-	private FrameEventArgs renderEventArgs = new FrameEventArgs();
+	private readonly FrameEventArgs renderEventArgs = new FrameEventArgs();
 
 	private Size size;
 

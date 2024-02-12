@@ -16,7 +16,7 @@ public class _AudioConverter : IDisposable
 
 	private readonly GCHandle _handle;
 
-	private IntPtr _audioConverter;
+	private readonly IntPtr _audioConverter;
 
 	public byte[] DecompressionMagicCookie
 	{

@@ -38,25 +38,25 @@ namespace Microsoft.Web.WebView2.Core
         {
             internal ushort wProcessorArchitecture;
 
-            private ushort wReserved;
+            private readonly ushort wReserved;
 
-            private int dwPageSize;
+            private readonly int dwPageSize;
 
-            private IntPtr lpMinimumApplicationAddress;
+            private readonly IntPtr lpMinimumApplicationAddress;
 
-            private IntPtr lpMaximumApplicationAddress;
+            private readonly IntPtr lpMaximumApplicationAddress;
 
-            private IntPtr dwActiveProcessorMask;
+            private readonly IntPtr dwActiveProcessorMask;
 
-            private int dwNumberOfProcessors;
+            private readonly int dwNumberOfProcessors;
 
-            private int dwProcessorType;
+            private readonly int dwProcessorType;
 
-            private int dwAllocationGranularity;
+            private readonly int dwAllocationGranularity;
 
-            private short wProcessorLevel;
+            private readonly short wProcessorLevel;
 
-            private short wProcessorRevision;
+            private readonly short wProcessorRevision;
         }
 
         private const char DirectorySeparatorChar = '\\';

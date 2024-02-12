@@ -4,7 +4,7 @@ namespace CoreFoundation;
 
 public struct CFIndex
 {
-	private IntPtr value;
+	private readonly IntPtr value;
 
 	private CFIndex(IntPtr value)
 	{

@@ -17,13 +17,13 @@ public struct BlockDescriptor
 
 	public IntPtr dispose;
 
-	private unsafe static CopyHelperDelegate copy_helper_delegate = CopyHelper;
+	private static readonly unsafe CopyHelperDelegate copy_helper_delegate = CopyHelper;
 
-	private unsafe static DisposeHelperDelegate dispose_helper_delegate = DisposeHelper;
+	private static readonly unsafe DisposeHelperDelegate dispose_helper_delegate = DisposeHelper;
 
-	private static IntPtr copy_helper_ptr = Marshal.GetFunctionPointerForDelegate(copy_helper_delegate);
+	private static readonly IntPtr copy_helper_ptr = Marshal.GetFunctionPointerForDelegate(copy_helper_delegate);
 
-	private static IntPtr dispose_helper_ptr = Marshal.GetFunctionPointerForDelegate(dispose_helper_delegate);
+	private static readonly IntPtr dispose_helper_ptr = Marshal.GetFunctionPointerForDelegate(dispose_helper_delegate);
 
 	[MonoPInvokeCallback(typeof(CopyHelperDelegate))]
 	private unsafe static void CopyHelper(BlockLiteral* dest, BlockLiteral* source)

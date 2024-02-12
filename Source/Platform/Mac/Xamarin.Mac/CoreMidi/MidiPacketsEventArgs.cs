@@ -4,7 +4,7 @@ namespace CoreMidi;
 
 public class MidiPacketsEventArgs : EventArgs
 {
-	private IntPtr packetList;
+	private readonly IntPtr packetList;
 
 	public IntPtr PacketListRaw => packetList;
 

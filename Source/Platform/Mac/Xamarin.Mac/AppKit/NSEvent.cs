@@ -13,7 +13,7 @@ public class NSEvent : NSObject
 {
 	private class NSEventDebuggerProxy
 	{
-		private NSEvent target;
+		private readonly NSEvent target;
 
 		private const int TabletPointEventSubtype = 1;
 

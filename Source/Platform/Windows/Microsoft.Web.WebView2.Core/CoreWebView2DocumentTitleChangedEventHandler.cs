@@ -12,7 +12,7 @@ namespace Microsoft.Web.WebView2.Core
     {
         public delegate void CallbackType(EventArgs args);
 
-        private CallbackType _callback;
+        private readonly CallbackType _callback;
 
         public CoreWebView2DocumentTitleChangedEventHandler(CallbackType callback)
         {

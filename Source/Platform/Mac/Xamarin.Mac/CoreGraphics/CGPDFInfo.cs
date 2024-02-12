@@ -7,25 +7,25 @@ namespace CoreGraphics;
 
 public class CGPDFInfo : CGPDFPageInfo
 {
-	private static IntPtr kCGPDFContextTitle;
+	private static readonly IntPtr kCGPDFContextTitle;
 
-	private static IntPtr kCGPDFContextAuthor;
+	private static readonly IntPtr kCGPDFContextAuthor;
 
-	private static IntPtr kCGPDFContextSubject;
+	private static readonly IntPtr kCGPDFContextSubject;
 
-	private static IntPtr kCGPDFContextKeywords;
+	private static readonly IntPtr kCGPDFContextKeywords;
 
-	private static IntPtr kCGPDFContextCreator;
+	private static readonly IntPtr kCGPDFContextCreator;
 
-	private static IntPtr kCGPDFContextOwnerPassword;
+	private static readonly IntPtr kCGPDFContextOwnerPassword;
 
-	private static IntPtr kCGPDFContextUserPassword;
+	private static readonly IntPtr kCGPDFContextUserPassword;
 
-	private static IntPtr kCGPDFContextEncryptionKeyLength;
+	private static readonly IntPtr kCGPDFContextEncryptionKeyLength;
 
-	private static IntPtr kCGPDFContextAllowsPrinting;
+	private static readonly IntPtr kCGPDFContextAllowsPrinting;
 
-	private static IntPtr kCGPDFContextAllowsCopying;
+	private static readonly IntPtr kCGPDFContextAllowsCopying;
 
 	public string Title { get; set; }
 

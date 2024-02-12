@@ -4,9 +4,9 @@ namespace CoreFoundation;
 
 public struct CFRange
 {
-	private IntPtr loc;
+	private readonly IntPtr loc;
 
-	private IntPtr len;
+	private readonly IntPtr len;
 
 	public int Location => loc.ToInt32();
 

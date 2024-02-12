@@ -13,7 +13,7 @@ namespace Microsoft.Web.WebView2.Core
 {
     internal class ManagedIStream : IStream
     {
-        private Stream _ioStream;
+        private readonly Stream _ioStream;
 
         private const int STGTY_STREAM = 2;
 

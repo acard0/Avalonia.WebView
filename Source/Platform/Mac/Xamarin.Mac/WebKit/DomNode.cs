@@ -10,9 +10,9 @@ public class DomNode : DomObject
 {
 	internal class DomNodeEventProxy : DomEventListener
 	{
-		private DomEventListenerHandler handler;
+		private readonly DomEventListenerHandler handler;
 
-		private DomNode root;
+		private readonly DomNode root;
 
 		public DomNodeEventProxy(DomNode root, DomEventListenerHandler handler)
 		{
@@ -28,7 +28,7 @@ public class DomNode : DomObject
 
 	internal class DomNodeEventProxy2 : DomEventListener
 	{
-		private Action<DomEvent> callback;
+		private readonly Action<DomEvent> callback;
 
 		public DomNodeEventProxy2(Action<DomEvent> callback)
 		{

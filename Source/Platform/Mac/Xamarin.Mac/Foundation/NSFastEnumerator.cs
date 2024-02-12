@@ -13,7 +13,7 @@ internal class NSFastEnumerator<T> : IEnumerator<T>, IDisposable, IEnumerator wh
 {
     private NSFastEnumerationState state;
 
-    private NSObject collection;
+    private readonly NSObject collection;
 
     private IntPtr[] array;
 

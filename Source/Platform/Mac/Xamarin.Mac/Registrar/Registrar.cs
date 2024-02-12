@@ -44,7 +44,7 @@ internal abstract class Registrar
 
         public List<ObjCProperty> Properties;
 
-        private Dictionary<string, ObjCMember> Map = new Dictionary<string, ObjCMember>();
+        private readonly Dictionary<string, ObjCMember> Map = new Dictionary<string, ObjCMember>();
 
         private ObjCType superType;
 
@@ -1044,15 +1044,15 @@ internal abstract class Registrar
 
     private const string NFloatTypeName = "System.Runtime.InteropServices.NFloat";
 
-    private Dictionary<Assembly, object> assemblies = new Dictionary<Assembly, object>();
+    private readonly Dictionary<Assembly, object> assemblies = new Dictionary<Assembly, object>();
 
-    private Dictionary<Type, ObjCType> types = new Dictionary<Type, ObjCType>();
+    private readonly Dictionary<Type, ObjCType> types = new Dictionary<Type, ObjCType>();
 
-    private Dictionary<string, Type> type_map = new Dictionary<string, Type>();
+    private readonly Dictionary<string, Type> type_map = new Dictionary<string, Type>();
 
-    private Dictionary<string, Type> protocol_map = new Dictionary<string, Type>();
+    private readonly Dictionary<string, Type> protocol_map = new Dictionary<string, Type>();
 
-    private Dictionary<string, Type> categories_map = new Dictionary<string, Type>();
+    private readonly Dictionary<string, Type> categories_map = new Dictionary<string, Type>();
 
     private MethodBase conforms_to_protocol;
 

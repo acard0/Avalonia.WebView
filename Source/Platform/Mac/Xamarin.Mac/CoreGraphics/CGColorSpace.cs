@@ -11,7 +11,7 @@ public class CGColorSpace : INativeObject, IDisposable
 
 	public static CGColorSpace Null = new CGColorSpace(IntPtr.Zero);
 
-	private static byte[] Empty = new byte[0];
+	private static readonly byte[] Empty = new byte[0];
 
 	public IntPtr Handle => handle;
 

@@ -32,11 +32,11 @@ public static class RuntimeEx
     public static bool IsARM64CallingConvention = false;
     internal static IntPtrEqualityComparer IntPtrEqualityComparer;
     internal static TypeEqualityComparer TypeEqualityComparer;
-    private static Dictionary<IntPtr, GCHandle> object_map;
-    private static object lock_obj;
+    private static readonly Dictionary<IntPtr, GCHandle> object_map;
+    private static readonly object lock_obj;
     public static bool DynamicRegistrationSupported => true;
 
-    static DynamicRegistrar Registrar;
+    static readonly DynamicRegistrar Registrar;
 
     internal static IntPtr AllocGCHandle(object? value, GCHandleType type = GCHandleType.Normal)
     {

@@ -2,7 +2,7 @@ namespace Foundation;
 
 public class NSFileSystemAttributes
 {
-	private NSDictionary dict;
+	private readonly NSDictionary dict;
 
 	public ulong Size { get; internal set; }
 

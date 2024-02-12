@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 namespace ObjCRuntime;
 public class Protocol : INativeObject
 {
-    private IntPtr handle;
+    private readonly IntPtr handle;
 
     public IntPtr Handle => handle;
 

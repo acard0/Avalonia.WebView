@@ -129,17 +129,17 @@ namespace Microsoft.Web.WebView2.Core
 
         private class AwaitableReflection
         {
-            private Type _awaitable;
+            private readonly Type _awaitable;
 
-            private MethodInfo _getAwaiter;
+            private readonly MethodInfo _getAwaiter;
 
-            private Type _awaiter;
+            private readonly Type _awaiter;
 
-            private PropertyInfo _isCompleted;
+            private readonly PropertyInfo _isCompleted;
 
-            private MethodInfo _onCompleted;
+            private readonly MethodInfo _onCompleted;
 
-            private MethodInfo _getResult;
+            private readonly MethodInfo _getResult;
 
             public static AwaitableReflection FromAwaitableType(Type type)
             {

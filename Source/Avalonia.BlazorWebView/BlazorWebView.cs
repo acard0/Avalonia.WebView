@@ -20,7 +20,7 @@ public partial class BlazorWebView : Control, IVirtualWebView<BlazorWebView>, IW
     public AvaloniaWebViewManager? AvaloniaWebViewManager => _avaloniaWebViewManager;
     public IPlatformWebView? PlatformWebView => _platformWebView;
 
-    bool _isDisposed = false;
+    readonly bool _isDisposed = false;
     private IPlatformWebView? _platformWebView;
     private AvaloniaWebViewManager? _avaloniaWebViewManager;
 

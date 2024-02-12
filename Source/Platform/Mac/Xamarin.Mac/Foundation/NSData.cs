@@ -32,7 +32,7 @@ public class NSData : NSObject, IEnumerable, IEnumerable<byte>
 	{
 		private NSData source;
 
-		private IntPtr base_address;
+		private readonly IntPtr base_address;
 
 		public UnmanagedMemoryStreamWithMutableRef(NSData source)
 			: base(source)

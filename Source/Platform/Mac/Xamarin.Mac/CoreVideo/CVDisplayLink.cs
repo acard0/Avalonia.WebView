@@ -16,7 +16,7 @@ public class CVDisplayLink : INativeObject, IDisposable
 
 	private GCHandle callbackHandle;
 
-	private static CVDisplayLinkOutputCallback static_OutputCallback = OutputCallback;
+	private static readonly CVDisplayLinkOutputCallback static_OutputCallback = OutputCallback;
 
 	public IntPtr Handle => handle;
 

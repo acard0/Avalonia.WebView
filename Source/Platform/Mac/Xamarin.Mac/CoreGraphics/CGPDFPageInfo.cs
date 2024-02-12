@@ -6,15 +6,15 @@ namespace CoreGraphics;
 
 public class CGPDFPageInfo
 {
-	private static IntPtr kCGPDFContextMediaBox;
+	private static readonly IntPtr kCGPDFContextMediaBox;
 
-	private static IntPtr kCGPDFContextCropBox;
+	private static readonly IntPtr kCGPDFContextCropBox;
 
-	private static IntPtr kCGPDFContextBleedBox;
+	private static readonly IntPtr kCGPDFContextBleedBox;
 
-	private static IntPtr kCGPDFContextTrimBox;
+	private static readonly IntPtr kCGPDFContextTrimBox;
 
-	private static IntPtr kCGPDFContextArtBox;
+	private static readonly IntPtr kCGPDFContextArtBox;
 
 	public CGRect? MediaBox { get; set; }
 

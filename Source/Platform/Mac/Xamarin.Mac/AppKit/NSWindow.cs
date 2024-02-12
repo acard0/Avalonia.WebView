@@ -410,7 +410,7 @@ public class NSWindow : NSResponder
 		}
 	}
 
-	private static IntPtr selInitWithWindowRef = Selector.GetHandle("initWithWindowRef:");
+	private static readonly IntPtr selInitWithWindowRef = Selector.GetHandle("initWithWindowRef:");
 
 	private static readonly IntPtr selDefaultDepthLimitHandle = Selector.GetHandle("defaultDepthLimit");
 

@@ -22,7 +22,7 @@ public class ABAddressBook : INativeObject, IDisposable, IEnumerable<ABRecord>, 
 
 	private static readonly InnerCompleted static_completionHandler;
 
-	private object eventLock = new object();
+	private readonly object eventLock = new object();
 
 	private EventHandler<ExternalChangeEventArgs> externalChange;
 

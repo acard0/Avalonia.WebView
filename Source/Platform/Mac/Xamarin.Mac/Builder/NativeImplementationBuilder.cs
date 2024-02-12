@@ -25,13 +25,13 @@ internal abstract class NativeImplementationBuilder
     internal static AssemblyBuilder s_Builder;
     internal static ModuleBuilder s_Module;
 
-    private static MethodInfo __convertarray;
-    private static MethodInfo __convertsarray;
-    private static MethodInfo __convertstring;
-    private static MethodInfo __getobject;
-    private static MethodInfo __gethandle;
-    private static MethodInfo __getFunctionPointerForDelegate;
-    private static FieldInfo __intptrzero;
+    private static readonly MethodInfo __convertarray;
+    private static readonly MethodInfo __convertsarray;
+    private static readonly MethodInfo __convertstring;
+    private static readonly MethodInfo __getobject;
+    private static readonly MethodInfo __gethandle;
+    private static readonly MethodInfo __getFunctionPointerForDelegate;
+    private static readonly FieldInfo __intptrzero;
 
     private Delegate _delegate;
 

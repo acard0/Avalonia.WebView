@@ -47,20 +47,20 @@ public class Class : INativeObject
 
     public static bool ThrowOnInitFailure = true;
 
-	private static Dictionary<IntPtr, Type> type_map = new Dictionary<IntPtr, Type>();
-	private static Dictionary<Type, Type> custom_types = new Dictionary<Type, Type>();
-	private static List<Delegate> method_wrappers = new List<Delegate>();
-    private static Dictionary<Type, Dictionary<IntPtr, Delegate>> __mapTypeDelegates = new();
+	private static readonly Dictionary<IntPtr, Type> type_map = new Dictionary<IntPtr, Type>();
+	private static readonly Dictionary<Type, Type> custom_types = new Dictionary<Type, Type>();
+	private static readonly List<Delegate> method_wrappers = new List<Delegate>();
+    private static readonly Dictionary<Type, Dictionary<IntPtr, Delegate>> __mapTypeDelegates = new();
 
-	private static object lock_obj = new object();
+	private static readonly object lock_obj = new object();
 
 	internal IntPtr handle;
 	private static IntPtr memory;
 	private static int size_left;
 
-	private static getFrameLengthDelegate getFrameLength = Selector.GetFrameLength;
+	private static readonly getFrameLengthDelegate getFrameLength = Selector.GetFrameLength;
 
-	private static IntPtr getFrameLengthPtr = Marshal.GetFunctionPointerForDelegate(getFrameLength);
+	private static readonly IntPtr getFrameLengthPtr = Marshal.GetFunctionPointerForDelegate(getFrameLength);
 	private static addPropertyDelegate addProperty;
 	private static bool addPropertyInitialized;
 

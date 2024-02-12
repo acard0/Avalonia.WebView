@@ -16,7 +16,7 @@ namespace Microsoft.Web.WebView2.Core
     //     Represents a certificate. Gives access to a certificate's metadata.
     public class CoreWebView2Certificate
     {
-        private static DateTime _unixEpoch = DateTime.SpecifyKind(new DateTime(1970, 1, 1), DateTimeKind.Utc);
+        private static readonly DateTime _unixEpoch = DateTime.SpecifyKind(new DateTime(1970, 1, 1), DateTimeKind.Utc);
 
         internal ICoreWebView2Certificate _nativeICoreWebView2CertificateValue;
 

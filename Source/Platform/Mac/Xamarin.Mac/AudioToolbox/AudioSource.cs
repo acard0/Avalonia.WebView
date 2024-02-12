@@ -5,13 +5,13 @@ namespace AudioToolbox;
 
 public abstract class AudioSource : AudioFile
 {
-	private static ReadProc dRead;
+	private static readonly ReadProc dRead;
 
-	private static WriteProc dWrite;
+	private static readonly WriteProc dWrite;
 
-	private static GetSizeProc dGetSize;
+	private static readonly GetSizeProc dGetSize;
 
-	private static SetSizeProc dSetSize;
+	private static readonly SetSizeProc dSetSize;
 
 	private GCHandle gch;
 

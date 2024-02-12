@@ -19,7 +19,7 @@ public class NSNotificationCenter : NSObject
 
 	private const string postSelector = "post:";
 
-	private List<ObservedData> __mt_ObserverList_var = new List<ObservedData>();
+	private readonly List<ObservedData> __mt_ObserverList_var = new List<ObservedData>();
 
 	private static readonly IntPtr selDefaultCenterHandle = Selector.GetHandle("defaultCenter");
 

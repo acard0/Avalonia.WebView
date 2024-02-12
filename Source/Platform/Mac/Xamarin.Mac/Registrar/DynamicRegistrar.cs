@@ -11,11 +11,11 @@ namespace Registrar;
 
 internal class DynamicRegistrar : Registrar
 {
-    private Dictionary<IntPtr, ObjCType> type_map;
+    private readonly Dictionary<IntPtr, ObjCType> type_map;
 
     private Dictionary<string, object> registered_assemblies;
 
-    private Dictionary<Type, object> custom_type_map;
+    private readonly Dictionary<Type, object> custom_type_map;
 
     protected object lock_obj = new object();
 

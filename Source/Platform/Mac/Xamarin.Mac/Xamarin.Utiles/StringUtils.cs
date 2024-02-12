@@ -3,11 +3,11 @@
 namespace Xamarin.Utiles;
 internal class StringUtils
 {
-    private static char shellQuoteChar;
+    private static readonly char shellQuoteChar;
 
-    private static char[] mustQuoteCharacters;
+    private static readonly char[] mustQuoteCharacters;
 
-    private static char[] mustQuoteCharactersProcess;
+    private static readonly char[] mustQuoteCharactersProcess;
 
     static StringUtils()
     {

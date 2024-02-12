@@ -1,19 +1,19 @@
 ﻿namespace Foundation;
 internal struct NSFastEnumerationState
 {
-    private nint state;
+    private readonly nint state;
 
     internal IntPtr itemsPtr;
 
     internal IntPtr mutationsPtr;
 
-    private nint extra1;
+    private readonly nint extra1;
 
-    private nint extra2;
+    private readonly nint extra2;
 
-    private nint extra3;
+    private readonly nint extra3;
 
-    private nint extra4;
+    private readonly nint extra4;
 
-    private nint extra5;
+    private readonly nint extra5;
 }

@@ -5,11 +5,11 @@ namespace CoreFoundation;
 
 internal class CFDataBuffer : IDisposable
 {
-	private byte[] buffer;
+	private readonly byte[] buffer;
 
 	private CFData data;
 
-	private bool owns;
+	private readonly bool owns;
 
 	public IntPtr Handle => data.Handle;
 

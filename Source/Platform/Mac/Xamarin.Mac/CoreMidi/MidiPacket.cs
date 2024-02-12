@@ -6,11 +6,11 @@ public class MidiPacket
 {
 	public long TimeStamp;
 
-	private IntPtr byteptr;
+	private readonly IntPtr byteptr;
 
-	private byte[] bytes;
+	private readonly byte[] bytes;
 
-	private int start;
+	private readonly int start;
 
 	public ushort Length;
 

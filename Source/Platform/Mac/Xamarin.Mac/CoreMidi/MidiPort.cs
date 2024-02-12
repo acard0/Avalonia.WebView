@@ -8,7 +8,7 @@ public class MidiPort : MidiObject
 {
 	private GCHandle gch;
 
-	private bool input;
+	private readonly bool input;
 
 	public MidiClient Client { get; private set; }
 

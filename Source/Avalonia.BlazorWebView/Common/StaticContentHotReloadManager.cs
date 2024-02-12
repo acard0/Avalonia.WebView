@@ -69,7 +69,7 @@ internal static class StaticContentHotReloadManager
 
     private static (string AssemblyName, string RelativePath) GetAssemblyNameAndRelativePath(string requestAbsoluteUri, string appContentRoot)
     {
-        var requestPath = new Uri(requestAbsoluteUri).AbsolutePath.Substring(1);
+        var requestPath = new Uri(requestAbsoluteUri).AbsolutePath[1..];
         if (ContentUrlRegex.Match(requestPath) is { Success: true } match)
         {
             // For RCLs (i.e., URLs of the form _content/assembly/path), we assume the content root within the

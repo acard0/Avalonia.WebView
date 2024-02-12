@@ -494,7 +494,7 @@ internal static class Trampolines
 
     internal sealed class NIDAction : TrampolineBlockBase
     {
-        private DAction invoker;
+        private readonly DAction invoker;
 
         public unsafe NIDAction(BlockLiteral* block)
             : base(block)
@@ -537,7 +537,7 @@ internal static class Trampolines
 
     internal sealed class NIDActionArity1V31 : TrampolineBlockBase
     {
-        private DActionArity1V31 invoker;
+        private readonly DActionArity1V31 invoker;
 
         public unsafe NIDActionArity1V31(BlockLiteral* block)
             : base(block)
@@ -583,7 +583,7 @@ internal static class Trampolines
 
     internal sealed class NIDActionArity1V96 : TrampolineBlockBase
     {
-        private DActionArity1V96 invoker;
+        private readonly DActionArity1V96 invoker;
 
         public unsafe NIDActionArity1V96(BlockLiteral* block)
             : base(block)
@@ -627,7 +627,7 @@ internal static class Trampolines
 
     public sealed class NIDActionArity1V93 : TrampolineBlockBase
     {
-        private DActionArity1V93 invoker;
+        private readonly DActionArity1V93 invoker;
 
         public unsafe NIDActionArity1V93(BlockLiteral* block)
             : base(block)
@@ -670,7 +670,7 @@ internal static class Trampolines
 
     internal sealed class NIDActionArity1V94 : TrampolineBlockBase
     {
-        private DActionArity1V94 invoker;
+        private readonly DActionArity1V94 invoker;
 
         public unsafe NIDActionArity1V94(BlockLiteral* block)
             : base(block)
@@ -714,7 +714,7 @@ internal static class Trampolines
 
     internal sealed class NIDActionArity2V85 : TrampolineBlockBase
     {
-        private DActionArity2V85 invoker;
+        private readonly DActionArity2V85 invoker;
 
         public unsafe NIDActionArity2V85(BlockLiteral* block)
             : base(block)
@@ -757,7 +757,7 @@ internal static class Trampolines
 
     internal sealed class NIDActionArity2V44 : TrampolineBlockBase
     {
-        private DActionArity2V44 invoker;
+        private readonly DActionArity2V44 invoker;
 
         public unsafe NIDActionArity2V44(BlockLiteral* block)
             : base(block)
@@ -800,7 +800,7 @@ internal static class Trampolines
 
     internal sealed class NIDActionArity1V44 : TrampolineBlockBase
     {
-        private DActionArity1V44 invoker;
+        private readonly DActionArity1V44 invoker;
 
         public unsafe NIDActionArity1V44(BlockLiteral* block)
             : base(block)
@@ -845,7 +845,7 @@ internal static class Trampolines
 
     internal sealed class NIDActionArity1V95 : TrampolineBlockBase
     {
-        private DActionArity1V95 invoker;
+        private readonly DActionArity1V95 invoker;
 
         public unsafe NIDActionArity1V95(BlockLiteral* block)
             : base(block)
@@ -936,7 +936,7 @@ internal static class Trampolines
 
     internal sealed class NIDActionArity2V84 : TrampolineBlockBase
     {
-        private DActionArity2V84 invoker;
+        private readonly DActionArity2V84 invoker;
 
         public unsafe NIDActionArity2V84(BlockLiteral* block)
             : base(block)
@@ -980,7 +980,7 @@ internal static class Trampolines
 
     internal sealed class NIDActionArity1V1 : TrampolineBlockBase
     {
-        private DActionArity1V1 invoker;
+        private readonly DActionArity1V1 invoker;
 
         public unsafe NIDActionArity1V1(BlockLiteral* block)
             : base(block)
@@ -1042,7 +1042,7 @@ internal static class Trampolines
 
     internal sealed class NIDActionArity1V11 : TrampolineBlockBase
     {
-        private DActionArity1V11 invoker;
+        private readonly DActionArity1V11 invoker;
 
         public unsafe NIDActionArity1V11(BlockLiteral* block)
             : base(block)
@@ -1085,7 +1085,7 @@ internal static class Trampolines
 
     internal sealed class NIDWKJavascriptEvaluationResult : TrampolineBlockBase
     {
-        private DWKJavascriptEvaluationResult invoker;
+        private readonly DWKJavascriptEvaluationResult invoker;
 
         public unsafe NIDWKJavascriptEvaluationResult(BlockLiteral* block)
             : base(block)
@@ -1128,7 +1128,7 @@ internal static class Trampolines
 
     internal sealed class NIDActionArity2V86 : TrampolineBlockBase
     {
-        private DActionArity2V86 invoker;
+        private readonly DActionArity2V86 invoker;
 
         public unsafe NIDActionArity2V86(BlockLiteral* block)
             : base(block)
@@ -1172,7 +1172,7 @@ internal static class Trampolines
 
     internal sealed class NIDActionArity2V69 : TrampolineBlockBase
     {
-        private DActionArity2V69 invoker;
+        private readonly DActionArity2V69 invoker;
 
         public unsafe NIDActionArity2V69(BlockLiteral* block)
             : base(block)
@@ -1217,7 +1217,7 @@ internal static class Trampolines
 
     internal sealed class NIDActionArity2V16 : TrampolineBlockBase
     {
-        private DActionArity2V16 invoker;
+        private readonly DActionArity2V16 invoker;
 
         public unsafe NIDActionArity2V16(BlockLiteral* block)
             : base(block)
@@ -1263,7 +1263,7 @@ internal static class Trampolines
 
     internal sealed class NIDActionArity1V256 : TrampolineBlockBase
     {
-        private DActionArity1V256 invoker;
+        private readonly DActionArity1V256 invoker;
 
         public unsafe NIDActionArity1V256(BlockLiteral* block)
             : base(block)
@@ -1307,7 +1307,7 @@ internal static class Trampolines
 
     internal sealed class NIDActionArity1V2 : TrampolineBlockBase
     {
-        private DActionArity1V2 invoker;
+        private readonly DActionArity1V2 invoker;
 
         public unsafe NIDActionArity1V2(BlockLiteral* block)
             : base(block)

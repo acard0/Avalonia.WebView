@@ -32,13 +32,13 @@ public static class Runtime
 
     private static List<Assembly> assemblies;
 
-    private static Dictionary<IntPtr, WeakReference> object_map;
+    private static readonly Dictionary<IntPtr, WeakReference> object_map;
 
-    private static Dictionary<Type, ConstructorInfo> intptr_ctor_cache;
+    private static readonly Dictionary<Type, ConstructorInfo> intptr_ctor_cache;
 
-    private static object lock_obj;
+    private static readonly object lock_obj;
 
-    private static IntPtr selClass;
+    private static readonly IntPtr selClass;
 
     public static string FrameworksPath { get; set; }
 

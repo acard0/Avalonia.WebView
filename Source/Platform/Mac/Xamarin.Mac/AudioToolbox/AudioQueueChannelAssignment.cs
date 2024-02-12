@@ -5,9 +5,9 @@ namespace AudioToolbox;
 
 public struct AudioQueueChannelAssignment
 {
-	private IntPtr deviceUID;
+	private readonly IntPtr deviceUID;
 
-	private uint channelNumber;
+	private readonly uint channelNumber;
 
 	public AudioQueueChannelAssignment(CFString deviceUID, uint channelNumber)
 	{

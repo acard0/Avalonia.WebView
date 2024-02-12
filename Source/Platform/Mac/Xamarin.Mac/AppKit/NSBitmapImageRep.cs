@@ -10,7 +10,7 @@ namespace AppKit;
 [Register("NSBitmapImageRep", true)]
 public class NSBitmapImageRep : NSImageRep
 {
-	private static IntPtr selInitForIncrementalLoad = Selector.GetHandle("initForIncrementalLoad");
+	private static readonly IntPtr selInitForIncrementalLoad = Selector.GetHandle("initForIncrementalLoad");
 
 	private static readonly IntPtr selBitmapDataHandle = Selector.GetHandle("bitmapData");
 

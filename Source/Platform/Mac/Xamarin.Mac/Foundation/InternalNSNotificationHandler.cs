@@ -7,7 +7,7 @@ internal class InternalNSNotificationHandler : NSObject
 {
 	private NSNotificationCenter notificationCenter;
 
-	private Action<NSNotification> notify;
+	private readonly Action<NSNotification> notify;
 
 	public InternalNSNotificationHandler(NSNotificationCenter notificationCenter, Action<NSNotification> notify)
 	{

@@ -9,9 +9,9 @@ internal static class Tuple
 }
 internal class Tuple<T1, T2>
 {
-	private T1 item1;
+	private readonly T1 item1;
 
-	private T2 item2;
+	private readonly T2 item2;
 
 	public T1 Item1 => item1;
 

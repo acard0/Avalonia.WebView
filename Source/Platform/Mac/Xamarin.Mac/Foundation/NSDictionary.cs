@@ -11,7 +11,7 @@ public class NSDictionary : NSObject, IDictionary, ICollection, IEnumerable, IDi
 {
 	private class ShimEnumerator : IDictionaryEnumerator, IEnumerator, IDisposable
 	{
-		private IEnumerator<KeyValuePair<NSObject, NSObject>> e;
+		private readonly IEnumerator<KeyValuePair<NSObject, NSObject>> e;
 
 		public DictionaryEntry Entry
 		{

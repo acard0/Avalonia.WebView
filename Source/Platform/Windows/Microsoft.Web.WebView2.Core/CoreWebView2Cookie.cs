@@ -15,7 +15,7 @@ namespace Microsoft.Web.WebView2.Core
     //     Provides a set of properties that are used to manage a Microsoft.Web.WebView2.Core.CoreWebView2Cookie.
     public class CoreWebView2Cookie
     {
-        private static DateTime _unixEpoch = DateTime.SpecifyKind(new DateTime(1970, 1, 1), DateTimeKind.Utc);
+        private static readonly DateTime _unixEpoch = DateTime.SpecifyKind(new DateTime(1970, 1, 1), DateTimeKind.Utc);
 
         internal ICoreWebView2Cookie _nativeICoreWebView2CookieValue;
 

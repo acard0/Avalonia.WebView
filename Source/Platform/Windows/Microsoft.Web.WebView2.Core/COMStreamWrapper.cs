@@ -14,7 +14,7 @@ namespace Microsoft.Web.WebView2.Core
     {
         private IStream _istream;
 
-        private IntPtr _mInt64;
+        private readonly IntPtr _mInt64;
 
         private long _size;
 

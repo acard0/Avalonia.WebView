@@ -6,11 +6,11 @@ namespace AudioToolbox;
 
 public class AudioSessionRouteChangeEventArgs : EventArgs
 {
-	private static IntPtr route_change_key;
+	private static readonly IntPtr route_change_key;
 
-	private static IntPtr previous_route_key;
+	private static readonly IntPtr previous_route_key;
 
-	private static IntPtr current_route_key;
+	private static readonly IntPtr current_route_key;
 
 	public NSDictionary Dictionary { get; private set; }
 

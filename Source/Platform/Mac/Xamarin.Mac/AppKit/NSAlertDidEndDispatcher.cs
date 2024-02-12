@@ -8,7 +8,7 @@ namespace AppKit;
 [Register("__MonoMac_NSAlertDidEndDispatcher")]
 internal class NSAlertDidEndDispatcher : NSObject
 {
-	private static List<NSAlertDidEndDispatcher> pendingInvokes = new List<NSAlertDidEndDispatcher>();
+	private static readonly List<NSAlertDidEndDispatcher> pendingInvokes = new List<NSAlertDidEndDispatcher>();
 
 	private const string selector = "alertDidEnd:returnCode:contextInfo:";
 

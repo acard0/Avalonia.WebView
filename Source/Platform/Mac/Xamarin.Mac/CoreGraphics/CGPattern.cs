@@ -11,7 +11,7 @@ public class CGPattern : INativeObject, IDisposable
 
 	internal IntPtr handle;
 
-	private DrawPattern draw_pattern;
+	private readonly DrawPattern draw_pattern;
 
 	private CGPatternCallbacks callbacks;
 

@@ -10,7 +10,7 @@ namespace AppKit;
 [Register("NSOpenGLPixelFormat", true)]
 public class NSOpenGLPixelFormat : NSObject
 {
-	private static IntPtr selInitWithAttributes = Selector.GetHandle("initWithAttributes:");
+	private static readonly IntPtr selInitWithAttributes = Selector.GetHandle("initWithAttributes:");
 
 	private static readonly IntPtr selNumberOfVirtualScreensHandle = Selector.GetHandle("numberOfVirtualScreens");
 

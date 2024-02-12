@@ -11,7 +11,7 @@ namespace Microsoft.Web.WebView2.Core
     {
         public delegate void CallbackType(CoreWebView2TextureStreamErrorReceivedEventArgs args);
 
-        private CallbackType _callback;
+        private readonly CallbackType _callback;
 
         public CoreWebView2ExperimentalTextureStreamErrorReceivedEventHandler(CallbackType callback)
         {

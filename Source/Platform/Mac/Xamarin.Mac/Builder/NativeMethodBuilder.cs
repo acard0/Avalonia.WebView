@@ -8,15 +8,15 @@ namespace Builder;
 
 internal class NativeMethodBuilder : NativeImplementationBuilder
 {
-    static MethodInfo __creatensstring = typeof(NSString).GetMethod("op_Explicit", new Type[1] { typeof(string) });
-    static MethodInfo __convertstruct = typeof(Marshal).GetMethod("StructureToPtr", new Type[3]
+    static readonly MethodInfo __creatensstring = typeof(NSString).GetMethod("op_Explicit", new Type[1] { typeof(string) });
+    static readonly MethodInfo __convertstruct = typeof(Marshal).GetMethod("StructureToPtr", new Type[3]
     {
         typeof(object),
         typeof(IntPtr),
         typeof(bool)
     });
-    static MethodInfo __buildarray = typeof(NSArray).GetMethod("FromNSObjects", new Type[1] { typeof(NSObject[]) });
-    static MethodInfo __buildsarray = typeof(NSArray).GetMethod("FromStrings", new Type[1] { typeof(string[]) });
+    static readonly MethodInfo __buildarray = typeof(NSArray).GetMethod("FromNSObjects", new Type[1] { typeof(NSObject[]) });
+    static readonly MethodInfo __buildsarray = typeof(NSArray).GetMethod("FromStrings", new Type[1] { typeof(string[]) });
 
     internal NativeMethodBuilder(MethodInfo minfo)
         : this(minfo, minfo.DeclaringType, (ExportAttribute)Attribute.GetCustomAttribute(minfo.GetBaseDefinition(), typeof(ExportAttribute)))
@@ -68,9 +68,9 @@ internal class NativeMethodBuilder : NativeImplementationBuilder
     }
 
 
-    MethodInfo _methodInfo;
-    Type _type;
-    Type _returnType;
+    readonly MethodInfo _methodInfo;
+    readonly Type _type;
+    readonly Type _returnType;
     bool _isstret; 
 
     private Type ConvertReturnType(Type type)

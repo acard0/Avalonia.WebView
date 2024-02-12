@@ -6,9 +6,9 @@ namespace AddressBook;
 
 public struct ABMultiValueEntry<T>
 {
-	private ABMultiValue<T> self;
+	private readonly ABMultiValue<T> self;
 
-	private int index;
+	private readonly int index;
 
 	public bool IsReadOnly => self.IsReadOnly;
 

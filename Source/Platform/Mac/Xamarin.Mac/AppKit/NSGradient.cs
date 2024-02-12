@@ -10,7 +10,7 @@ namespace AppKit;
 [Register("NSGradient", true)]
 public class NSGradient : NSObject
 {
-	private static IntPtr selInitWithColorsAtLocationsColorSpace = Selector.GetHandle("initWithColors:atLocations:colorSpace:");
+	private static readonly IntPtr selInitWithColorsAtLocationsColorSpace = Selector.GetHandle("initWithColors:atLocations:colorSpace:");
 
 	private static readonly IntPtr selColorSpaceHandle = Selector.GetHandle("colorSpace");
 

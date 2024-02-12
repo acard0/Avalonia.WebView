@@ -4,7 +4,7 @@ namespace OpenAL;
 
 public struct ContextHandle : IComparable<ContextHandle>, IEquatable<ContextHandle>
 {
-	private IntPtr handle;
+	private readonly IntPtr handle;
 
 	public static readonly ContextHandle Zero = new ContextHandle(IntPtr.Zero);
 

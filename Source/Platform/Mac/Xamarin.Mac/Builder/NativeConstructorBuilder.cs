@@ -8,19 +8,19 @@ namespace Builder;
 
 internal class NativeConstructorBuilder : NativeImplementationBuilder
 {
-    private static MethodInfo __trygetnsobject = typeof(Runtime).GetMethod("TryGetNSObject", BindingFlags.Static | BindingFlags.Public);
+    private static readonly MethodInfo __trygetnsobject = typeof(Runtime).GetMethod("TryGetNSObject", BindingFlags.Static | BindingFlags.Public);
 
-    private static MethodInfo __newobject = typeof(FormatterServices).GetMethod("GetUninitializedObject", BindingFlags.Static | BindingFlags.Public);
+    private static readonly MethodInfo __newobject = typeof(FormatterServices).GetMethod("GetUninitializedObject", BindingFlags.Static | BindingFlags.Public);
 
-    private static MethodInfo __gettype = typeof(Type).GetMethod("GetTypeFromHandle", BindingFlags.Static | BindingFlags.Public);
+    private static readonly MethodInfo __gettype = typeof(Type).GetMethod("GetTypeFromHandle", BindingFlags.Static | BindingFlags.Public);
 
-    private static MethodInfo __retain = typeof(NSObject).GetMethod("Retain", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+    private static readonly MethodInfo __retain = typeof(NSObject).GetMethod("Retain", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
 
-    private static FieldInfo __handlefld = typeof(NSObject).GetField("handle", BindingFlags.Instance | BindingFlags.NonPublic);
+    private static readonly FieldInfo __handlefld = typeof(NSObject).GetField("handle", BindingFlags.Instance | BindingFlags.NonPublic);
 
-    private static FieldInfo __valuefld = typeof(RuntimeTypeHandle).GetField("value", BindingFlags.Instance | BindingFlags.NonPublic);
+    private static readonly FieldInfo __valuefld = typeof(RuntimeTypeHandle).GetField("value", BindingFlags.Instance | BindingFlags.NonPublic);
 
-    private static IntPtr __selInit = ObjCRuntime.Selector.GetHandle("init");
+    private static readonly IntPtr __selInit = ObjCRuntime.Selector.GetHandle("init");
 
     internal NativeConstructorBuilder(ConstructorInfo cinfo)
     {
@@ -40,7 +40,7 @@ internal class NativeConstructorBuilder : NativeImplementationBuilder
         _constructor = cinfo;
     }
 
-    private ConstructorInfo _constructor;
+    private readonly ConstructorInfo _constructor;
 
     internal override Delegate CreateDelegate()
     {

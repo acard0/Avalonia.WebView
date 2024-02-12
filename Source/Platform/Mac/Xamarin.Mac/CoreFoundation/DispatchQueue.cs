@@ -12,7 +12,7 @@ public class DispatchQueue : DispatchObject
 
 	private static IntPtr main_q;
 
-	private static object lockobj = new object();
+	private static readonly object lockobj = new object();
 
 	internal static readonly dispatch_callback_t static_dispatch = static_dispatcher_to_managed;
 

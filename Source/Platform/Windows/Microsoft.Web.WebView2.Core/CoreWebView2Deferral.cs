@@ -18,7 +18,7 @@ namespace Microsoft.Web.WebView2.Core
     {
         private bool disposed;
 
-        private SafeHandle handle = new SafeFileHandle(IntPtr.Zero, ownsHandle: true);
+        private readonly SafeHandle handle = new SafeFileHandle(IntPtr.Zero, ownsHandle: true);
 
         internal ICoreWebView2Deferral _nativeICoreWebView2DeferralValue;
 

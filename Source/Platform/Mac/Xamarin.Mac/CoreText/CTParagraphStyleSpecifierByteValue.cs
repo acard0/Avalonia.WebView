@@ -2,7 +2,7 @@ namespace CoreText;
 
 internal class CTParagraphStyleSpecifierByteValue : CTParagraphStyleSpecifierValue
 {
-	private byte value;
+	private readonly byte value;
 
 	internal override int ValueSize => 1;
 

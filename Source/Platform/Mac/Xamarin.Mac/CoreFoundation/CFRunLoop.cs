@@ -7,7 +7,7 @@ namespace CoreFoundation;
 
 public class CFRunLoop : INativeObject, IDisposable
 {
-	private static IntPtr CoreFoundationLibraryHandle = Dlfcn.dlopen("/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation", 0);
+	private static readonly IntPtr CoreFoundationLibraryHandle = Dlfcn.dlopen("/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation", 0);
 
 	internal IntPtr handle;
 

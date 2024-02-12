@@ -13,7 +13,7 @@ public partial class WebView2Core : IPlatformWebView<WebView2Core>
     private readonly TaskCompletionSource<IntPtr> _hwndTaskSource;
 
     private bool _browserHitTransparent;
-    private bool _browserCrashed;
+    private readonly bool _browserCrashed;
     private bool _isInitialized = false;
     private bool _isDisposed = false;
     private bool _isBlazorWebView;

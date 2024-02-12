@@ -15,7 +15,7 @@ public class NSDocument : NSObject
 	[Register("__NSDocumentDuplicateCallback")]
 	internal class Callback : NSObject
 	{
-		private DuplicateCallback callback;
+		private readonly DuplicateCallback callback;
 
 		public Callback(DuplicateCallback callback)
 		{

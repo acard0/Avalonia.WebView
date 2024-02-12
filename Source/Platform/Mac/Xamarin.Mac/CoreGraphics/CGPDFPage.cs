@@ -6,7 +6,7 @@ namespace CoreGraphics;
 
 public class CGPDFPage : INativeObject, IDisposable
 {
-	private CGPDFDocument doc;
+	private readonly CGPDFDocument doc;
 
 	internal IntPtr handle;
 

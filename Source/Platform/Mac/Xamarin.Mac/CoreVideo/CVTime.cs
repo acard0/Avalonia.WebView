@@ -12,7 +12,7 @@ public struct CVTime
 
 	public CVTimeFlags TimeFlags;
 
-	private static IntPtr CoreVideo_libraryHandle = Dlfcn.dlopen("/System/Library/Frameworks/CoreVideo.framework/CoreVideo", 0);
+	private static readonly IntPtr CoreVideo_libraryHandle = Dlfcn.dlopen("/System/Library/Frameworks/CoreVideo.framework/CoreVideo", 0);
 
 	public int Flags
 	{

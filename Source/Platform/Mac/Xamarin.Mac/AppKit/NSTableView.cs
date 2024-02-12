@@ -66,13 +66,13 @@ public class NSTableView : NSControl
 
 		internal EventHandler<NSTableViewRowEventArgs> didRemoveRowView;
 
-		private static IntPtr selGetRowHeightHandle = Selector.GetHandle("tableView:heightOfRow:");
+		private static readonly IntPtr selGetRowHeightHandle = Selector.GetHandle("tableView:heightOfRow:");
 
-		private static IntPtr selGetDataCellHandle = Selector.GetHandle("tableView:dataCellForTableColumn:row:");
+		private static readonly IntPtr selGetDataCellHandle = Selector.GetHandle("tableView:dataCellForTableColumn:row:");
 
-		private static IntPtr selGetViewForItemHandle = Selector.GetHandle("tableView:viewForTableColumn:row:");
+		private static readonly IntPtr selGetViewForItemHandle = Selector.GetHandle("tableView:viewForTableColumn:row:");
 
-		private static IntPtr selRespondsToSelector = Selector.GetHandle("respondsToSelector:");
+		private static readonly IntPtr selRespondsToSelector = Selector.GetHandle("respondsToSelector:");
 
 		[Preserve(Conditional = true)]
 		public override void WillDisplayCell(NSTableView tableView, NSObject cell, NSTableColumn tableColumn, long row)

@@ -2,7 +2,7 @@ namespace CoreText;
 
 internal class CTParagraphStyleSpecifierSingleValue : CTParagraphStyleSpecifierValue
 {
-	private float value;
+	private readonly float value;
 
 	internal override int ValueSize => 4;
 

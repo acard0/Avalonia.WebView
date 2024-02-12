@@ -22,11 +22,11 @@ public struct CFStreamClientContext
 
 	public IntPtr Info;
 
-	private IntPtr retain;
+	private readonly IntPtr retain;
 
-	private IntPtr release;
+	private readonly IntPtr release;
 
-	private IntPtr copyDescription;
+	private readonly IntPtr copyDescription;
 
 	public void Retain()
 	{

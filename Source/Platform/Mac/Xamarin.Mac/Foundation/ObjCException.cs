@@ -4,7 +4,7 @@ namespace Foundation;
 
 public class ObjCException : Exception
 {
-	private NSException native_exc;
+	private readonly NSException native_exc;
 
 	public NSException NSException => native_exc;
 

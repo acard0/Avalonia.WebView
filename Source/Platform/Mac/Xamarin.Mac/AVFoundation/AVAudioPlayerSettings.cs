@@ -6,7 +6,7 @@ namespace AVFoundation;
 [Advice("Use AudioSettings instead")]
 public class AVAudioPlayerSettings
 {
-	private NSDictionary dict;
+	private readonly NSDictionary dict;
 
 	public AudioChannelLayout AudioChannelLayout
 	{
