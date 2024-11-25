@@ -53,9 +53,8 @@ public partial class LinuxWebViewCore : IPlatformWebView<LinuxWebViewCore>
 
     WebScheme? _webScheme;
 
-    bool _isBlazorWebView = false;
-
     bool _isInitialized = false;
+
     public bool IsInitialized
     {
         get => Volatile.Read(ref _isInitialized);

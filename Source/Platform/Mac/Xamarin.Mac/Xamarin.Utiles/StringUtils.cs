@@ -11,8 +11,8 @@ internal class StringUtils
 
     static StringUtils()
     {
-        mustQuoteCharacters = new char[5] { ' ', '\'', ',', '$', '\\' };
-        mustQuoteCharactersProcess = new char[4] { ' ', '\\', '"', '\'' };
+        mustQuoteCharacters = [' ', '\'', ',', '$', '\\'];
+        mustQuoteCharactersProcess = [' ', '\\', '"', '\''];
         PlatformID platform = Environment.OSVersion.Platform;
         if (platform != (PlatformID)128 && platform != PlatformID.Unix && platform != PlatformID.MacOSX)
         {

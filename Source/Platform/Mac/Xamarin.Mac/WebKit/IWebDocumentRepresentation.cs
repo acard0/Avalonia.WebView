@@ -4,18 +4,18 @@ using ObjCRuntime;
 namespace WebKit;
 
 [Protocol(Name = "WebDocumentRepresentation", WrapperType = typeof(WebDocumentRepresentationWrapper))]
-[ProtocolMember(IsRequired = true, IsProperty = false, IsStatic = false, Name = "SetDataSource", Selector = "setDataSource:", ParameterType = new Type[] { typeof(WebDataSource) }, ParameterByRef = new bool[] { false })]
-[ProtocolMember(IsRequired = true, IsProperty = false, IsStatic = false, Name = "ReceivedData", Selector = "receivedData:withDataSource:", ParameterType = new Type[]
-{
+[ProtocolMember(IsRequired = true, IsProperty = false, IsStatic = false, Name = "SetDataSource", Selector = "setDataSource:", ParameterType = [typeof(WebDataSource)], ParameterByRef = [false])]
+[ProtocolMember(IsRequired = true, IsProperty = false, IsStatic = false, Name = "ReceivedData", Selector = "receivedData:withDataSource:", ParameterType =
+[
     typeof(NSData),
     typeof(WebDataSource)
-}, ParameterByRef = new bool[] { false, false })]
-[ProtocolMember(IsRequired = true, IsProperty = false, IsStatic = false, Name = "ReceivedError", Selector = "receivedError:withDataSource:", ParameterType = new Type[]
-{
+], ParameterByRef = [false, false])]
+[ProtocolMember(IsRequired = true, IsProperty = false, IsStatic = false, Name = "ReceivedError", Selector = "receivedError:withDataSource:", ParameterType =
+[
     typeof(NSError),
     typeof(WebDataSource)
-}, ParameterByRef = new bool[] { false, false })]
-[ProtocolMember(IsRequired = true, IsProperty = false, IsStatic = false, Name = "FinishedLoading", Selector = "finishedLoadingWithDataSource:", ParameterType = new Type[] { typeof(WebDataSource) }, ParameterByRef = new bool[] { false })]
+], ParameterByRef = [false, false])]
+[ProtocolMember(IsRequired = true, IsProperty = false, IsStatic = false, Name = "FinishedLoading", Selector = "finishedLoadingWithDataSource:", ParameterType = [typeof(WebDataSource)], ParameterByRef = [false])]
 [ProtocolMember(IsRequired = true, IsProperty = true, IsStatic = false, Name = "CanProvideDocumentSource", Selector = "canProvideDocumentSource", PropertyType = typeof(bool), GetterSelector = "canProvideDocumentSource", ArgumentSemantic = ArgumentSemantic.None)]
 [ProtocolMember(IsRequired = true, IsProperty = true, IsStatic = false, Name = "DocumentSource", Selector = "documentSource", PropertyType = typeof(string), GetterSelector = "documentSource", ArgumentSemantic = ArgumentSemantic.None)]
 [ProtocolMember(IsRequired = true, IsProperty = true, IsStatic = false, Name = "Title", Selector = "title", PropertyType = typeof(string), GetterSelector = "title", ArgumentSemantic = ArgumentSemantic.None)]

@@ -539,9 +539,9 @@ public class Class : INativeObject
 		IntPtr intPtr3 = new IntPtr(getFrameLengthPtr.ToInt32() - intPtr.ToInt32() - 27);
 		byte[] bytes = BitConverter.GetBytes(intPtr2.ToInt32());
 		byte[] bytes2 = BitConverter.GetBytes(intPtr3.ToInt32());
-		byte[] obj = new byte[83]
-		{
-			85, 137, 229, 86, 87, 83, 131, 236, 60, 139,
+		byte[] obj =
+        [
+            85, 137, 229, 86, 87, 83, 131, 236, 60, 139,
 			69, 16, 137, 68, 36, 4, 139, 69, 12, 137,
 			4, 36, 232, 0, 0, 0, 0, 137, 69, 240,
 			131, 192, 15, 193, 232, 4, 193, 224, 4, 41,
@@ -550,7 +550,7 @@ public class Class : INativeObject
 			137, 4, 15, 235, 240, 232, 0, 0, 0, 0,
 			139, 93, 244, 139, 125, 248, 139, 117, 252, 201,
 			194, 4, 0
-		};
+		];
 		obj[23] = bytes2[0];
 		obj[24] = bytes2[1];
 		obj[25] = bytes2[2];

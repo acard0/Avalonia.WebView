@@ -128,7 +128,7 @@ public class CIDetector : NSObject
 
 	public static CIDetector CreateFaceDetector(CIContext context, bool highAccuracy)
 	{
-		using NSDictionary options = NSDictionary.FromObjectsAndKeys(new NSObject[1] { highAccuracy ? AccuracyHigh : AccuracyLow }, new NSObject[1] { Accuracy });
+		using NSDictionary options = NSDictionary.FromObjectsAndKeys([highAccuracy ? AccuracyHigh : AccuracyLow], [Accuracy]);
 		return FromType(TypeFace, context, options);
 	}
 
@@ -138,11 +138,11 @@ public class CIDetector : NSObject
 		{
 			return CreateFaceDetector(context, highAccuracy);
 		}
-		using NSDictionary options = NSDictionary.FromObjectsAndKeys(new NSObject[2]
-		{
-			highAccuracy ? AccuracyHigh : AccuracyLow,
+		using NSDictionary options = NSDictionary.FromObjectsAndKeys(
+        [
+            highAccuracy ? AccuracyHigh : AccuracyLow,
 			new NSNumber(minFeatureSize)
-		}, new NSObject[2] { Accuracy, MinFeatureSize });
+		], [Accuracy, MinFeatureSize]);
 		return FromType(TypeFace, context, options);
 	}
 
@@ -171,10 +171,10 @@ public class CIDetector : NSObject
 
 	public CIFeature[] FeaturesInImage(CIImage image, CIImageOrientation orientation)
 	{
-		using NSDictionary options = NSDictionary.FromObjectsAndKeys(new NSObject[1]
-		{
-			new NSNumber((int)orientation)
-		}, new NSObject[1] { ImageOrientation });
+		using NSDictionary options = NSDictionary.FromObjectsAndKeys(
+        [
+            new NSNumber((int)orientation)
+		], [ImageOrientation]);
 		return FeaturesInImage(image, options);
 	}
 

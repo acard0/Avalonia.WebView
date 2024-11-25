@@ -349,16 +349,16 @@ public class MonoMacGameView : NSView, IGameWindow, INativeWindow, IDisposable
 	public MonoMacGameView(CGRect frame, NSOpenGLContext context)
 		: base(frame)
 	{
-		object[] attribs = new object[7]
-		{
-			NSOpenGLPixelFormatAttribute.Accelerated,
+		object[] attribs =
+        [
+            NSOpenGLPixelFormatAttribute.Accelerated,
 			NSOpenGLPixelFormatAttribute.NoRecovery,
 			NSOpenGLPixelFormatAttribute.DoubleBuffer,
 			NSOpenGLPixelFormatAttribute.ColorSize,
 			24,
 			NSOpenGLPixelFormatAttribute.DepthSize,
 			16
-		};
+		];
 		pixelFormat = new NSOpenGLPixelFormat(attribs);
 		if (pixelFormat == null)
 		{

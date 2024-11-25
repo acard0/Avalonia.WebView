@@ -20,7 +20,7 @@ public struct AudioChannelDescription
 	{
 		get
 		{
-			return new float[3] { Coord0, Coord1, Coord2 };
+			return [Coord0, Coord1, Coord2];
 		}
 		set
 		{

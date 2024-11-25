@@ -10,7 +10,7 @@ partial class BlazorWebView
         }
         else
         {
-            _logger.LogInformation("!!! Failed to create Native Platform Web View: {arg.Message}");
+            _logger.LogInformation("!!! Failed to create Native Platform Web View. {m}", arg.Message);
         }
 
         WebViewCreated?.Invoke(sender, arg);

@@ -4,11 +4,11 @@ using ObjCRuntime;
 namespace WebKit;
 
 [Protocol(Name = "WKScriptMessageHandler", WrapperType = typeof(WKScriptMessageHandlerWrapper))]
-[ProtocolMember(IsRequired = true, IsProperty = false, IsStatic = false, Name = "DidReceiveScriptMessage", Selector = "userContentController:didReceiveScriptMessage:", ParameterType = new Type[]
-{
+[ProtocolMember(IsRequired = true, IsProperty = false, IsStatic = false, Name = "DidReceiveScriptMessage", Selector = "userContentController:didReceiveScriptMessage:", ParameterType =
+[
     typeof(WKUserContentController),
     typeof(WKScriptMessage)
-}, ParameterByRef = new bool[] { false, false })]
+], ParameterByRef = [false, false])]
 public interface IWKScriptMessageHandler : INativeObject, IDisposable
 {
     [Export("userContentController:didReceiveScriptMessage:")]

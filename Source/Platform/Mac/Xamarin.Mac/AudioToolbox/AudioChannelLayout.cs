@@ -181,7 +181,7 @@ public class AudioChannelLayout
 		int size;
 		IntPtr intPtr = inputLayout.ToBlock(out size);
 		IntPtr intPtr2 = outputLayout.ToBlock(out size);
-		IntPtr[] array = new IntPtr[2] { intPtr, intPtr2 };
+		IntPtr[] array = [intPtr, intPtr2];
 		size = sizeof(IntPtr) * array.Length;
 		int[] array2;
 		AudioFormatError num;
@@ -226,7 +226,7 @@ public class AudioChannelLayout
 		int size;
 		IntPtr intPtr = inputLayout.ToBlock(out size);
 		IntPtr intPtr2 = outputLayout.ToBlock(out size);
-		IntPtr[] array = new IntPtr[2] { intPtr, intPtr2 };
+		IntPtr[] array = [intPtr, intPtr2];
 		size = sizeof(IntPtr) * array.Length;
 		float[,] array2;
 		AudioFormatError num;

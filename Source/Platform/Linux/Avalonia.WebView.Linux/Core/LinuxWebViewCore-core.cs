@@ -29,7 +29,6 @@ unsafe partial class LinuxWebViewCore
 
         }).Result;
 
-        _isBlazorWebView = true;
         return Task.CompletedTask;
     }
 
@@ -43,8 +42,6 @@ unsafe partial class LinuxWebViewCore
             //webView.UserContentManager.UnregisterScriptMessageHandler(_messageKeyWord);
             //webView.RemoveSignalHandler($"script-message-received::{_messageKeyWord}", WebView_WebMessageReceived);
         }).Result;
-
-        _isBlazorWebView = false;
     }
 
     void WebView_WebMessageReceived(nint pContentManager, nint pJsResult, nint pArg)

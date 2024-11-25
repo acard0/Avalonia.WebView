@@ -62,11 +62,11 @@ internal abstract class NativeImplementationBuilder
     protected Type CreateDelegateType(Type return_type, Type[] argument_types)
     {
         TypeBuilder typeBuilder = s_Module.DefineType(Guid.NewGuid().ToString(), TypeAttributes.Public | TypeAttributes.Sealed | TypeAttributes.AutoClass, typeof(MulticastDelegate));
-        typeBuilder.DefineConstructor(MethodAttributes.Public, CallingConventions.Standard, new Type[2]
-        {
+        typeBuilder.DefineConstructor(MethodAttributes.Public, CallingConventions.Standard,
+        [
             typeof(object),
             typeof(int)
-        }).SetImplementationFlags(MethodImplAttributes.CodeTypeMask);
+        ]).SetImplementationFlags(MethodImplAttributes.CodeTypeMask);
 
         MethodBuilder methodBuilder = typeBuilder.DefineMethod("Invoke", MethodAttributes.Public | MethodAttributes.Virtual | MethodAttributes.HideBySig | MethodAttributes.VtableLayoutMask, return_type, argument_types);
         if (NeedsCustomMarshaler(return_type))
@@ -106,11 +106,11 @@ internal abstract class NativeImplementationBuilder
     protected Type CreateDelegateTypeWithProxy(Type return_type, Type[] argument_types, Type?[]? proxy_types)
     {
         TypeBuilder typeBuilder = s_Module.DefineType(Guid.NewGuid().ToString(), TypeAttributes.Public | TypeAttributes.Sealed | TypeAttributes.AutoClass, typeof(MulticastDelegate));
-        typeBuilder.DefineConstructor(MethodAttributes.Public, CallingConventions.Standard, new Type[2]
-        {
+        typeBuilder.DefineConstructor(MethodAttributes.Public, CallingConventions.Standard,
+        [
             typeof(object),
             typeof(int)
-        }).SetImplementationFlags(MethodImplAttributes.CodeTypeMask);
+        ]).SetImplementationFlags(MethodImplAttributes.CodeTypeMask);
 
         MethodBuilder methodBuilder = typeBuilder.DefineMethod("Invoke", MethodAttributes.Public | MethodAttributes.Virtual | MethodAttributes.HideBySig | MethodAttributes.VtableLayoutMask, return_type, argument_types);
         if (NeedsCustomMarshaler(return_type))
@@ -206,7 +206,7 @@ internal abstract class NativeImplementationBuilder
         ParameterBuilder parameterBuilder = builder.DefineParameter(index, ParameterAttributes.HasFieldMarshal, $"arg{index}");
         ConstructorInfo? constructor = typeof(MarshalAsAttribute).GetConstructor(new Type[1] { typeof(UnmanagedType) });
         FieldInfo field = typeof(MarshalAsAttribute).GetField("MarshalTypeRef");
-        CustomAttributeBuilder customAttribute = new CustomAttributeBuilder(constructor, new object[1] { UnmanagedType.CustomMarshaler }, new FieldInfo[1] { field }, new object[1] { MarshalerForType(t) });
+        CustomAttributeBuilder customAttribute = new CustomAttributeBuilder(constructor, new object[1] { UnmanagedType.CustomMarshaler }, new FieldInfo[1] { field }, [MarshalerForType(t)]);
         parameterBuilder.SetCustomAttribute(customAttribute);
     }
 
@@ -215,7 +215,7 @@ internal abstract class NativeImplementationBuilder
         ParameterBuilder parameterBuilder = builder.DefineParameter(index, ParameterAttributes.HasFieldMarshal, $"arg{index}");
         ConstructorInfo? constructor = typeof(MarshalAsAttribute).GetConstructor(new Type[1] { typeof(UnmanagedType) });
         FieldInfo field = typeof(MarshalAsAttribute).GetField("MarshalTypeRef");
-        CustomAttributeBuilder customAttribute = new CustomAttributeBuilder(constructor, new object[1] { UnmanagedType.CustomMarshaler }, new FieldInfo[1] { field }, new object[1] { MarshalerForTypeWithProxy(t, rawType, proxyType) });
+        CustomAttributeBuilder customAttribute = new CustomAttributeBuilder(constructor, new object[1] { UnmanagedType.CustomMarshaler }, new FieldInfo[1] { field }, [MarshalerForTypeWithProxy(t, rawType, proxyType)]);
         parameterBuilder.SetCustomAttribute(customAttribute);
     }
 

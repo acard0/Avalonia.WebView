@@ -20652,7 +20652,7 @@ public sealed class GL
 	public unsafe static void ShaderSource(int shader, string @string)
 	{
 		int length = @string.Length;
-		ShaderSource((uint)shader, 1, new string[1] { @string }, &length);
+		ShaderSource((uint)shader, 1, [@string], &length);
 	}
 
 	public static string GetShaderInfoLog(int shader)

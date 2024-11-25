@@ -1,4 +1,5 @@
 ﻿using AvaloniaBlazorWebView.Common;
+using System.Runtime.InteropServices;
 using Toolkit.Shared;
 
 namespace AvaloniaBlazorWebView;
@@ -38,8 +39,11 @@ partial class BlazorWebView
 
         if (OperatingSystemEx.IsDesktop())
         {
-            var appRootDir = AppContext.BaseDirectory;
+            var appRootDir = AppContext.BaseDirectory ?? Directory.GetCurrentDirectory();
+            if (string.IsNullOrEmpty(appRootDir)) throw new InvalidOperationException("AppContext.BaseDirectory + Directory.GetCurrentDirectory() returned null/empty string");
             var hostPageFullPath = Path.GetFullPath(Path.Combine(appRootDir, HostPage));
+            if (string.IsNullOrEmpty(hostPageFullPath)) throw new InvalidOperationException("Path.GetFullPath(Path.Combine(appRootDir, HostPage)) returned null/empty string");
+
             contentRootDirFullPath = Path.GetDirectoryName(hostPageFullPath)!;
             hostPageRelativePath = Path.GetRelativePath(contentRootDirFullPath, hostPageFullPath);
             contentRootDir = Path.GetRelativePath(appRootDir, contentRootDirFullPath);
@@ -50,6 +54,8 @@ partial class BlazorWebView
             hostPageRelativePath = Path.GetRelativePath(contentRootDirFullPath, HostPage!);
             contentRootDir = contentRootDirFullPath;
         }
+
+        _logger.LogInformation("Resolved content root {}", contentRootDirFullPath);
 
         //IFileProvider fileProvider;
         //if (_setting.IsAvaloniaResource)

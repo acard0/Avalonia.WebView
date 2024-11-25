@@ -279,8 +279,8 @@ public class CIImage : NSObject
 		{
 			throw new ArgumentNullException("colorSpace");
 		}
-		using NSArray objects = NSArray.FromIntPtrs(new IntPtr[1] { colorSpace.Handle });
-		using NSArray keys = NSArray.FromIntPtrs(new IntPtr[1] { CIImageColorSpaceKey.Handle });
+		using NSArray objects = NSArray.FromIntPtrs([colorSpace.Handle]);
+		using NSArray keys = NSArray.FromIntPtrs([CIImageColorSpaceKey.Handle]);
 		using NSDictionary d = NSDictionary.FromObjectsAndKeysInternal(objects, keys);
 		return FromCGImage(image, d);
 	}

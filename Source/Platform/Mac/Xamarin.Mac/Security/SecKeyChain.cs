@@ -60,10 +60,10 @@ public static class SecKeyChain
 		{
 			if (max == 1)
 			{
-				return new NSData[1]
-				{
-					new NSData(result, owns: false)
-				};
+				return
+                [
+                    new NSData(result, owns: false)
+				];
 			}
 			NSArray nSArray = new NSArray(result);
 			NSData[] array = new NSData[nSArray.Count];

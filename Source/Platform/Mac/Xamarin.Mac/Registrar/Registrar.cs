@@ -48,12 +48,12 @@ internal abstract class Registrar
 
         private ObjCType superType;
 
-        private static readonly char[] invalidSelectorCharacters = new char[27]
-        {
+        private static readonly char[] invalidSelectorCharacters =
+        [
             ' ', '\t', '?', '\\', '!', '|', '@', '"', '\'', '%',
             '&', '/', '(', ')', '=', '^', '[', ']', '{', '}',
             ',', '.', ';', '-', '\n', '<', '>'
-        };
+        ];
 
         public bool IsCategory => CategoryAttribute != null;
 
@@ -186,7 +186,7 @@ internal abstract class Registrar
                 {
                     char c = method.Selector[num3];
                     Registrar registrar = Registrar;
-                    object[] obj = new object[5] { c, null, null, null, null };
+                    object[] obj = [c, null, null, null, null];
                     int num4 = c;
                     obj[1] = num4.ToString("x");
                     obj[2] = method.Selector;
@@ -2248,7 +2248,7 @@ internal abstract class Registrar
                             objCMethod = new ObjCMethod(this, value, null);
                             objCMethod.Name = protocolMemberAttribute.Name;
                             objCMethod.Selector = protocolMemberAttribute.SetterSelector;
-                            objCMethod.Parameters = new Type[1] { protocolMemberAttribute.PropertyType };
+                            objCMethod.Parameters = [protocolMemberAttribute.PropertyType];
                             objCMethod.ReturnType = GetSystemVoidType();
                             objCMethod.IsStatic = protocolMemberAttribute.IsStatic;
                             objCMethod.IsOptional = !protocolMemberAttribute.IsRequired;
@@ -2398,7 +2398,7 @@ internal abstract class Registrar
                 ObjCMethod objCMethod = new ObjCMethod(this, value, setMethod);
                 objCMethod.Selector = CreateSetterSelector(getterSelector);
                 objCMethod.ArgumentSemantic = exportAttribute.ArgumentSemantic;
-                objCMethod.Parameters = new Type[1] { constrained_type };
+                objCMethod.Parameters = [constrained_type];
                 ObjCMethod objCMethod4 = objCMethod;
                 List<Exception> exceptions3 = null;
                 if (!objCMethod4.ValidateSignature(ref exceptions3))

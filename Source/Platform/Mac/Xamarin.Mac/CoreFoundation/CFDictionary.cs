@@ -69,7 +69,7 @@ internal class CFDictionary : INativeObject, IDisposable
 
 	public static CFDictionary FromObjectAndKey(INativeObject obj, INativeObject key)
 	{
-		return new CFDictionary(CFDictionaryCreate(IntPtr.Zero, new IntPtr[1] { key.Handle }, new IntPtr[1] { obj.Handle }, 1, KeyCallbacks, ValueCallbacks), owns: true);
+		return new CFDictionary(CFDictionaryCreate(IntPtr.Zero, [key.Handle], [obj.Handle], 1, KeyCallbacks, ValueCallbacks), owns: true);
 	}
 
 	public static CFDictionary FromObjectsAndKeys(INativeObject[] objects, INativeObject[] keys)

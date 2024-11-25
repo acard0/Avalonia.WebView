@@ -574,7 +574,7 @@ public struct Matrix4d : IEquatable<Matrix4d>
 	{
 		int[] array = new int[4];
 		int[] array2 = new int[4];
-		int[] array3 = new int[4] { -1, -1, -1, -1 };
+		int[] array3 = [-1, -1, -1, -1];
 		double[,] array4 = new double[4, 4]
 		{
 			{
