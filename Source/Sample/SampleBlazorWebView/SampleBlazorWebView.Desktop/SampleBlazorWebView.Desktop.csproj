@@ -1,14 +1,15 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
-		<TargetFrameworks>net7.0</TargetFrameworks>
+		<TargetFramework>net8.0</TargetFramework>
 		<BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+		<StaticWebAssetsEnabled>true</StaticWebAssetsEnabled>
 	</PropertyGroup>
 
 	<PropertyGroup>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 	</PropertyGroup>
-
+	
 	<ItemGroup>
 		<PackageReference Include="Avalonia.Desktop" />
 		<PackageReference Include="AntDesign.Toolkit" />

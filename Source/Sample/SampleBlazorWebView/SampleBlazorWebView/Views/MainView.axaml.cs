@@ -4,8 +4,9 @@ using Avalonia.WebView.Desktop.Extensions.Services;
 using AvaloniaBlazorWebView;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
+using System.Reflection;
+using System.Runtime.Versioning;
 using WebViewCore.Configurations;
 
 namespace SampleBlazorWebView.Views;
@@ -20,6 +21,12 @@ public partial class MainView : UserControl
         _logger = _loggerFactory.CreateLogger<MainView>();
 
         InitializeComponent();
+
+        var framework = Assembly.GetEntryAssembly()?
+            .GetCustomAttribute<TargetFrameworkAttribute>()?
+            .FrameworkName;
+
+        Console.WriteLine($"Framework version: {framework}");
 
         _logger.LogInformation("Setting up services");
 
