@@ -1,10 +1,68 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Web.WebView2.Core.Raw;
 
 namespace Avalonia.WebView.Windows.Core;
 
 public partial class WebView2Core : IPlatformWebView<WebView2Core>
 {
+    public bool IsInitialized
+    {
+        get => Volatile.Read(ref _isInitialized);
+        private set => Volatile.Write(ref _isInitialized, value);
+    }
+
+    public bool IsDisposed
+    {
+        get => Volatile.Read(ref _isDisposed);
+        private set => Volatile.Write(ref _isDisposed, value);
+    }
+
+    public bool IsBlazorWebView
+    {
+        get
+        {
+            return _isBlazorWebView;
+        }
+    }
+
+    public WebViewCreationProperties CreationProperties { get; private set; }
+    public CoreWebView2Environment? CoreWebView2Environment { get; set; }
+    public CoreWebView2Controller? CoreWebView2Controller { get; set; }
+    public CoreWebView2ControllerOptions? ControllerOptions { get; set; }
+
+    [Browsable(false)]
+    public CoreWebView2? CoreWebView2
+    {
+        get
+        {
+            VerifyNotDisposed();
+            VerifyBrowserNotCrashed();
+            return CoreWebView2Controller?.CoreWebView2;
+        }
+    }
+
+    public double ZoomFactor
+    {
+        get
+        {
+            if (CoreWebView2Controller == null)
+            {
+                return _zoomFactor;
+            }
+
+            return CoreWebView2Controller.ZoomFactor;
+        }
+        set
+        {
+            _zoomFactor = value;
+            if (CoreWebView2Controller != null)
+            {
+                CoreWebView2Controller.ZoomFactor = value;
+            }
+        }
+    }
+
     private readonly IServiceProvider _services;
 
     private readonly IVirtualBlazorWebViewProvider? _provider;
@@ -12,11 +70,14 @@ public partial class WebView2Core : IPlatformWebView<WebView2Core>
     private readonly ViewHandler _handler;
     private readonly TaskCompletionSource<IntPtr> _hwndTaskSource;
 
+    private double _zoomFactor = 1;
     private bool _browserHitTransparent;
-    private readonly bool _browserCrashed;
+    private bool _isBlazorWebView;
+
     private bool _isInitialized = false;
     private bool _isDisposed = false;
-    private bool _isBlazorWebView;
+
+    private readonly bool _browserCrashed;
 
     private readonly ILoggerFactory _loggerFactory;
     private readonly ILogger _logger;
@@ -45,35 +106,5 @@ public partial class WebView2Core : IPlatformWebView<WebView2Core>
     ~WebView2Core()
     {
         Dispose(disposing: false);
-    }
-
-    public bool IsInitialized
-    {
-        get => Volatile.Read(ref _isInitialized);
-        private set => Volatile.Write(ref _isInitialized, value);
-    }
-
-    public bool IsDisposed
-    {
-        get => Volatile.Read(ref _isDisposed);
-        private set => Volatile.Write(ref _isDisposed, value);
-    }
-
-    public bool IsBlazorWebView => _isBlazorWebView;
- 
-    public WebViewCreationProperties CreationProperties { get; private set; }
-    public CoreWebView2Environment? CoreWebView2Environment { get; set; }
-    public CoreWebView2Controller? CoreWebView2Controller { get; set; }
-    public CoreWebView2ControllerOptions? ControllerOptions { get; set; }
-
-    [Browsable(false)]
-    public CoreWebView2? CoreWebView2
-    {
-        get
-        {
-            VerifyNotDisposed();
-            VerifyBrowserNotCrashed();
-            return CoreWebView2Controller?.CoreWebView2;
-        }
     }
 }

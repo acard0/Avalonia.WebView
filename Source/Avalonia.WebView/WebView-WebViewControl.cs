@@ -2,9 +2,9 @@
 
 partial class WebView
 {
-    public bool IsCanGoForward => _platformWebView?.IsCanGoForward ?? false;
+    public bool CanGoForward => _platformWebView?.CanGoForward ?? false;
 
-    public bool IsCanGoBack => _platformWebView?.IsCanGoBack ?? false;
+    public bool CanGoBack => _platformWebView?.CanGoBack ?? false;
 
     bool IWebViewControl.Navigate(Uri? uri)
     {

@@ -47,4 +47,16 @@ public partial class MacWebViewCore : IPlatformWebView<MacWebViewCore>
         get => _webView;
         private set => _webView = value;
     }
+
+    public double ZoomFactor
+    {
+        get
+        {
+            return 1d;
+        }
+        set
+        {
+            throw new NotSupportedException("WebKit does not support zoom level");
+        }
+    }
 }

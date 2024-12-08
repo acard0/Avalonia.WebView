@@ -6,6 +6,10 @@
 		<RootNamespace></RootNamespace>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<NoWarn>*</NoWarn>
+	</PropertyGroup>
+	
 	<ItemGroup Condition="'$(IsLinux)'=='true'">
 		<PackageReference Include="PolySharp">
 			<PrivateAssets>all</PrivateAssets>
@@ -14,10 +18,10 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-		<PackageReference Include="System.Memory" >
+		<PackageReference Include="System.Memory">
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
-		<PackageReference Include="System.Reflection.Emit" >
+		<PackageReference Include="System.Reflection.Emit">
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
 		<PackageReference Include="System.Reflection.Emit.Lightweight">

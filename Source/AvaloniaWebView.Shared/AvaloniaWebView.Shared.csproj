@@ -3,6 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>$(MiniVersionTargetFramework)</TargetFramework>
 		<RootNamespace>AvaloniaWebView.Shared</RootNamespace>
+		<Configurations>Debug;Release</Configurations>
 	</PropertyGroup>
 
 	<ItemGroup>

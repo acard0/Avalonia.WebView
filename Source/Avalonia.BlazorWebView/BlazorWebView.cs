@@ -2,7 +2,7 @@
 
 namespace AvaloniaBlazorWebView;
 
-public partial class BlazorWebView : Control, IVirtualWebView<BlazorWebView>, IWebViewEventHandler, IVirtualWebViewControlCallBack, IWebViewControl, IAsyncDisposable
+public partial class BlazorWebView : Control, IVirtualWebView<BlazorWebView>, IWebViewEventHandler, IVirtualWebViewControlCallBack, IPlatformWebView, IWebViewControl, IAsyncDisposable
 {
     public WebViewCreationProperties CreationProperties { get; }
     public IViewHandlerProvider ViewHandlerProvider { get; }
@@ -17,8 +17,61 @@ public partial class BlazorWebView : Control, IVirtualWebView<BlazorWebView>, IW
     public AvaloniaDispatcher Dispatcher { get; }
     public JSComponentConfigurationStore JSComponents { get; }
     public IPlatformBlazorWebViewProvider PlatformBlazorWebViewProvider { get; }
-    public AvaloniaWebViewManager? AvaloniaWebViewManager => _avaloniaWebViewManager;
-    public IPlatformWebView? PlatformWebView => _platformWebView;
+
+    public AvaloniaWebViewManager? AvaloniaWebViewManager
+    {
+        get
+        {
+            return _avaloniaWebViewManager;
+        }
+    }
+
+    public IPlatformWebView? PlatformWebView
+    {
+        get
+        {
+            return _platformWebView;
+        }
+    }
+
+    public double ZoomFactor
+    {
+        get
+        {
+            if (PlatformWebView == null)
+            {
+                return _zoomFactor;
+            }
+
+            return PlatformWebView.ZoomFactor;
+        }
+        set
+        {
+            _zoomFactor = value;
+            if (PlatformWebView != null)
+            {
+                PlatformWebView.ZoomFactor = value;
+            }
+        }
+    }
+
+    public object? PlatformViewContext
+    {
+        get
+        {
+            return PlatformWebView?.PlatformViewContext;
+        }
+    }
+
+    public IntPtr NativeHandler
+    {
+        get
+        {
+            return (PlatformWebView?.NativeHandler).GetValueOrDefault();
+        }
+    }
+
+    private double _zoomFactor = 1;
 
     readonly bool _isDisposed = false;
     private IPlatformWebView? _platformWebView;
@@ -69,8 +122,25 @@ public partial class BlazorWebView : Control, IVirtualWebView<BlazorWebView>, IW
         RootComponents.CollectionChanged += RootComponents_CollectionChanged;
     }
 
-    public void Initialize()
+    public Task<bool> Initialize()
     {
+        return Task.FromResult(true);
+    }
 
+    public void Dispose()
+    {
+        DisposeAsync().AsTask().Wait();
+        GC.SuppressFinalize(this);
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        _platformWebView?.Dispose();
+        if (_avaloniaWebViewManager != null) 
+            await _avaloniaWebViewManager.DisposeAsync();
+
+        _platformWebView = null;
+        _avaloniaWebViewManager = null;
+        GC.SuppressFinalize(this);
     }
 }

@@ -4,33 +4,37 @@ namespace Avalonia.WebView.Linux.Core;
 
 public partial class LinuxWebViewCore : IPlatformWebView<LinuxWebViewCore>
 {
-    public LinuxWebViewCore(ILinuxApplication linuxApplication, ViewHandler handler, IVirtualWebViewControlCallBack callback, IVirtualBlazorWebViewProvider? provider, WebViewCreationProperties webViewCreationProperties)
+    public bool IsInitialized
     {
-        _application = linuxApplication;
-        _provider = provider;
-        _messageKeyWord = "webview";
-        _callBack = callback;
-        _handler = handler;
-        _creationProperties = webViewCreationProperties;
-
-        _callBack.PlatformWebViewCreating(this, new WebViewCreatingEventArgs());
-
-        _dispatcher = linuxApplication.Dispatcher;
-        var gtkWrapper = linuxApplication.CreateWebView().Result;
-
-        _hostWindow = gtkWrapper.Item1;
-        _webView = gtkWrapper.Item2;
-        NativeHandler = gtkWrapper.Item3;
-        _hostWindowX11Handle = gtkWrapper.Item3;
-
-        _userContentMessageReceived = WebView_WebMessageReceived;
-        _decidePolicyArgsChanged = WebView_DecidePolicy;
-        RegisterEvents();
+        get => Volatile.Read(ref _isInitialized);
+        private set => Volatile.Write(ref _isInitialized, value);
     }
 
-    ~LinuxWebViewCore()
+    bool _isdisposed = false;
+    public bool IsDisposed
     {
-        Dispose(disposing: false);
+        get => Volatile.Read(ref _isdisposed);
+        private set => Volatile.Write(ref _isdisposed, value);
+    }
+
+    public WebKitWebView WebView
+    {
+        get
+        {
+            return _webView;
+        }
+    }
+
+    public double ZoomFactor
+    {
+        get
+        {
+            return _webView.ZoomLevel;
+        }
+        set
+        {
+            _webView.ZoomLevel = value;
+        }
     }
 
     delegate void void_nint_nint_nint(nint arg0, nint arg1, nint arg2);
@@ -52,22 +56,34 @@ public partial class LinuxWebViewCore : IPlatformWebView<LinuxWebViewCore>
     readonly bool_nint_nint_policytype _decidePolicyArgsChanged;
 
     WebScheme? _webScheme;
-
     bool _isInitialized = false;
 
-    public bool IsInitialized
+    public LinuxWebViewCore(ILinuxApplication linuxApplication, ViewHandler handler, IVirtualWebViewControlCallBack callback, IVirtualBlazorWebViewProvider? provider, WebViewCreationProperties webViewCreationProperties)
     {
-        get => Volatile.Read(ref _isInitialized);
-        private set => Volatile.Write(ref _isInitialized, value);
+        _application = linuxApplication;
+        _provider = provider;
+        _messageKeyWord = "webview";
+        _callBack = callback;
+        _handler = handler;
+        _creationProperties = webViewCreationProperties;
+
+        _callBack.PlatformWebViewCreating(this, new WebViewCreatingEventArgs());
+
+        _dispatcher = linuxApplication.Dispatcher;
+        var gtkWrapper = linuxApplication.CreateWebView().Result;
+
+        _hostWindow = gtkWrapper.Item1;
+        _webView = gtkWrapper.Item2;
+        NativeHandler = gtkWrapper.hostHandle;
+        _hostWindowX11Handle = gtkWrapper.hostHandle;
+
+        _userContentMessageReceived = WebView_WebMessageReceived;
+        _decidePolicyArgsChanged = WebView_DecidePolicy;
+        RegisterEvents();
     }
 
-    bool _isdisposed = false;
-    public bool IsDisposed
+    ~LinuxWebViewCore()
     {
-        get => Volatile.Read(ref _isdisposed);
-        private set => Volatile.Write(ref _isdisposed, value);
+        Dispose(disposing: false);
     }
-
-    public WebKitWebView WebView => _webView;
-
 }

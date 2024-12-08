@@ -10,9 +10,9 @@ partial class WebView2Core
 
     public object? PlatformViewContext => this;
 
-    public bool IsCanGoForward => CoreWebView2?.CanGoForward ?? false;
+    public bool CanGoForward => CoreWebView2?.CanGoForward ?? false;
 
-    public bool IsCanGoBack => CoreWebView2?.CanGoBack ?? false;
+    public bool CanGoBack => CoreWebView2?.CanGoBack ?? false;
 
     public async Task<bool> Initialize()
     {

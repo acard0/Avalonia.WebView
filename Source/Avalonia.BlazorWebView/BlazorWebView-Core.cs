@@ -1,5 +1,4 @@
 ﻿using AvaloniaBlazorWebView.Common;
-using System.Runtime.InteropServices;
 using Toolkit.Shared;
 
 namespace AvaloniaBlazorWebView;
@@ -9,7 +8,9 @@ partial class BlazorWebView
     void CheckDisposed()
     {
         if (_isDisposed)
+        {
             throw new ObjectDisposedException(GetType().Name);
+        }
     }
 
     async Task<bool> CreateWebViewManager()
@@ -23,13 +24,13 @@ partial class BlazorWebView
 
         if (string.IsNullOrEmpty(HostPage))
         {
-            _logger.LogInformation("HostPage is empty. Could not create Blazor Web View Manager.");
+            _logger.LogError("HostPage is empty. Could not create Blazor Web View Manager.");
             return false;
         }
 
         if (RootComponents.Count <= 0)
         {
-            _logger.LogInformation("RootComponents. Could not create Blazor Web View Manager.");
+            _logger.LogError("RootComponents. Could not create Blazor Web View Manager.");
             return false;
         }
 
@@ -85,13 +86,14 @@ partial class BlazorWebView
         var control = viewHandler.AttachableControl;
         if (control is null)
         {
-            _logger.LogInformation("AttachableControl is not set. Could not create Blazor Web View Manager.");
+            _logger.LogError("AttachableControl is not set. Could not create Blazor Web View Manager.");
             return false;
         }
 
+        var zoomFactor = ZoomFactor;
         if ((_platformWebView = viewHandler.PlatformWebView)  is null)
         {
-            _logger.LogInformation("PlatformWebView is not set. Could not create Blazor Web View Manager.");
+            _logger.LogError("PlatformWebView is not set. Could not create Blazor Web View Manager.");
             return false;
         }
 
@@ -100,9 +102,11 @@ partial class BlazorWebView
         var bRet = await _platformWebView.Initialize();
         if (!bRet)
         {
-            _logger.LogInformation("Platform Web View is failed to initialize. Could not create Blazor Web View Manager.");
+            _logger.LogError("Platform Web View is failed to initialize. Could not create Blazor Web View Manager.");
             return false;
         }
+
+        _platformWebView.ZoomFactor = zoomFactor;
 
         foreach (var rootComponent in RootComponents)
             await rootComponent.AddToWebViewManagerAsync(webViewManager);
@@ -112,8 +116,13 @@ partial class BlazorWebView
         return true;
     }
 
-    ValueTask IAsyncDisposable.DisposeAsync()
+    private void Child_LostFocus(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
-        return ValueTask.CompletedTask;
+        throw new NotImplementedException();
+    }
+
+    private void Child_GotFocus(object? sender, Avalonia.Input.GotFocusEventArgs e)
+    {
+        throw new NotImplementedException();
     }
 }

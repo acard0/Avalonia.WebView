@@ -9,7 +9,7 @@
 		<PackageReference Include="Microsoft.CSharp">
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
-		<PackageReference Include="System.Numerics.Vectors" >
+		<PackageReference Include="System.Numerics.Vectors">
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
 	</ItemGroup>

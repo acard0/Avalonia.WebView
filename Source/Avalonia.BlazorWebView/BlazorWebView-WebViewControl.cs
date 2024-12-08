@@ -2,9 +2,9 @@
 
 partial class BlazorWebView
 {
-    public bool IsCanGoForward => PlatformWebView?.IsCanGoForward ?? false;
+    public bool CanGoForward => PlatformWebView?.CanGoForward ?? false;
 
-    public bool IsCanGoBack => PlatformWebView?.IsCanGoBack ?? false;
+    public bool CanGoBack => PlatformWebView?.CanGoBack ?? false;
 
     public bool Navigate(Uri? uri)
     {

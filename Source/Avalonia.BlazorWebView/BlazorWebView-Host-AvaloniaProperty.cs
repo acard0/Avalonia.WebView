@@ -17,8 +17,7 @@ partial class BlazorWebView
             //if (webviewManager is null)
                // await s.CreateWebViewManager(s._platformWebView);
 
-            if (webviewManager is not null)
-                webviewManager.Navigate(s.StartAddress);
+            webviewManager?.Navigate(s.StartAddress);
         }));
 
         return true;
@@ -61,7 +60,4 @@ partial class BlazorWebView
                 await item.RemoveFromWebViewManagerAsync(AvaloniaWebViewManager);
         });
     }
-
-
-
 }
