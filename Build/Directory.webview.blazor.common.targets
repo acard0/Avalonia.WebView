@@ -1,50 +1,58 @@
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk.Razor"/>
-
+<Project Sdk="Microsoft.NET.Sdk.Razor" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<!-- Project Properties --><!--
 	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		--><!-- These settings enable the Razor/Blazor static web assets system --><!--
 		<StaticWebAssetBasePath>/</StaticWebAssetBasePath>
 		<StaticWebAssetProjectMode>Root</StaticWebAssetProjectMode>
-		<!--<CoreCompileDependsOn Condition="'$(PublishProtocol)' == 'ClickOnce' or '$(PublishProtocol)' == 'FileSystem'">$(CoreCompileDependsOn);StaticWebAssetsPrepareForRun</CoreCompileDependsOn>-->
 	</PropertyGroup>
-	<Target Name="_StaticWebAssetsComputeFilesToBuild" AfterTargets="GetCopyToOutputDirectoryItems" DependsOnTargets="ResolveProjectReferences" >
+
+	--><!-- Import the Razor SDK targets --><!--
+	<Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk.Razor" />
+
+	--><!-- Re‑enable the Static Web Assets Pipeline with the fix (escape problematic characters) --><!--
+	<Target Name="_StaticWebAssetsComputeFilesToBuild"
+			AfterTargets="GetCopyToOutputDirectoryItems"
+			DependsOnTargets="ResolveProjectReferences">
 		<ItemGroup>
-			<!-- Filter the static web assets foreign to the project and then add them to the list of resolved
-           files to publish.
-       -->
+			--><!-- Process external static web assets --><!--
 			<_ExternalBuildStaticWebAsset Include="%(StaticWebAsset.FullPath)" Condition="'%(SourceType)' != ''">
 				<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-				<TargetPath>$([MSBuild]::MakeRelative('$(MSBuildProjectDirectory)','$([MSBuild]::NormalizePath('wwwroot\%(BasePath)\%(RelativePath)'))'))</TargetPath>
+				<TargetPath>
+					$([MSBuild]::MakeRelative(
+					'$(MSBuildProjectDirectory)',
+					$([MSBuild]::Escape($([MSBuild]::NormalizePath('wwwroot\%(BasePath)\%(RelativePath)'))))
+					))
+				</TargetPath>
 			</_ExternalBuildStaticWebAsset>
-			<!-- Remove any existing external static web asset that might have been added as part of the
-           regular publish pipeline. -->
+
+			--><!-- Remove then re-add to ensure proper output --><!--
 			<_SourceItemsToCopyToOutputDirectory Remove="@(_ExternalBuildStaticWebAsset)" />
 			<_SourceItemsToCopyToOutputDirectory Include="@(_ExternalBuildStaticWebAsset)" />
 		</ItemGroup>
 	</Target>
 
-	<Target Name="_RemoveStaticWebAssetsDevelopmentManifest" BeforeTargets="GetCopyToOutputDirectoryItems" DependsOnTargets="ResolveProjectReferences" >
-		 <!--Remove the development manifest from the output since its not used and it will otherwise get incorrectly loaded in production.--> 
+	--><!-- Remove the development manifest to avoid accidental inclusion --><!--
+	<Target Name="_RemoveStaticWebAssetsDevelopmentManifest"
+			BeforeTargets="GetCopyToOutputDirectoryItems"
+			DependsOnTargets="ResolveProjectReferences">
 		<ItemGroup>
 			<ContentWithTargetPath Remove="$(StaticWebAssetDevelopmentManifestPath)" />
 		</ItemGroup>
 	</Target>
 
-	<!--<Target Name="AddStaticWebAssetsForClickOnce" AfterTargets="ComputeFilesToPublish" Condition="'$(PublishProtocol)' == 'ClickOnce'">
-		<ComputeStaticWebAssetsTargetPaths Assets="@(StaticWebAsset)" PathPrefix="wwwroot">
-			<Output TaskParameter="AssetsWithTargetPath" ItemName="_ClickOnceAssetCandidate" />
-		</ComputeStaticWebAssetsTargetPaths>
+	--><!-- 
+    Custom target to copy the _content folder manually after publishing.
+    This is useful if the default static web assets pipeline does not export _content.
+    (Razor Class Libraries normally map their static assets into _content.)
+  --><!--
+	<Target Name="CopyStaticWebAssets" AfterTargets="Publish">
+		<Message Text="Copying _content folder manually" Importance="High" />
 		<ItemGroup>
-			<ContentWithTargetPath Include="@(_ClickOnceAssetCandidate)" KeepMetadata="TargetPath" />
+			<StaticContentFiles Include="$(MSBuildProjectDirectory)\wwwroot\_content\**\*.*" />
 		</ItemGroup>
-	</Target>
-
-	<Target Name="AddStaticWebAssetsForAppXBundle" BeforeTargets="PublishItemsOutputGroup" Condition="'$(PublishProtocol)' == 'FileSystem'">
-		<ComputeStaticWebAssetsTargetPaths Assets="@(StaticWebAsset)" PathPrefix="wwwroot">
-			<Output TaskParameter="AssetsWithTargetPath" ItemName="_AppXBundleAssetCandidate" />
-		</ComputeStaticWebAssetsTargetPaths>
-		<ItemGroup>
-			<ResolvedFileToPublish Include="@(_AppXBundleAssetCandidate)" RelativePath="%(_AppXBundleAssetCandidate.TargetPath)" KeepMetadata="TargetPath" />
-		</ItemGroup>
+		<Copy SourceFiles="@(StaticContentFiles)"
+			  DestinationFolder="$(PublishDir)wwwroot\_content\%(RecursiveDir)"
+			  SkipUnchangedFiles="true" />
 	</Target>-->
-
 </Project>

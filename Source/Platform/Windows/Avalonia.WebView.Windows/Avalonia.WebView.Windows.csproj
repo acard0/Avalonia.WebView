@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+		<TargetFrameworks>net6.0;net8.0</TargetFrameworks>
 	</PropertyGroup>
 
 	<Import Project="$(BuildToolsDirectory)Directory.Packages.targets" />
@@ -26,10 +26,10 @@
 				<TargetFramework>$(TargetFramework)</TargetFramework>
 				<PackagePath>lib/$(TargetFramework)/runtimes/;runtimes</PackagePath>
 			</TfmSpecificPackageFile>
-			<TfmSpecificPackageFile Include="$(OutputPath)Microsoft.Web.WebView2.Core.dll">
+			<!--<TfmSpecificPackageFile Include="$(OutputPath)Microsoft.Web.WebView2.Core.dll">
 				<TargetFramework>$(TargetFramework)</TargetFramework>
 				<PackagePath>lib/$(TargetFramework)/</PackagePath>
-			</TfmSpecificPackageFile>
+			</TfmSpecificPackageFile>-->
 			<!--<TfmSpecificPackageFile Include="$(OutputPath)AvaloniaWebView.Shared.dll">
 				<TargetFramework>$(TargetFramework)</TargetFramework>
 				<PackagePath>lib/$(TargetFramework)/</PackagePath>
@@ -44,9 +44,9 @@
 	<Target Name="CopyProjectReferencesSymbolsToPackage" DependsOnTargets="ResolveReferences">
 		<ItemGroup>
 			<SupposedSymbolFiles Include="@(ReferenceCopyLocalPaths->'%(OutputPath)%(Filename).pdb')" />
-			<TfmSpecificDebugSymbolsFile Include="$(OutputPath)Microsoft.Web.WebView2.Core.pdb">
+			<!--<TfmSpecificDebugSymbolsFile Include="$(OutputPath)Microsoft.Web.WebView2.Core.pdb">
 				<TargetFramework>$(TargetFramework)</TargetFramework>
-			</TfmSpecificDebugSymbolsFile>
+			</TfmSpecificDebugSymbolsFile>-->
 			<TfmSpecificDebugSymbolsFile Include="$(OutputPath)AvaloniaWebView.Shared.pdb">
 				<TargetFramework>$(TargetFramework)</TargetFramework>
 			</TfmSpecificDebugSymbolsFile>
@@ -88,7 +88,6 @@
 		<ProjectReference Include="..\..\..\WebView.Core\WebView.Core.csproj">
 			<PrivateAssets>all</PrivateAssets>
 		</ProjectReference>
-		<ProjectReference Include="..\Microsoft.Web.WebView2.Core\Microsoft.Web.WebView2.Core.csproj" />
 	</ItemGroup>
 
 </Project>

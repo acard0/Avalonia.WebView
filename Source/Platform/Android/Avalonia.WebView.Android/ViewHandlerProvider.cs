@@ -2,11 +2,11 @@
 
 internal class ViewHandlerProvider : IViewHandlerProvider
 {
-    IViewHandler IViewHandlerProvider.CreatePlatformWebViewHandler(IVirtualWebView virtualView, IVirtualWebViewControlCallBack virtualViewCallBack, IVirtualBlazorWebViewProvider? provider, Action<WebViewCreationProperties>? configDelegate)
+    public IViewHandler CreatePlatformWebViewHandler(IServiceProvider services, IVirtualWebView virtualView, IVirtualWebViewControlCallBack virtualViewCallBack, IVirtualBlazorWebViewProvider? virtualBlazorWebViewCallBack, Action<WebViewCreationProperties>? configDelegate = null)
     {
         var creatonProperty = new WebViewCreationProperties();
         configDelegate?.Invoke(creatonProperty);
 
-        return new WebViewHandler(virtualView, virtualViewCallBack, provider, creatonProperty);
+        return new WebViewHandler(services, virtualView, virtualViewCallBack, virtualBlazorWebViewCallBack, creatonProperty);
     }
 }

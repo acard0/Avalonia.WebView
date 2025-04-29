@@ -7,8 +7,8 @@
 	</PropertyGroup>
  
 	<ItemGroup>
+		<ProjectReference Include="..\..\..\Avalonia.BlazorWebView\Avalonia.BlazorWebView.csproj" />
 		<ProjectReference Include="..\..\..\Platform\Desktop\Avalonia.WebView.Desktop\Avalonia.WebView.Desktop.csproj" />
-		<ProjectReference Include="..\..\..\Platform\Windows\Microsoft.AspNetCore.Components.WebView.Wpf\Microsoft.AspNetCore.Components.WebView.Wpf.csproj" />
 		<ProjectReference Include="..\SampleBlazorWebViewShared\SampleBlazorWebViewShared.csproj" />
 	</ItemGroup>
 

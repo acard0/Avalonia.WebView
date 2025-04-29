@@ -48,14 +48,14 @@ partial class WebView2Core
             if (coreWebView2 is null)
                 throw new ArgumentNullException(nameof(coreWebView2), "coreWebView2 is null!");
 
-            try
-            {
-                _browserHitTransparent = CoreWebView2Controller.IsBrowserHitTransparent;
-            }
-            catch (NotImplementedException)
-            {
+            //try
+            //{
+            //    _browserHitTransparent = CoreWebView2Controller.IsBrowserHitTransparent;
+            //}
+            //catch (NotImplementedException)
+            //{
 
-            }
+            //}
 
             _logger.LogInformation("Finalizing WebView creation");
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components.WebView.Wpf;
+﻿using AvaloniaBlazorWebView;
+using Microsoft.AspNetCore.Components.WebView.Wpf;
 using Microsoft.Extensions.DependencyInjection;
 using SampleBlazorWebViewShared;
 using System.Windows;

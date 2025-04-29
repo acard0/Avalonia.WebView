@@ -43,7 +43,6 @@ partial class WebView2Core
         corewebview2.WebMessageReceived += CoreWebView2_WebMessageReceived;
         corewebview2.WebResourceRequested += CoreWebView2_WebResourceRequested;
         corewebview2.DOMContentLoaded += CoreWebView2_DOMContentLoaded;
-        corewebview2.Profile.Deleted += Profile_Deleted;
     }
 
     void UnregisterWebViewEvents(CoreWebView2Controller coreWebView2Controller, bool browserCrashed = false)
@@ -75,7 +74,6 @@ partial class WebView2Core
         corewebview2.WebMessageReceived -= CoreWebView2_WebMessageReceived;
         corewebview2.WebResourceRequested -= CoreWebView2_WebResourceRequested;
         corewebview2.DOMContentLoaded -= CoreWebView2_DOMContentLoaded;
-        corewebview2.Profile.Deleted -= Profile_Deleted;
     }
 
     private void HostControl_SizeChanged(object? sender, SizeChangedEventArgs e)

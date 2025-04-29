@@ -2,7 +2,8 @@
 
 public class WebViewHandler : ViewHandler<IVirtualWebView, IosWebViewCore>
 {
-    public WebViewHandler(IVirtualWebView virtualWebView, IVirtualWebViewControlCallBack callback, IVirtualBlazorWebViewProvider? provider, WebViewCreationProperties webViewCreationProperties)
+    public WebViewHandler(IServiceProvider services,IVirtualWebView virtualWebView, IVirtualWebViewControlCallBack callback, IVirtualBlazorWebViewProvider? provider, WebViewCreationProperties webViewCreationProperties) 
+        : base(services)
     {
         var webView = new IosWebViewCore(this, callback, provider, webViewCreationProperties);
         _webViewCore = webView;

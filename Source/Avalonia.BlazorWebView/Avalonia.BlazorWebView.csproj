@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+		<TargetFrameworks>net6.0;net8.0</TargetFrameworks>
 		<RootNamespace>AvaloniaBlazorWebView</RootNamespace>
 	</PropertyGroup>
 
@@ -9,15 +9,7 @@
 	  <WarningsAsErrors>CS1570,CS1571,CS1572,CS1573,CS1574,CS1734</WarningsAsErrors>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0|AnyCPU'">
-	  <WarningsAsErrors>CS1570,CS1571,CS1572,CS1573,CS1574,CS1734</WarningsAsErrors>
-	</PropertyGroup>
-
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0|AnyCPU'">
-	  <WarningsAsErrors>CS1570,CS1571,CS1572,CS1573,CS1574,CS1734</WarningsAsErrors>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0|AnyCPU'">
 	  <WarningsAsErrors>CS1570,CS1571,CS1572,CS1573,CS1574,CS1734</WarningsAsErrors>
 	</PropertyGroup>
  
