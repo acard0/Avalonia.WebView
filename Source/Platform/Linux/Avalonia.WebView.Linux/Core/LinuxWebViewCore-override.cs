@@ -9,9 +9,9 @@ partial class LinuxWebViewCore
 
     object? IPlatformWebView.PlatformViewContext => this;
 
-    bool IWebViewControl.IsCanGoForward =>  _dispatcher.InvokeAsync(WebView.CanGoForward).Result;
+    bool IWebViewControl.CanGoForward =>  _dispatcher.InvokeAsync(WebView.CanGoForward).Result;
 
-    bool IWebViewControl.IsCanGoBack => _dispatcher.InvokeAsync(WebView.CanGoBack).Result;
+    bool IWebViewControl.CanGoBack => _dispatcher.InvokeAsync(WebView.CanGoBack).Result;
 
     async Task<bool> IPlatformWebView.Initialize()
     {

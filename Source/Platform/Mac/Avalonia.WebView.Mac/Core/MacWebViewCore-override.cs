@@ -11,9 +11,9 @@ partial class MacWebViewCore
 
     object? IPlatformWebView.PlatformViewContext => this;
 
-    bool IWebViewControl.IsCanGoForward => WebView.CanGoForward();
+    bool IWebViewControl.CanGoForward => WebView.CanGoForward();
 
-    bool IWebViewControl.IsCanGoBack => WebView.CanGoBack();
+    bool IWebViewControl.CanGoBack => WebView.CanGoBack();
 
     async Task<bool> IPlatformWebView.Initialize()
     {

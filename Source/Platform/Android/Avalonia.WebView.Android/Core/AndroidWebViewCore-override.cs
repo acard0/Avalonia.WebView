@@ -10,10 +10,6 @@ partial class AndroidWebViewCore
 
     object? IPlatformWebView.PlatformViewContext => this;
 
-    bool IWebViewControl.IsCanGoForward => WebView.CanGoForward();
-
-    bool IWebViewControl.IsCanGoBack => WebView.CanGoBack();
-
     Task<string?> IWebViewControl.ExecuteScriptAsync(string javaScript)
     {
         _webView.EvaluateJavascript(javaScript, new JavaScriptValueCallback(result =>

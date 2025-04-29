@@ -20,7 +20,9 @@ partial class BlazorWebView
         base.OnDetachedFromVisualTree(e);
         Child = null;
         _platformWebView?.Dispose();
-        _platformWebView = null;
-    }
+        _avaloniaWebViewManager?.DisposeAsync().AsTask().Wait();
 
+        _platformWebView = null;
+        _avaloniaWebViewManager = null;
+    }
 }

@@ -1,8 +1,10 @@
 ﻿namespace WebViewCore;
 public interface IWebViewControl
 {
-    bool IsCanGoForward { get; }
-    bool IsCanGoBack { get; }
+    bool CanGoForward { get; }
+    bool CanGoBack { get; }
+
+    double ZoomFactor { get; set; }
 
     bool Navigate(Uri? uri);
     bool NavigateToString(string htmlContent);

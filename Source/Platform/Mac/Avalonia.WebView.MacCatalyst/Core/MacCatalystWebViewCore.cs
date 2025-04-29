@@ -4,6 +4,51 @@ using Avalonia.WebView.MacCatalyst.Helpers;
 namespace Avalonia.WebView.MacCatalyst.Core;
 public partial class MacCatalystWebViewCore : IPlatformWebView<MacCatalystWebViewCore>
 {
+    public bool IsInitialized
+    {
+        get => Volatile.Read(ref _isInitialized);
+        private set => Volatile.Write(ref _isInitialized, value);
+    }
+
+    bool _isdisposed = false;
+    public bool IsDisposed
+    {
+        get => Volatile.Read(ref _isdisposed);
+        private set => Volatile.Write(ref _isdisposed, value);
+    }
+
+
+    public WKWebView WebView
+    {
+        get => _webView;
+        private set => _webView = value;
+    }
+
+    public double ZoomFactor
+    {
+        get
+        {
+            return _webView.PageZoom;
+        }
+        set
+        {
+            _webView.PageZoom = (Xamarin.System.nfloat)value;
+        }
+    }
+
+    WKWebView _webView;
+    readonly WebScheme? _filter;
+    readonly WKWebViewConfiguration _config;
+    readonly IVirtualBlazorWebViewProvider? _provider;
+    readonly IVirtualWebViewControlCallBack _callBack;
+    readonly ViewHandler _handler;
+    readonly WebViewCreationProperties _creationProperties;
+    readonly string _filterKeyWord = "webview";
+    readonly string _dispatchMessageCallback = "__dispatchMessageCallback";
+
+    bool _isBlazorWebView = false;
+    bool _isInitialized = false;
+
     public MacCatalystWebViewCore(ViewHandler handler, IVirtualWebViewControlCallBack callback, IVirtualBlazorWebViewProvider? provider, WebViewCreationProperties webViewCreationProperties)
     {
         _provider = provider;
@@ -48,38 +93,5 @@ public partial class MacCatalystWebViewCore : IPlatformWebView<MacCatalystWebVie
     ~MacCatalystWebViewCore()
     {
         Dispose(disposing: false);
-    }
-
-    WKWebView _webView;
-    readonly WebScheme? _filter;
-    readonly WKWebViewConfiguration _config;
-    readonly IVirtualBlazorWebViewProvider? _provider;
-    readonly IVirtualWebViewControlCallBack _callBack;
-    readonly ViewHandler _handler;
-    readonly WebViewCreationProperties _creationProperties;
-    readonly string _filterKeyWord = "webview";
-    readonly string _dispatchMessageCallback = "__dispatchMessageCallback";
-
-    bool _isBlazorWebView = false;
-
-    bool _isInitialized = false;
-    public bool IsInitialized
-    {
-        get => Volatile.Read(ref _isInitialized);
-        private set => Volatile.Write(ref _isInitialized, value);
-    }
-
-    bool _isdisposed = false;
-    public bool IsDisposed
-    {
-        get => Volatile.Read(ref _isdisposed);
-        private set => Volatile.Write(ref _isdisposed, value);
-    }
-
-
-    public WKWebView WebView
-    {
-        get => _webView;
-        private set => _webView = value;
     }
 }

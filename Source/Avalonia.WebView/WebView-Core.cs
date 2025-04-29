@@ -12,9 +12,13 @@ partial class WebView
 
         if (!_platformWebView.IsInitialized)
         {
+            var zoomFactor = ZoomFactor;
+
             var bRet = await _platformWebView.Initialize();
             if (!bRet)
                 return false;
+
+            _platformWebView.ZoomFactor = zoomFactor;
         }
 
         return _platformWebView.Navigate(uri);
@@ -30,9 +34,13 @@ partial class WebView
 
         if (!_platformWebView.IsInitialized)
         {
+            var zoomFactor = ZoomFactor;
+
             var bRet = await _platformWebView.Initialize();
             if (!bRet)
                 return false;
+
+            _platformWebView.ZoomFactor = zoomFactor;
         }
 
         return _platformWebView.NavigateToString(htmlContent!);

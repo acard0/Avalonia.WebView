@@ -82,6 +82,7 @@ partial class WebView2Core
 
     private void CoreWebView2Controller_ZoomFactorChanged(object? sender, object e)
     {
+        ZoomFactor = (double)e;
     }
 
     private void CoreWebView2Controller_MoveFocusRequested(object? sender, CoreWebView2MoveFocusRequestedEventArgs e)

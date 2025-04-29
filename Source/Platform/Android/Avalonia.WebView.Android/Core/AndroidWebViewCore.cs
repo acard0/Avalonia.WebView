@@ -61,5 +61,11 @@ public partial class AndroidWebViewCore : IPlatformWebView<AndroidWebViewCore>
         get => _webView;
         set => _webView = value;
     }
+
+    public bool CanGoForward => throw new NotImplementedException();
+
+    public bool CanGoBack => throw new NotImplementedException();
+
+    public double ZoomFactor { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 }
 

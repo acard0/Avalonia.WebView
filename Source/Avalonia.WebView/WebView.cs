@@ -7,8 +7,50 @@ public sealed partial class WebView : Control, IVirtualWebView<WebView>, IEmptyV
 {
     public IServiceProvider Services { get; }
 
+    public IPlatformWebView? PlatformWebView
+    {
+        get
+        {
+            return _platformWebView;
+        }
+    }
+
+    public double ZoomFactor
+    {
+        get
+        {
+            if (PlatformWebView == null)
+            {
+                return _zoomFactor;
+            }
+
+            return PlatformWebView.ZoomFactor;
+        }
+        set
+        {
+            _zoomFactor = value;
+            if (PlatformWebView != null)
+            {
+                PlatformWebView.ZoomFactor = value;
+            }
+        }
+    }
+
     private readonly ILoggerFactory _loggerFactory;
     private readonly ILogger _logger;
+
+    readonly WebViewCreationProperties _creationProperties;
+    readonly BorderRenderHelper _borderRenderHelper = new();
+    readonly IViewHandlerProvider _viewHandlerProvider;
+
+    readonly Border _partInnerContainer;
+    readonly ContentPresenter _partEmptyViewPresenter;
+
+    double _zoomFactor;
+    double _scale;
+    Thickness? _layoutThickness;
+
+    IPlatformWebView? _platformWebView;
 
     static WebView()
     {
@@ -47,17 +89,4 @@ public sealed partial class WebView : Control, IVirtualWebView<WebView>, IEmptyV
         };
         Child = _partInnerContainer;
     }
-
-    readonly WebViewCreationProperties _creationProperties;
-    readonly BorderRenderHelper _borderRenderHelper = new();
-    readonly IViewHandlerProvider _viewHandlerProvider;
-
-    readonly Border _partInnerContainer;
-    readonly ContentPresenter _partEmptyViewPresenter;
-
-    double _scale;
-    Thickness? _layoutThickness;
-
-    IPlatformWebView? _platformWebView;
-    public IPlatformWebView? PlatformWebView => _platformWebView;
 }

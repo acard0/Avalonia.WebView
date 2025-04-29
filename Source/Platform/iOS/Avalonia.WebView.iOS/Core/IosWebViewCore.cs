@@ -77,5 +77,11 @@ public partial class IosWebViewCore: IPlatformWebView<IosWebViewCore>
         get => _webView;
         private set => _webView = value;
     }
+
+    public bool CanGoForward => throw new NotImplementedException();
+
+    public bool CanGoBack => throw new NotImplementedException();
+
+    public double ZoomFactor { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 }
 
