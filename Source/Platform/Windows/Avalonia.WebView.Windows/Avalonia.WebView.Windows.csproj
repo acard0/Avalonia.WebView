@@ -78,6 +78,7 @@
 		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" />
 		<PackageReference Include="Microsoft.Extensions.Logging" />
+		<PackageReference Include="Microsoft.Web.WebView2" />
 	</ItemGroup>
 
 	<ItemGroup>
